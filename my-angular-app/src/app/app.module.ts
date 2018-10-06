@@ -17,6 +17,8 @@ import { ApuestaComponent } from './apuesta/apuesta.component';
 import { ListaPistaComponent } from './lista-pista/lista-pista.component';
 import { PistaComponent } from './pista/pista.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,12 @@ import { PerfilComponent } from './perfil/perfil.component';
     ApuestaComponent,
     ListaPistaComponent,
     PistaComponent,
-    PerfilComponent
+    PerfilComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
