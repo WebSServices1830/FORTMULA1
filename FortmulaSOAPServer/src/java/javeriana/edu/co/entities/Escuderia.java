@@ -5,6 +5,8 @@
  */
 package javeriana.edu.co.entities;
 
+import java.util.List;
+
 /**
  *
  * @author Sala BD

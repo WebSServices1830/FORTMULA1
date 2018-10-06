@@ -35,6 +35,12 @@ public class Aficionado extends Usuario {
         this.foto = foto;
         this.nombre = nombre;
     }
+
+    public Aficionado(String password, String username, String token) {
+        super(password, username, token);
+    }
+    
+    
     
     
 

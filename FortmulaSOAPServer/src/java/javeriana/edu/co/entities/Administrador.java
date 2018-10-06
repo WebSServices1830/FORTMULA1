@@ -5,6 +5,8 @@
  */
 package javeriana.edu.co.entities;
 
+import org.bson.Document;
+
 /**
  *
  * @author Sala BD
@@ -17,7 +19,5 @@ public class Administrador extends Usuario{
     public Administrador(String password, String username, String token) {
         super(password, username, token);
     }
-    
-    
     
 }
