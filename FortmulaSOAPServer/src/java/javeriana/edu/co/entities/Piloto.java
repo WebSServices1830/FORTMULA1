@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javeriana.edu.co.beans.piloto;
+package javeriana.edu.co.entities;
 
 import java.util.Date;
-import javax.ejb.Stateless;
 
 /**
  *
  * @author sala a
  */
-@Stateless
-public class Piloto implements PilotoLocal {
+public class Piloto{
 
     private int id;
     private String nombre;

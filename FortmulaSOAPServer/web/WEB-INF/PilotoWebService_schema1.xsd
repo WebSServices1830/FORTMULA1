@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://piloto.co.edu.javeriana/" xmlns:tns="http://piloto.co.edu.javeriana/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="actualizar_piloto" type="tns:actualizar_piloto"/>
+
+  <xs:element name="actualizar_pilotoResponse" type="tns:actualizar_pilotoResponse"/>
+
+  <xs:element name="agregar_piloto" type="tns:agregar_piloto"/>
+
+  <xs:element name="agregar_pilotoResponse" type="tns:agregar_pilotoResponse"/>
+
+  <xs:element name="buscar_piloto" type="tns:buscar_piloto"/>
+
+  <xs:element name="buscar_pilotoResponse" type="tns:buscar_pilotoResponse"/>
+
+  <xs:element name="eliminar_piloto" type="tns:eliminar_piloto"/>
+
+  <xs:element name="eliminar_pilotoResponse" type="tns:eliminar_pilotoResponse"/>
+
+  <xs:element name="findAll" type="tns:findAll"/>
+
+  <xs:element name="findAllResponse" type="tns:findAllResponse"/>
+
+  <xs:complexType name="eliminar_piloto">
+    <xs:sequence>
+      <xs:element name="piloto" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="piloto">
+    <xs:sequence>
+      <xs:element name="fecha_nacimiento" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="nacionalidad" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="ranking" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminar_pilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buscar_piloto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buscar_pilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAll">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="actualizar_piloto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="piloto" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="actualizar_pilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="agregar_piloto">
+    <xs:sequence>
+      <xs:element name="piloto" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="agregar_pilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

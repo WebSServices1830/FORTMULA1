@@ -5,13 +5,13 @@
  */
 package javeriana.edu.co.piloto;
 
-import javax.ejb.EJB;
 import javax.jws.WebService;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javeriana.edu.co.beans.piloto.Piloto;
-import javeriana.edu.co.beans.piloto.PilotoLocal;
+import javeriana.edu.co.controllers.UsuarioController;
+import javeriana.edu.co.entities.Piloto;
+import javeriana.edu.co.entities.Usuario;
 
 /**
  *
@@ -20,12 +20,6 @@ import javeriana.edu.co.beans.piloto.PilotoLocal;
 @WebService(serviceName = "PilotoWebService")
 @Stateless()
 public class PilotoWebService {
-    
-    
-
-    @EJB
-    private PilotoLocal ejbRef;// Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Web Service Operation")
 
     /**
      * Web service operation
@@ -71,4 +65,17 @@ public class PilotoWebService {
         //TODO write your implementation code here:
         return null;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "registrarUsuario")
+    public String registrarUsuario(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
+        UsuarioController controller = new UsuarioController();
+        
+        String token = controller.registrarUsuario(username, password);
+        return token;
+    }
+    
+    
 }
