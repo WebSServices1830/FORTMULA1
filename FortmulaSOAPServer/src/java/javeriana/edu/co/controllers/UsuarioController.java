@@ -7,6 +7,7 @@ package javeriana.edu.co.controllers;
 
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.and;
 import java.security.SecureRandom;
 import javeriana.edu.co.entities.Usuario;
 import javeriana.edu.co.utils.MongoDBHandler;
@@ -21,9 +22,12 @@ public class UsuarioController {
     
     private MongoDBHandler handler;
     
-    public String registrarUsuario(String username, String password){
+    public UsuarioController(){
         handler = new MongoDBHandler();
         handler.connect_database(null, -1);
+    }
+    
+    public String registrarUsuario(String username, String password){
         String token = generateToken();
         Usuario usuario = new Usuario(password, username, token);
         
@@ -33,6 +37,12 @@ public class UsuarioController {
         
         handler.insert_data(COLLECTION, usuario.toDocument());
         return token;
+    }
+    
+    public String autenticarUsuario(String username, String password){
+        Document document = handler.getMongo_db().getCollection(COLLECTION).find(and(eq("username", username), eq("password", password))).first();
+        if(document == null) return "";
+        return document.getString("token");
     }
     
     private String generateToken(){

@@ -38,7 +38,7 @@ public class PilotoWebService {
         //TODO write your implementation code here:
         return null;
     }
-    
+
     /**
      * Web service operation
      */
@@ -72,10 +72,16 @@ public class PilotoWebService {
     @WebMethod(operationName = "registrarUsuario")
     public String registrarUsuario(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
         UsuarioController controller = new UsuarioController();
-        
+
         String token = controller.registrarUsuario(username, password);
         return token;
     }
-    
-    
+
+    @WebMethod(operationName = "autenticarUsuario")
+    public String autenticarUsuario(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
+        UsuarioController controller = new UsuarioController();
+        String token = controller.autenticarUsuario(username, password);
+        return token;
+    }
+
 }
