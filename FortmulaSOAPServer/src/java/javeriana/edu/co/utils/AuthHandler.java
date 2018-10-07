@@ -16,8 +16,6 @@ public class AuthHandler {
     
     public static boolean existsToken(String token){
         MongoDBHandler handler = new MongoDBHandler();
-        handler.connect_database(null, -1);
-        
         Document document = handler.getMongo_db().getCollection("usuarios").find(eq("token", token)).first();
         return document != null;
     }

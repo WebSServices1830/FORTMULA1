@@ -11,15 +11,17 @@ import java.util.List;
  *
  * @author Sala BD
  */
-class Escuderia {
+public class Escuderia {
     
+    private int id;
     private String descripcion;
     private String foto;
     private String nombre;
     private List<Auto> autos;
     private List<Piloto> pilotos;
 
-    public Escuderia(String descripcion, String foto, String nombre) {
+    public Escuderia(int id, String descripcion, String foto, String nombre) {
+        this.id = id;
         this.descripcion = descripcion;
         this.foto = foto;
         this.nombre = nombre;

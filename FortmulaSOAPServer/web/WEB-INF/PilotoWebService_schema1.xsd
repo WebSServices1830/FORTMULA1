@@ -9,9 +9,17 @@
 
   <xs:element name="agregar_pilotoResponse" type="tns:agregar_pilotoResponse"/>
 
+  <xs:element name="autenticarUsuario" type="tns:autenticarUsuario"/>
+
+  <xs:element name="autenticarUsuarioResponse" type="tns:autenticarUsuarioResponse"/>
+
   <xs:element name="buscar_piloto" type="tns:buscar_piloto"/>
 
   <xs:element name="buscar_pilotoResponse" type="tns:buscar_pilotoResponse"/>
+
+  <xs:element name="crearCalendario" type="tns:crearCalendario"/>
+
+  <xs:element name="crearCalendarioResponse" type="tns:crearCalendarioResponse"/>
 
   <xs:element name="eliminar_piloto" type="tns:eliminar_piloto"/>
 
@@ -20,6 +28,10 @@
   <xs:element name="findAll" type="tns:findAll"/>
 
   <xs:element name="findAllResponse" type="tns:findAllResponse"/>
+
+  <xs:element name="registrarUsuario" type="tns:registrarUsuario"/>
+
+  <xs:element name="registrarUsuarioResponse" type="tns:registrarUsuarioResponse"/>
 
   <xs:complexType name="eliminar_piloto">
     <xs:sequence>
@@ -62,6 +74,74 @@
   <xs:complexType name="findAllResponse">
     <xs:sequence>
       <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="autenticarUsuario">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="autenticarUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearCalendario">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="fechaInicial" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="premios" type="tns:premio" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="escuderias" type="tns:escuderia" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="premio">
+    <xs:sequence>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="escuderia">
+    <xs:sequence>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearCalendarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:campeonato" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="campeonato">
+    <xs:sequence>
+      <xs:element name="escuderias" type="tns:escuderia" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="fechaInicio" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="premios" type="tns:premio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registrarUsuario">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registrarUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

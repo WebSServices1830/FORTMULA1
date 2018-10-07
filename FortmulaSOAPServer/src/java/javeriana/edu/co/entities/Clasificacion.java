@@ -9,7 +9,7 @@ package javeriana.edu.co.entities;
  *
  * @author Sala BD
  */
-class Clasificacion {
+public class Clasificacion {
     
     private Resultado q1;
     private Resultado q2;

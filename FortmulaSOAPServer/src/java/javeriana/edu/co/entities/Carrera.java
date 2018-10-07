@@ -9,7 +9,7 @@ package javeriana.edu.co.entities;
  *
  * @author Sala BD
  */
-class Carrera {
+public class Carrera {
     
     private int numVueltas;
     private String pista;

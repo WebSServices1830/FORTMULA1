@@ -15,15 +15,15 @@ import java.util.List;
 public class Campeonato {
     
     private Date fechaInicio;
-    private Date fechaFianl;
+    private Date fechaFinal;
     private String nombre;
     private List<Escuderia> escuderias;
     private List<Premio> premios;
     
 
-    public Campeonato(Date fechaInicio, Date fechaFianl, String nombre) {
+    public Campeonato(Date fechaInicio, Date fechaFinal, String nombre) {
         this.fechaInicio = fechaInicio;
-        this.fechaFianl = fechaFianl;
+        this.fechaFinal = fechaFinal;
         this.nombre = nombre;
     }
 
@@ -35,12 +35,12 @@ public class Campeonato {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFianl() {
-        return fechaFianl;
+    public Date getFechaFinal() {
+        return fechaFinal;
     }
 
-    public void setFechaFianl(Date fechaFianl) {
-        this.fechaFianl = fechaFianl;
+    public void setFechaFinal(Date fechaFinal) {
+        this.fechaFinal = fechaFinal;
     }
 
     public String getNombre() {

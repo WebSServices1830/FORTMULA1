@@ -9,7 +9,7 @@ package javeriana.edu.co.entities;
  *
  * @author Sala BD
  */
-class Apuesta {
+public class Apuesta {
     
     private double valor;
 

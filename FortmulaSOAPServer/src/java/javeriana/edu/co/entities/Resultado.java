@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Sala BD
  */
-class Resultado {
+public class Resultado {
     
     private double mejorVuelta;
     private double tiempoCarrera;

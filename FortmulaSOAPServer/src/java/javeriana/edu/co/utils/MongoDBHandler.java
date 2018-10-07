@@ -5,10 +5,8 @@
  */
 package javeriana.edu.co.utils;
 
-import com.mongodb.Block;
 import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCursor;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
@@ -24,6 +22,10 @@ public class MongoDBHandler {
 
     public MongoDBHandler() {
         database_name = "test";
+        MongoClientURI uri = new MongoClientURI("mongodb+srv://juanpablorn30:admin_juanpablorn30@fortmula1-rbvaz.mongodb.net/admin");
+        mongo_client = new MongoClient(uri);
+        mongo_db = mongo_client.getDatabase(database_name);
+        
     }
 
     public void connect_database(String host, int port) {

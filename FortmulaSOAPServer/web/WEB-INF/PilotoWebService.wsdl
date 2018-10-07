@@ -6,6 +6,12 @@
       <xsd:import namespace="http://piloto.co.edu.javeriana/" schemaLocation="PilotoWebService_schema1.xsd"/>
     </xsd:schema>
   </types>
+  <message name="findAll">
+    <part name="parameters" element="tns:findAll"/>
+  </message>
+  <message name="findAllResponse">
+    <part name="parameters" element="tns:findAllResponse"/>
+  </message>
   <message name="agregar_piloto">
     <part name="parameters" element="tns:agregar_piloto"/>
   </message>
@@ -24,19 +30,35 @@
   <message name="buscar_pilotoResponse">
     <part name="parameters" element="tns:buscar_pilotoResponse"/>
   </message>
-  <message name="findAll">
-    <part name="parameters" element="tns:findAll"/>
-  </message>
-  <message name="findAllResponse">
-    <part name="parameters" element="tns:findAllResponse"/>
-  </message>
   <message name="actualizar_piloto">
     <part name="parameters" element="tns:actualizar_piloto"/>
   </message>
   <message name="actualizar_pilotoResponse">
     <part name="parameters" element="tns:actualizar_pilotoResponse"/>
   </message>
+  <message name="registrarUsuario">
+    <part name="parameters" element="tns:registrarUsuario"/>
+  </message>
+  <message name="registrarUsuarioResponse">
+    <part name="parameters" element="tns:registrarUsuarioResponse"/>
+  </message>
+  <message name="autenticarUsuario">
+    <part name="parameters" element="tns:autenticarUsuario"/>
+  </message>
+  <message name="autenticarUsuarioResponse">
+    <part name="parameters" element="tns:autenticarUsuarioResponse"/>
+  </message>
+  <message name="crearCalendario">
+    <part name="parameters" element="tns:crearCalendario"/>
+  </message>
+  <message name="crearCalendarioResponse">
+    <part name="parameters" element="tns:crearCalendarioResponse"/>
+  </message>
   <portType name="PilotoWebService">
+    <operation name="findAll">
+      <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/findAllRequest" message="tns:findAll"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/findAllResponse" message="tns:findAllResponse"/>
+    </operation>
     <operation name="agregar_piloto">
       <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/agregar_pilotoRequest" message="tns:agregar_piloto"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/agregar_pilotoResponse" message="tns:agregar_pilotoResponse"/>
@@ -49,17 +71,34 @@
       <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/buscar_pilotoRequest" message="tns:buscar_piloto"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/buscar_pilotoResponse" message="tns:buscar_pilotoResponse"/>
     </operation>
-    <operation name="findAll">
-      <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/findAllRequest" message="tns:findAll"/>
-      <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/findAllResponse" message="tns:findAllResponse"/>
-    </operation>
     <operation name="actualizar_piloto">
       <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/actualizar_pilotoRequest" message="tns:actualizar_piloto"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/actualizar_pilotoResponse" message="tns:actualizar_pilotoResponse"/>
     </operation>
+    <operation name="registrarUsuario">
+      <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/registrarUsuarioRequest" message="tns:registrarUsuario"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/registrarUsuarioResponse" message="tns:registrarUsuarioResponse"/>
+    </operation>
+    <operation name="autenticarUsuario">
+      <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/autenticarUsuarioRequest" message="tns:autenticarUsuario"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse"/>
+    </operation>
+    <operation name="crearCalendario">
+      <input wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/crearCalendarioRequest" message="tns:crearCalendario"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/PilotoWebService/crearCalendarioResponse" message="tns:crearCalendarioResponse"/>
+    </operation>
   </portType>
   <binding name="PilotoWebServicePortBinding" type="tns:PilotoWebService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="findAll">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="agregar_piloto">
       <soap:operation soapAction=""/>
       <input>
@@ -87,7 +126,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="findAll">
+    <operation name="actualizar_piloto">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -96,7 +135,25 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="actualizar_piloto">
+    <operation name="registrarUsuario">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="autenticarUsuario">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="crearCalendario">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>

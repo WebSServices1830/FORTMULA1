@@ -9,7 +9,7 @@ package javeriana.edu.co.entities;
  *
  * @author Sala BD
  */
-class Auto {
+public class Auto {
     
     private String beamWing;
     private String color;

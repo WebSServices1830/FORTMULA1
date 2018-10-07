@@ -9,7 +9,7 @@ package javeriana.edu.co.entities;
  *
  * @author Sala BD
  */
-class Entrenamiento {
+public class Entrenamiento {
     
     private String pista;
     private double tiempo;

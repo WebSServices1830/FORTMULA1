@@ -5,13 +5,11 @@
  */
 package javeriana.edu.co.controllers;
 
-import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
 import java.security.SecureRandom;
 import javeriana.edu.co.entities.Administrador;
 import javeriana.edu.co.entities.Aficionado;
-import javeriana.edu.co.entities.Usuario;
 import javeriana.edu.co.utils.MongoDBHandler;
 import org.bson.Document;
 
@@ -26,7 +24,6 @@ public class UsuarioController {
     
     public UsuarioController(){
         handler = new MongoDBHandler();
-        handler.connect_database(null, -1);
     }
     
     public String registrarUsuario(String username, String password, String tipo){
@@ -35,13 +32,15 @@ public class UsuarioController {
         
         String token = generateToken();
         if(tipo.equals("administrador")){
-            Administrador admin = new Administrador(username, password, token);
+            Administrador admin = new Administrador(password, username, token);
             Document doc = admin.toDocument().append("tipo", tipo);
             handler.insert_data(COLLECTION, doc);
-        }else{
-            Aficionado aficionado = new Aficionado(username, password, token);
+        }else if(tipo.equals("aficionado")){
+            Aficionado aficionado = new Aficionado(password, username, token);
             Document doc = aficionado.toDocument().append("tipo", tipo);
             handler.insert_data(COLLECTION, doc);
+        }else{
+            return "";
         }
         
         return token;

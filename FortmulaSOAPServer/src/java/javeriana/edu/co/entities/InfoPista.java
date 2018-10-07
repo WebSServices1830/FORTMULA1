@@ -9,7 +9,7 @@ package javeriana.edu.co.entities;
  *
  * @author Sala BD
  */
-class InfoPista {
+public class InfoPista {
     
     private String ciudad;
     private String descripcion;
