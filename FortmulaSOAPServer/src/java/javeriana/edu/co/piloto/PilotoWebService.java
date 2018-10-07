@@ -70,10 +70,9 @@ public class PilotoWebService {
      * Web service operation
      */
     @WebMethod(operationName = "registrarUsuario")
-    public String registrarUsuario(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
+    public String registrarUsuario(@WebParam(name = "username") String username, @WebParam(name = "password") String password, @WebParam(name = "tipo") String tipo) {
         UsuarioController controller = new UsuarioController();
-
-        String token = controller.registrarUsuario(username, password);
+        String token = controller.registrarUsuario(username, password, tipo);
         return token;
     }
 
