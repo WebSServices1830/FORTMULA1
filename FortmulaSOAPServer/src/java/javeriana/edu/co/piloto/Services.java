@@ -137,6 +137,12 @@ public class Services {
         return controller.verPilotos();
     }
 
+    @WebMethod(operationName = "verPilotosEscuderia")
+    public ArrayList<Piloto> verPilotosEscuderia(@WebParam(name = "idEscuderia") String idEscuderia) {
+        PilotoController controller = new PilotoController();
+        return controller.verPilotosEscuderia(idEscuderia);
+    }
+
     @WebMethod(operationName = "verPiloto")
     public Piloto verPiloto(@WebParam(name = "id") String id) {
         PilotoController controller = new PilotoController();

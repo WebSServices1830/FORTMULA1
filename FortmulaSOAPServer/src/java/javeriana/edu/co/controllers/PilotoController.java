@@ -80,6 +80,15 @@ public class PilotoController {
         return result;
     }
 
+    public ArrayList<Piloto> verPilotosEscuderia(String idEscuderia) {
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("idEscuderia", idEscuderia));
+        ArrayList<Piloto> result = new ArrayList<>();
+        for (Document doc : query) {
+            result.add(pilotoToObject(doc));
+        }
+        return result;
+    }
+
     public Piloto verPiloto(String id) {
         return getPilotoById(id);
     }
