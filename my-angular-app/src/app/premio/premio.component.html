@@ -1,3 +1,13 @@
-<p>
-  premio works!
-</p>
+<div *ngIf="premio">
+  <h2>{{premio.ciudad}} - Detalles</h2>
+  <div>Descripción: {{premio.fecha}}</div>
+  <app-pista></app-pista>
+  <div>
+    <div><a routerLink="/premio/{{premio.id}}/entrenamientos">Ver entrenamientos</a></div>
+    <!--<div><a routerLink="/premio/{{premio.id}}/clasificacion">Ver clasificación</a></div>-->
+    <!--<div><a routerLink="/premio/{{premio.id}}/carrera">Ver carrera</a></div>-->
+  </div>
+</div>
+
+
+<button (click)="goBack()">volver</button>

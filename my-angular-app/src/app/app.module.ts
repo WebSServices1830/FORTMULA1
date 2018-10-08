@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +20,8 @@ import { PistaComponent } from './pista/pista.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EntrenamientosComponent } from './entrenamientos/entrenamientos.component';
+import { CarreraComponent } from './carrera/carrera.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +41,14 @@ import { AppRoutingModule } from './app-routing.module';
     ListaPistaComponent,
     PistaComponent,
     PerfilComponent,
-    NavbarComponent
+    NavbarComponent,
+    EntrenamientosComponent,
+    CarreraComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

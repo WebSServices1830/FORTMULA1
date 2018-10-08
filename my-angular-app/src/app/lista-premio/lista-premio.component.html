@@ -1,3 +1,13 @@
-<p>
-  lista-premio works!
-</p>
+<div class="row align-items-center test">
+  <div class="col">
+    <h2>Premios</h2>
+    <div class="col">
+      <ul>
+        <li *ngFor="let premio of premios">
+          <span>{{premio.ciudad}}</span>
+          <a routerLink="/premio/{{premio.id}}">Ver</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

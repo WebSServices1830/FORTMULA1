@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Premio } from '../models/premio';
+import {MockService} from '../mocks/mock.service';
 
 @Component({
   selector: 'app-lista-premio',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaPremioComponent implements OnInit {
 
-  constructor() { }
+  premios: Premio[];
+
+  constructor(private service: MockService) { }
 
   ngOnInit() {
+    this.getPremios();
+  }
+
+  getPremios(): void {
+    this.service.getPremios().subscribe(premios => this.premios = premios);
   }
 
 }

@@ -1,3 +1,6 @@
-<p>
-  auto works!
-</p>
+<div *ngIf="auto">
+  <h2>Auto {{auto.id}} - Detalles</h2>
+  <div>marca: {{auto.marca}}</div>
+  <div>color: {{auto.color}}</div>
+</div>
+<button (click)="goBack()">volver</button>

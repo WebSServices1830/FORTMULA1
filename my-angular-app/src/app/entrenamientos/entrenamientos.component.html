@@ -1,0 +1,13 @@
+<div class="row align-items-center test">
+  <div class="col">
+    <h2>Entrenamiento</h2>
+    <div class="col">
+      <ul>
+        <li *ngFor="let entrenamiento of entrenamientos">
+          <div>Entrenamiento {{entrenamiento.id}}</div>
+          <div>Tiempo: {{entrenamiento.tiempo}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

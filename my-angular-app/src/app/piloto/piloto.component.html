@@ -1,3 +1,18 @@
-<p>
-  piloto works!
-</p>
+<div *ngIf="piloto">
+  <h2>{{piloto.nombre}} - Detalles</h2>
+  <div>Nacionalidad: {{piloto.nacionalidad}}</div>
+  
+  <div>
+    <h3>Opina</h3>
+    <form (ngSubmit)="makeComment()">
+      <div class="form-group">
+        <label for="opinion">Comentario</label>
+        <textarea name='opinion' [(ngModel)]="opinion" class="form-control" id="opinion" placeholder="Ingresa tu comentario"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Comentar</button>
+    </form>
+  </div>
+</div>
+
+
+<button (click)="goBack()">volver</button>

@@ -4,16 +4,16 @@ import { Location } from '@angular/common';
 import {Router} from '@angular/router';
 
 import {MockService} from '../mocks/mock.service';
-import { Premio } from '../models/premio';
+import { Entrenamiento } from '../models/entrenamiento';
 
 @Component({
-  selector: 'app-premio',
-  templateUrl: './premio.component.html',
-  styleUrls: ['./premio.component.css']
+  selector: 'app-entrenamientos',
+  templateUrl: './entrenamientos.component.html',
+  styleUrls: ['./entrenamientos.component.css']
 })
-export class PremioComponent implements OnInit {
+export class EntrenamientosComponent implements OnInit {
 
-  premio: Premio;
+  entrenamientos: Entrenamiento[];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,16 +22,12 @@ export class PremioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getPremio();
+    this.getEntrenamientos();
   }
 
-  getPremio(): void {
+  getEntrenamientos(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getPremio(id).subscribe(premio => this.premio = premio);
-  }
-
-  goBack(): void {
-    this.location.back();
+    this.service.getEntrenamientos(id).subscribe(entrenamientos => this.entrenamientos = entrenamientos);
   }
 
 }

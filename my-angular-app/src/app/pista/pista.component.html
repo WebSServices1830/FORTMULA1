@@ -1,3 +1,5 @@
-<p>
-  pista works!
-</p>
+<div *ngIf="pista">
+  <h4>{{pista.nombre}} - Detalles</h4>
+  <div>Descripción: {{pista.descripcion}}</div>
+  <div>Longitud: {{pista.longitud}}</div>
+</div>

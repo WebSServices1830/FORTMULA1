@@ -1,3 +1,13 @@
-<p>
-  lista-escuderia works!
-</p>
+<div class="row align-items-center test">
+  <div class="col">
+    <h2>Escuderías</h2>
+    <div class="col">
+      <ul>
+        <li *ngFor="let escuderia of escuderias">
+          <span>{{escuderia.nombre}}</span>
+          <a routerLink="/escuderia/{{escuderia.id}}">Ver</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
