@@ -13,6 +13,7 @@ import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javeriana.edu.co.controllers.ApuestaController;
+import javeriana.edu.co.controllers.AutoController;
 import javeriana.edu.co.controllers.EscuderiaController;
 import javeriana.edu.co.controllers.OpinionController;
 import javeriana.edu.co.controllers.UsuarioController;
@@ -157,15 +158,33 @@ public class Services {
      * Web service operation for Auto
      */
     @WebMethod(operationName = "verAuto")
-    public Auto verAuto(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return null;
+    public Auto verAuto(@WebParam(name = "id") String id) {
+        AutoController controller = new AutoController();
+        return controller.verAuto(id);
+    }
+    
+    @WebMethod(operationName = "verAutos")
+    public ArrayList<Auto> verAutos() {
+        AutoController controller = new AutoController();
+        return controller.verAutos();
     }
 
     @WebMethod(operationName = "eliminarAuto")
-    public boolean eliminarAuto(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return true;
+    public boolean eliminarAuto(@WebParam(name = "id") String id) {
+        AutoController controller = new AutoController();
+        return controller.eliminarAuto(id);
+    }
+    
+    @WebMethod(operationName = "crearAuto")
+    public boolean crearAuto(@WebParam(name = "beamWing") String beamWing, @WebParam(name = "color") String color, @WebParam(name = "endplate") String endplate, @WebParam(name = "foto") String foto, @WebParam(name = "marca") String marca, @WebParam(name = "motor") String motor, @WebParam(name = "ponton") String ponton, @WebParam(name = "potencia") String potencia, @WebParam(name = "idEscuderia") String idEscuderia, @WebParam(name = "idPiloto") String idPiloto) {
+        AutoController controller = new AutoController();
+        return controller.crearAuto(beamWing, color, endplate, foto, marca, motor, ponton, potencia, idEscuderia, idPiloto);
+    }
+    
+    @WebMethod(operationName = "editarAuto")
+    public Auto editarAuto(@WebParam(name = "id") String id, @WebParam(name = "beamWing") String beamWing, @WebParam(name = "color") String color, @WebParam(name = "endplate") String endplate, @WebParam(name = "foto") String foto, @WebParam(name = "marca") String marca, @WebParam(name = "motor") String motor, @WebParam(name = "ponton") String ponton, @WebParam(name = "potencia") String potencia) {
+        AutoController controller = new AutoController();
+        return controller.editarAuto(id, beamWing, color, endplate, foto, marca, motor, ponton, potencia);
     }
 
     /**

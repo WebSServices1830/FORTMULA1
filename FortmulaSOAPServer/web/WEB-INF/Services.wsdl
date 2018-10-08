@@ -66,11 +66,23 @@
   <message name="verEscuderiaResponse">
     <part name="parameters" element="tns:verEscuderiaResponse"/>
   </message>
+  <message name="eliminarEscuderia">
+    <part name="parameters" element="tns:eliminarEscuderia"/>
+  </message>
+  <message name="eliminarEscuderiaResponse">
+    <part name="parameters" element="tns:eliminarEscuderiaResponse"/>
+  </message>
   <message name="crearEscuderia">
     <part name="parameters" element="tns:crearEscuderia"/>
   </message>
   <message name="crearEscuderiaResponse">
     <part name="parameters" element="tns:crearEscuderiaResponse"/>
+  </message>
+  <message name="editarEscuderia">
+    <part name="parameters" element="tns:editarEscuderia"/>
+  </message>
+  <message name="editarEscuderiaResponse">
+    <part name="parameters" element="tns:editarEscuderiaResponse"/>
   </message>
   <message name="crearPiloto">
     <part name="parameters" element="tns:crearPiloto"/>
@@ -102,11 +114,29 @@
   <message name="verAutoResponse">
     <part name="parameters" element="tns:verAutoResponse"/>
   </message>
+  <message name="verAutos">
+    <part name="parameters" element="tns:verAutos"/>
+  </message>
+  <message name="verAutosResponse">
+    <part name="parameters" element="tns:verAutosResponse"/>
+  </message>
   <message name="eliminarAuto">
     <part name="parameters" element="tns:eliminarAuto"/>
   </message>
   <message name="eliminarAutoResponse">
     <part name="parameters" element="tns:eliminarAutoResponse"/>
+  </message>
+  <message name="crearAuto">
+    <part name="parameters" element="tns:crearAuto"/>
+  </message>
+  <message name="crearAutoResponse">
+    <part name="parameters" element="tns:crearAutoResponse"/>
+  </message>
+  <message name="editarAuto">
+    <part name="parameters" element="tns:editarAuto"/>
+  </message>
+  <message name="editarAutoResponse">
+    <part name="parameters" element="tns:editarAutoResponse"/>
   </message>
   <message name="verApuestas">
     <part name="parameters" element="tns:verApuestas"/>
@@ -167,9 +197,17 @@
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/verEscuderiaRequest" message="tns:verEscuderia"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/verEscuderiaResponse" message="tns:verEscuderiaResponse"/>
     </operation>
+    <operation name="eliminarEscuderia">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarEscuderiaRequest" message="tns:eliminarEscuderia"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarEscuderiaResponse" message="tns:eliminarEscuderiaResponse"/>
+    </operation>
     <operation name="crearEscuderia">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearEscuderiaRequest" message="tns:crearEscuderia"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/crearEscuderiaResponse" message="tns:crearEscuderiaResponse"/>
+    </operation>
+    <operation name="editarEscuderia">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/editarEscuderiaRequest" message="tns:editarEscuderia"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/editarEscuderiaResponse" message="tns:editarEscuderiaResponse"/>
     </operation>
     <operation name="crearPiloto">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearPilotoRequest" message="tns:crearPiloto"/>
@@ -191,9 +229,21 @@
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/verAutoRequest" message="tns:verAuto"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/verAutoResponse" message="tns:verAutoResponse"/>
     </operation>
+    <operation name="verAutos">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/verAutosRequest" message="tns:verAutos"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/verAutosResponse" message="tns:verAutosResponse"/>
+    </operation>
     <operation name="eliminarAuto">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarAutoRequest" message="tns:eliminarAuto"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarAutoResponse" message="tns:eliminarAutoResponse"/>
+    </operation>
+    <operation name="crearAuto">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearAutoRequest" message="tns:crearAuto"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/crearAutoResponse" message="tns:crearAutoResponse"/>
+    </operation>
+    <operation name="editarAuto">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/editarAutoRequest" message="tns:editarAuto"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/editarAutoResponse" message="tns:editarAutoResponse"/>
     </operation>
     <operation name="verApuestas">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/verApuestasRequest" message="tns:verApuestas"/>
@@ -300,7 +350,25 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="eliminarEscuderia">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="crearEscuderia">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editarEscuderia">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -354,7 +422,34 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="verAutos">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="eliminarAuto">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="crearAuto">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editarAuto">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
