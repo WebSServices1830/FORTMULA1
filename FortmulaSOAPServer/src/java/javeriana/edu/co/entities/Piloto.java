@@ -7,14 +7,15 @@ package javeriana.edu.co.entities;
 
 import java.util.Date;
 import java.util.List;
+import org.bson.Document;
 
 /**
  *
  * @author sala a
  */
-public class Piloto{
+public class Piloto {
 
-    private int id;
+    private String id;
     private String nombre;
     private Date fecha_nacimiento;
     private String foto;
@@ -23,13 +24,19 @@ public class Piloto{
     private List<Opinion> opiniones;
     private Auto auto;
 
-    public Piloto(int id, String nombre, Date fecha_nacimiento, String foto, String nacionalidad, int ranking) {
-        this.id = id;
+    public Piloto(String nombre, Date fecha_nacimiento, String foto, String nacionalidad) {
         this.nombre = nombre;
         this.fecha_nacimiento = fecha_nacimiento;
         this.foto = foto;
         this.nacionalidad = nacionalidad;
-        this.ranking = ranking;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -72,5 +79,8 @@ public class Piloto{
         this.ranking = ranking;
     }
 
-    
+    public Document toDocument() {
+        Document document = new Document("nombre", nombre).append("fecha_nacimiento", fecha_nacimiento).append("foto", foto).append("nacionalidad", nacionalidad);
+        return document;
+    }
 }

@@ -84,11 +84,29 @@
   <message name="editarEscuderiaResponse">
     <part name="parameters" element="tns:editarEscuderiaResponse"/>
   </message>
+  <message name="verPilotos">
+    <part name="parameters" element="tns:verPilotos"/>
+  </message>
+  <message name="verPilotosResponse">
+    <part name="parameters" element="tns:verPilotosResponse"/>
+  </message>
+  <message name="verPiloto">
+    <part name="parameters" element="tns:verPiloto"/>
+  </message>
+  <message name="verPilotoResponse">
+    <part name="parameters" element="tns:verPilotoResponse"/>
+  </message>
   <message name="crearPiloto">
     <part name="parameters" element="tns:crearPiloto"/>
   </message>
   <message name="crearPilotoResponse">
     <part name="parameters" element="tns:crearPilotoResponse"/>
+  </message>
+  <message name="editarPiloto">
+    <part name="parameters" element="tns:editarPiloto"/>
+  </message>
+  <message name="editarPilotoResponse">
+    <part name="parameters" element="tns:editarPilotoResponse"/>
   </message>
   <message name="eliminarPiloto">
     <part name="parameters" element="tns:eliminarPiloto"/>
@@ -209,9 +227,21 @@
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/editarEscuderiaRequest" message="tns:editarEscuderia"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/editarEscuderiaResponse" message="tns:editarEscuderiaResponse"/>
     </operation>
+    <operation name="verPilotos">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotosRequest" message="tns:verPilotos"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotosResponse" message="tns:verPilotosResponse"/>
+    </operation>
+    <operation name="verPiloto">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotoRequest" message="tns:verPiloto"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotoResponse" message="tns:verPilotoResponse"/>
+    </operation>
     <operation name="crearPiloto">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearPilotoRequest" message="tns:crearPiloto"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/crearPilotoResponse" message="tns:crearPilotoResponse"/>
+    </operation>
+    <operation name="editarPiloto">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/editarPilotoRequest" message="tns:editarPiloto"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/editarPilotoResponse" message="tns:editarPilotoResponse"/>
     </operation>
     <operation name="eliminarPiloto">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarPilotoRequest" message="tns:eliminarPiloto"/>
@@ -377,7 +407,34 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="verPilotos">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="verPiloto">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="crearPiloto">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editarPiloto">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
