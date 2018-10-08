@@ -101,4 +101,17 @@ public class EscuderiaController {
         escuderia.setId(id.toString());
         return escuderia;
     }
+
+    public boolean asignarId(String id, String key, String value) {
+        handler.getMongo_db().getCollection(COLLECTION).updateOne(
+                eq(
+                        "_id",
+                        new ObjectId(id)
+                ),
+                combine(
+                        set(key, value)
+                )
+        );
+        return true;
+    }
 }

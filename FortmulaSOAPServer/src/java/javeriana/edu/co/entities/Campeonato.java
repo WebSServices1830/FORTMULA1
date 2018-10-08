@@ -7,19 +7,19 @@ package javeriana.edu.co.entities;
 
 import java.util.Date;
 import java.util.List;
+import org.bson.Document;
 
 /**
  *
  * @author Sala BD
  */
 public class Campeonato {
-    
+
     private Date fechaInicio;
     private Date fechaFinal;
     private String nombre;
     private List<Escuderia> escuderias;
     private List<Premio> premios;
-    
 
     public Campeonato(Date fechaInicio, Date fechaFinal, String nombre) {
         this.fechaInicio = fechaInicio;
@@ -66,7 +66,10 @@ public class Campeonato {
     public void setPremios(List<Premio> premios) {
         this.premios = premios;
     }
-    
-    
-    
+
+    public Document toDocument() {
+        Document document = new Document("fechaInicio", fechaInicio).append("fechaFinal", fechaFinal).append("nombre", nombre);
+        return document;
+    }
+
 }

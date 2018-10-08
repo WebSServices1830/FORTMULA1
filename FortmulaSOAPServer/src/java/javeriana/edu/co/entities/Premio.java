@@ -7,13 +7,15 @@ package javeriana.edu.co.entities;
 
 import java.util.Date;
 import java.util.List;
+import org.bson.Document;
 
 /**
  *
  * @author Sala BD
  */
 public class Premio {
-    
+
+    private String id;
     private String ciudad;
     private Date fecha;
     private Apuesta apuesta;
@@ -26,6 +28,14 @@ public class Premio {
     public Premio(String ciudad, Date fecha) {
         this.ciudad = ciudad;
         this.fecha = fecha;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCiudad() {
@@ -43,7 +53,9 @@ public class Premio {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
-    
-    
+
+    public Document toDocument() {
+        Document document = new Document("ciudad", ciudad).append("fecha", fecha);
+        return document;
+    }
 }
