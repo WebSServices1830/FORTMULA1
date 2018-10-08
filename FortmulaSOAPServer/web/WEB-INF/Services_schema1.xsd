@@ -111,6 +111,10 @@
 
   <xs:element name="verPilotos" type="tns:verPilotos"/>
 
+  <xs:element name="verPilotosEscuderia" type="tns:verPilotosEscuderia"/>
+
+  <xs:element name="verPilotosEscuderiaResponse" type="tns:verPilotosEscuderiaResponse"/>
+
   <xs:element name="verPilotosResponse" type="tns:verPilotosResponse"/>
 
   <xs:complexType name="verOpinionesPiloto">
@@ -492,6 +496,18 @@
   <xs:complexType name="verPilotoResponse">
     <xs:sequence>
       <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verPilotosEscuderia">
+    <xs:sequence>
+      <xs:element name="idEscuderia" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verPilotosEscuderiaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:piloto" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

@@ -5,12 +5,15 @@
  */
 package javeriana.edu.co.entities;
 
+import org.bson.Document;
+
 /**
  *
  * @author Sala BD
  */
 public class InfoPista {
     
+    private String id;
     private String ciudad;
     private String descripcion;
     private String foto;
@@ -27,6 +30,16 @@ public class InfoPista {
         this.nombre = nombre;
         this.puntuacion = puntuacion;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
 
     public String getCiudad() {
         return ciudad;
@@ -84,6 +97,9 @@ public class InfoPista {
         this.premio = premio;
     }
     
-    
+    public Document toDocument() {
+        Document document = new Document("ciudad", ciudad).append("descripcion", descripcion).append("foto", foto).append("longitud", longitud).append("nombre", nombre).append("puntuacion", puntuacion);
+        return document;
+    }
     
 }

@@ -90,6 +90,12 @@
   <message name="verPilotosResponse">
     <part name="parameters" element="tns:verPilotosResponse"/>
   </message>
+  <message name="verPilotosEscuderia">
+    <part name="parameters" element="tns:verPilotosEscuderia"/>
+  </message>
+  <message name="verPilotosEscuderiaResponse">
+    <part name="parameters" element="tns:verPilotosEscuderiaResponse"/>
+  </message>
   <message name="verPiloto">
     <part name="parameters" element="tns:verPiloto"/>
   </message>
@@ -230,6 +236,10 @@
     <operation name="verPilotos">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotosRequest" message="tns:verPilotos"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotosResponse" message="tns:verPilotosResponse"/>
+    </operation>
+    <operation name="verPilotosEscuderia">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotosEscuderiaRequest" message="tns:verPilotosEscuderia"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotosEscuderiaResponse" message="tns:verPilotosEscuderiaResponse"/>
     </operation>
     <operation name="verPiloto">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/verPilotoRequest" message="tns:verPiloto"/>
@@ -408,6 +418,15 @@
       </output>
     </operation>
     <operation name="verPilotos">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="verPilotosEscuderia">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>

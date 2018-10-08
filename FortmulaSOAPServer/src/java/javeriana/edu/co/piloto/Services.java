@@ -15,6 +15,7 @@ import javax.jws.WebParam;
 import javeriana.edu.co.controllers.ApuestaController;
 import javeriana.edu.co.controllers.AutoController;
 import javeriana.edu.co.controllers.EscuderiaController;
+import javeriana.edu.co.controllers.InfoPistaController;
 import javeriana.edu.co.controllers.OpinionController;
 import javeriana.edu.co.controllers.PilotoController;
 import javeriana.edu.co.controllers.UsuarioController;
@@ -25,6 +26,7 @@ import javeriana.edu.co.entities.Campeonato;
 import javeriana.edu.co.entities.Piloto;
 import javeriana.edu.co.entities.Premio;
 import javeriana.edu.co.entities.Escuderia;
+import javeriana.edu.co.entities.InfoPista;
 import javeriana.edu.co.entities.Opinion;
 import javeriana.edu.co.entities.Resultado;
 
@@ -231,6 +233,39 @@ public class Services {
     public boolean eliminarApuesta(@WebParam(name = "id") String id) {
         ApuestaController controller = new ApuestaController();
         return controller.eliminarApuesta(id);
+    }
+
+    /**
+     * Web Service operation for InfoPista
+     */
+    @WebMethod(operationName = "verOpinionesPista")
+    public ArrayList<Opinion> verOpinionesPista(@WebParam(name = "id") String idPista) {
+        OpinionController controller = new OpinionController();
+        return controller.verOpinionesPista(idPista);
+    }
+
+    @WebMethod(operationName = "crearOpinionPista")
+    public boolean crearOpinionPista(@WebParam(name = "calificacion") int calificacion, @WebParam(name = "comentario") String comentario, @WebParam(name = "idPista") String idPista, @WebParam(name = "username") String username) {
+        OpinionController controller = new OpinionController();
+        return controller.crearOpinionPista(calificacion, comentario, idPista, username);
+    }
+
+    @WebMethod(operationName = "crearInfoPista")
+    public boolean crearInfoPista(@WebParam(name = "ciudad") String ciudad, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto, @WebParam(name = "longitud") String longitud, @WebParam(name = "nombre") String nombre, @WebParam(name = "puntuacion") int puntuacion, @WebParam(name = "idPremio") String idPremio) {
+        InfoPistaController controller = new InfoPistaController();
+        return controller.crearInfoPista(ciudad, descripcion, foto, longitud, nombre, puntuacion, idPremio);
+    }
+    
+    @WebMethod(operationName = "editarInfoPista")
+    public InfoPista editarInfoPista(@WebParam(name = "id") String id, @WebParam(name = "ciudad") String ciudad, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto, @WebParam(name = "longitud") String longitud, @WebParam(name = "nombre") String nombre, @WebParam(name = "puntuacion") int puntuacion) {
+        InfoPistaController controller = new InfoPistaController();
+        return controller.editarInfoPista(id, ciudad, descripcion, foto, longitud, nombre, puntuacion);
+    }
+    
+    @WebMethod(operationName = "eliminarInfoPista")
+    public boolean eliminarInfoPista(@WebParam(name = "id") String id) {
+        InfoPistaController controller = new InfoPistaController();
+        return controller.eliminarInfoPista(id);
     }
 
 }
