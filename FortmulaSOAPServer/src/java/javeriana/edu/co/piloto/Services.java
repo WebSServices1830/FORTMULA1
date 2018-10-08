@@ -6,15 +6,16 @@
 package javeriana.edu.co.piloto;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import javax.jws.WebService;
 import javax.ejb.Stateless;
+import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javeriana.edu.co.controllers.OpinionController;
 import javeriana.edu.co.controllers.UsuarioController;
 import javeriana.edu.co.entities.Auto;
+import javeriana.edu.co.entities.Usuario;
 import javeriana.edu.co.entities.Campeonato;
 import javeriana.edu.co.entities.Piloto;
 import javeriana.edu.co.entities.Premio;
@@ -45,6 +46,18 @@ public class Services {
         UsuarioController controller = new UsuarioController();
         String token = controller.autenticarUsuario(username, password);
         return token;
+    }
+
+    @WebMethod(operationName = "verPerfil")
+    public Usuario verPerfil(@WebParam(name = "username") String username) {
+        UsuarioController controller = new UsuarioController();
+        return controller.getUsuarioByUsername(username);
+    }
+
+    @WebMethod(operationName = "eliminarPerfil")
+    public boolean eliminarPerfil(@WebParam(name = "username") String username) {
+        UsuarioController controller = new UsuarioController();
+        return controller.deleteUsuarioByUsername(username);
     }
 
     /**
@@ -91,7 +104,7 @@ public class Services {
     @WebMethod(operationName = "crearPiloto")
     public Piloto crearPiloto(@WebParam(name = "fechaNacimiento") Date fechaNacimiento, @WebParam(name = "foto") String foto, @WebParam(name = "nacionalidad") String nacionalidad, @WebParam(name = "nombre") String nombre) {
         //TODO write your implementation code here:
-        
+
         return null;
     }
 
@@ -99,21 +112,19 @@ public class Services {
     public boolean eliminarPiloto(@WebParam(name = "id") int id) {
         return true;
     }
-    
+
     @WebMethod(operationName = "verOpinionesPiloto")
     public ArrayList<Opinion> verOpinionesPiloto(@WebParam(name = "id") int idPiloto) {
         OpinionController controller = new OpinionController();
         return controller.verOpinionesPiloto(idPiloto);
     }
-    
+
     @WebMethod(operationName = "crearOpinionPiloto")
-    public boolean crearOpinionPiloto(@WebParam(name = "calificacion") int calificacion, @WebParam(name = "comentario") String comentario, @WebParam(name = "idPiloto") int idPiloto){
+    public boolean crearOpinionPiloto(@WebParam(name = "calificacion") int calificacion, @WebParam(name = "comentario") String comentario, @WebParam(name = "idPiloto") int idPiloto) {
         OpinionController controller = new OpinionController();
         return controller.crearOpinionPiloto(calificacion, comentario, idPiloto);
     }
-    
-    
-    
+
     /**
      * Web service operation for Auto
      */
@@ -122,11 +133,11 @@ public class Services {
         //TODO write your implementation code here:
         return null;
     }
-    
+
     @WebMethod(operationName = "eliminarAuto")
     public boolean eliminarAuto(@WebParam(name = "id") int id) {
         //TODO write your implementation code here:
         return true;
     }
-    
+
 }

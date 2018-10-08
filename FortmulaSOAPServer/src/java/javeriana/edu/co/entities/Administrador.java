@@ -19,5 +19,9 @@ public class Administrador extends Usuario{
     public Administrador(String password, String username, String token) {
         super(password, username, token);
     }
+
+    public Administrador(String password, String username) {
+        super(password, username);
+    }
     
 }

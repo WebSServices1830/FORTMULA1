@@ -28,6 +28,16 @@ public class Aficionado extends Usuario {
         this.nombre = nombre;
     }
 
+    public Aficionado(String descripcion, Date fechaNacimiento, String foto, String nombre, String password, String username) {
+        super(password, username);
+        this.descripcion = descripcion;
+        this.fechaNacimiento = fechaNacimiento;
+        this.foto = foto;
+        this.nombre = nombre;
+    }
+    
+    
+
     public Aficionado(String descripcion, Date fechaNacimiento, String foto, String nombre, String password, String username, String token) {
         super(password, username, token);
         this.descripcion = descripcion;
