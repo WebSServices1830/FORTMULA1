@@ -5,12 +5,14 @@
  */
 package javeriana.edu.co.entities;
 
+import org.bson.Document;
+
 /**
  *
  * @author Sala BD
  */
 public class Opinion {
-    
+
     private int calificacion;
     private String comentario;
 
@@ -34,6 +36,9 @@ public class Opinion {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-    
-    
+
+    public Document toDocument() {
+        Document document = new Document("calificacion", calificacion).append("comentario", comentario);
+        return document;
+    }
 }
