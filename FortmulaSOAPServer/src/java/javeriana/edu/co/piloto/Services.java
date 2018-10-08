@@ -14,10 +14,12 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javeriana.edu.co.controllers.ApuestaController;
 import javeriana.edu.co.controllers.AutoController;
+import javeriana.edu.co.controllers.CampeonatoController;
 import javeriana.edu.co.controllers.EscuderiaController;
 import javeriana.edu.co.controllers.InfoPistaController;
 import javeriana.edu.co.controllers.OpinionController;
 import javeriana.edu.co.controllers.PilotoController;
+import javeriana.edu.co.controllers.PremioController;
 import javeriana.edu.co.controllers.UsuarioController;
 import javeriana.edu.co.entities.Apuesta;
 import javeriana.edu.co.entities.Auto;
@@ -77,15 +79,15 @@ public class Services {
      * Web Service operation for Calendar
      */
     @WebMethod(operationName = "crearCalendario")
-    public Campeonato crearCalendario(@WebParam(name = "nombre") String nombre, @WebParam(name = "fechaInicial") Date fechaInicial, @WebParam(name = "fechaFinal") Date fechaFinal, @WebParam(name = "premios") ArrayList<Premio> premios, @WebParam(name = "escuderias") ArrayList<Escuderia> escuderias) {
-        //TODO write your implementation code here:
-        return null;
+    public boolean crearCalendario(@WebParam(name = "nombre") String nombre, @WebParam(name = "fechaInicial") Date fechaInicial, @WebParam(name = "fechaFinal") Date fechaFinal, @WebParam(name = "premios") ArrayList<String> premios, @WebParam(name = "escuderias") ArrayList<String> escuderias) {
+        CampeonatoController controller = new CampeonatoController();
+        return controller.crearCalendario(fechaFinal, fechaInicial, nombre, premios, escuderias);
     }
 
     @WebMethod(operationName = "verCalendario")
-    public Campeonato verCalendario(@WebParam(name = "nombre") String nombre) {
-
-        return null;
+    public Campeonato verCalendario(@WebParam(name = "id") String id) {
+        CampeonatoController controller = new CampeonatoController();
+        return controller.verCalendario(id);
     }
 
     /**
@@ -95,6 +97,24 @@ public class Services {
     public int calcularPuntaje(@WebParam(name = "resultadoPractica") ArrayList<Resultado> resultadoPractica, @WebParam(name = "resultadoCarrera") ArrayList<Resultado> resultadoCarrera) {
         //TODO write your implementation code here:
         return 0;
+    }
+
+    @WebMethod(operationName = "crearPremio")
+    public boolean crearPremio(@WebParam(name = "ciudad") String ciudad, @WebParam(name = "fecha") Date fecha) {
+        PremioController controller = new PremioController();
+        return controller.crearPremio(ciudad, fecha);
+    }
+    
+    @WebMethod(operationName = "verPremio")
+    public Premio verPremio(@WebParam(name = "id") String id) {
+        PremioController controller = new PremioController();
+        return controller.verPremio(id);
+    }
+    
+    @WebMethod(operationName = "verPremios")
+    public ArrayList<Premio> verPremios() {
+        PremioController controller = new PremioController();
+        return controller.verPremios();
     }
 
     /**
@@ -255,13 +275,13 @@ public class Services {
         InfoPistaController controller = new InfoPistaController();
         return controller.crearInfoPista(ciudad, descripcion, foto, longitud, nombre, puntuacion, idPremio);
     }
-    
+
     @WebMethod(operationName = "editarInfoPista")
     public InfoPista editarInfoPista(@WebParam(name = "id") String id, @WebParam(name = "ciudad") String ciudad, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto, @WebParam(name = "longitud") String longitud, @WebParam(name = "nombre") String nombre, @WebParam(name = "puntuacion") int puntuacion) {
         InfoPistaController controller = new InfoPistaController();
         return controller.editarInfoPista(id, ciudad, descripcion, foto, longitud, nombre, puntuacion);
     }
-    
+
     @WebMethod(operationName = "eliminarInfoPista")
     public boolean eliminarInfoPista(@WebParam(name = "id") String id) {
         InfoPistaController controller = new InfoPistaController();

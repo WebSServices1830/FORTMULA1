@@ -25,13 +25,25 @@
 
   <xs:element name="crearEscuderiaResponse" type="tns:crearEscuderiaResponse"/>
 
+  <xs:element name="crearInfoPista" type="tns:crearInfoPista"/>
+
+  <xs:element name="crearInfoPistaResponse" type="tns:crearInfoPistaResponse"/>
+
   <xs:element name="crearOpinionPiloto" type="tns:crearOpinionPiloto"/>
 
   <xs:element name="crearOpinionPilotoResponse" type="tns:crearOpinionPilotoResponse"/>
 
+  <xs:element name="crearOpinionPista" type="tns:crearOpinionPista"/>
+
+  <xs:element name="crearOpinionPistaResponse" type="tns:crearOpinionPistaResponse"/>
+
   <xs:element name="crearPiloto" type="tns:crearPiloto"/>
 
   <xs:element name="crearPilotoResponse" type="tns:crearPilotoResponse"/>
+
+  <xs:element name="crearPremio" type="tns:crearPremio"/>
+
+  <xs:element name="crearPremioResponse" type="tns:crearPremioResponse"/>
 
   <xs:element name="editarAuto" type="tns:editarAuto"/>
 
@@ -40,6 +52,10 @@
   <xs:element name="editarEscuderia" type="tns:editarEscuderia"/>
 
   <xs:element name="editarEscuderiaResponse" type="tns:editarEscuderiaResponse"/>
+
+  <xs:element name="editarInfoPista" type="tns:editarInfoPista"/>
+
+  <xs:element name="editarInfoPistaResponse" type="tns:editarInfoPistaResponse"/>
 
   <xs:element name="editarPerfil" type="tns:editarPerfil"/>
 
@@ -60,6 +76,10 @@
   <xs:element name="eliminarEscuderia" type="tns:eliminarEscuderia"/>
 
   <xs:element name="eliminarEscuderiaResponse" type="tns:eliminarEscuderiaResponse"/>
+
+  <xs:element name="eliminarInfoPista" type="tns:eliminarInfoPista"/>
+
+  <xs:element name="eliminarInfoPistaResponse" type="tns:eliminarInfoPistaResponse"/>
 
   <xs:element name="eliminarPerfil" type="tns:eliminarPerfil"/>
 
@@ -100,6 +120,10 @@
   <xs:element name="verOpinionesPiloto" type="tns:verOpinionesPiloto"/>
 
   <xs:element name="verOpinionesPilotoResponse" type="tns:verOpinionesPilotoResponse"/>
+
+  <xs:element name="verOpinionesPista" type="tns:verOpinionesPista"/>
+
+  <xs:element name="verOpinionesPistaResponse" type="tns:verOpinionesPistaResponse"/>
 
   <xs:element name="verPerfil" type="tns:verPerfil"/>
 
@@ -160,6 +184,60 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="crearOpinionPista">
+    <xs:sequence>
+      <xs:element name="calificacion" type="xs:int"/>
+      <xs:element name="comentario" type="xs:string" minOccurs="0"/>
+      <xs:element name="idPista" type="xs:string" minOccurs="0"/>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearOpinionPistaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="editarInfoPista">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="longitud" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="puntuacion" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="editarInfoPistaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:infoPista" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="infoPista">
+    <xs:sequence>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="longitud" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="premio" type="tns:premio" minOccurs="0"/>
+      <xs:element name="puntuacion" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="premio">
+    <xs:sequence>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="editarPiloto">
     <xs:sequence>
       <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -197,6 +275,18 @@
   </xs:complexType>
 
   <xs:complexType name="crearOpinionPilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarInfoPista">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarInfoPistaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean"/>
     </xs:sequence>
@@ -255,6 +345,24 @@
   </xs:complexType>
 
   <xs:complexType name="eliminarPerfilResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearInfoPista">
+    <xs:sequence>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="longitud" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="puntuacion" type="xs:int"/>
+      <xs:element name="idPremio" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearInfoPistaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean"/>
     </xs:sequence>
@@ -398,7 +506,7 @@
 
   <xs:complexType name="verCalendario">
     <xs:sequence>
-      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -413,15 +521,9 @@
       <xs:element name="escuderias" type="tns:escuderia" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="fechaInicio" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
       <xs:element name="nombre" type="xs:string" minOccurs="0"/>
       <xs:element name="premios" type="tns:premio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="premio">
-    <xs:sequence>
-      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
-      <xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -436,6 +538,18 @@
   <xs:complexType name="crearApuestaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verOpinionesPista">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verOpinionesPistaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:opinion" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -456,14 +570,14 @@
       <xs:element name="nombre" type="xs:string" minOccurs="0"/>
       <xs:element name="fechaInicial" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="premios" type="tns:premio" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="escuderias" type="tns:escuderia" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="premios" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="escuderias" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="crearCalendarioResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:campeonato" minOccurs="0"/>
+      <xs:element name="return" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -496,6 +610,19 @@
   <xs:complexType name="verPilotoResponse">
     <xs:sequence>
       <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearPremio">
+    <xs:sequence>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearPremioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 

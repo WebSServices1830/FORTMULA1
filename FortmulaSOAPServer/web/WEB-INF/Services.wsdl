@@ -54,6 +54,12 @@
   <message name="calcularPuntajeResponse">
     <part name="parameters" element="tns:calcularPuntajeResponse"/>
   </message>
+  <message name="crearPremio">
+    <part name="parameters" element="tns:crearPremio"/>
+  </message>
+  <message name="crearPremioResponse">
+    <part name="parameters" element="tns:crearPremioResponse"/>
+  </message>
   <message name="verEscuderias">
     <part name="parameters" element="tns:verEscuderias"/>
   </message>
@@ -180,6 +186,36 @@
   <message name="eliminarApuestaResponse">
     <part name="parameters" element="tns:eliminarApuestaResponse"/>
   </message>
+  <message name="verOpinionesPista">
+    <part name="parameters" element="tns:verOpinionesPista"/>
+  </message>
+  <message name="verOpinionesPistaResponse">
+    <part name="parameters" element="tns:verOpinionesPistaResponse"/>
+  </message>
+  <message name="crearOpinionPista">
+    <part name="parameters" element="tns:crearOpinionPista"/>
+  </message>
+  <message name="crearOpinionPistaResponse">
+    <part name="parameters" element="tns:crearOpinionPistaResponse"/>
+  </message>
+  <message name="crearInfoPista">
+    <part name="parameters" element="tns:crearInfoPista"/>
+  </message>
+  <message name="crearInfoPistaResponse">
+    <part name="parameters" element="tns:crearInfoPistaResponse"/>
+  </message>
+  <message name="editarInfoPista">
+    <part name="parameters" element="tns:editarInfoPista"/>
+  </message>
+  <message name="editarInfoPistaResponse">
+    <part name="parameters" element="tns:editarInfoPistaResponse"/>
+  </message>
+  <message name="eliminarInfoPista">
+    <part name="parameters" element="tns:eliminarInfoPista"/>
+  </message>
+  <message name="eliminarInfoPistaResponse">
+    <part name="parameters" element="tns:eliminarInfoPistaResponse"/>
+  </message>
   <portType name="Services">
     <operation name="registrarUsuario">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/registrarUsuarioRequest" message="tns:registrarUsuario"/>
@@ -212,6 +248,10 @@
     <operation name="calcularPuntaje">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/calcularPuntajeRequest" message="tns:calcularPuntaje"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/calcularPuntajeResponse" message="tns:calcularPuntajeResponse"/>
+    </operation>
+    <operation name="crearPremio">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearPremioRequest" message="tns:crearPremio"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/crearPremioResponse" message="tns:crearPremioResponse"/>
     </operation>
     <operation name="verEscuderias">
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/verEscuderiasRequest" message="tns:verEscuderias"/>
@@ -297,6 +337,26 @@
       <input wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarApuestaRequest" message="tns:eliminarApuesta"/>
       <output wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarApuestaResponse" message="tns:eliminarApuestaResponse"/>
     </operation>
+    <operation name="verOpinionesPista">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/verOpinionesPistaRequest" message="tns:verOpinionesPista"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/verOpinionesPistaResponse" message="tns:verOpinionesPistaResponse"/>
+    </operation>
+    <operation name="crearOpinionPista">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearOpinionPistaRequest" message="tns:crearOpinionPista"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/crearOpinionPistaResponse" message="tns:crearOpinionPistaResponse"/>
+    </operation>
+    <operation name="crearInfoPista">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/crearInfoPistaRequest" message="tns:crearInfoPista"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/crearInfoPistaResponse" message="tns:crearInfoPistaResponse"/>
+    </operation>
+    <operation name="editarInfoPista">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/editarInfoPistaRequest" message="tns:editarInfoPista"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/editarInfoPistaResponse" message="tns:editarInfoPistaResponse"/>
+    </operation>
+    <operation name="eliminarInfoPista">
+      <input wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarInfoPistaRequest" message="tns:eliminarInfoPista"/>
+      <output wsam:Action="http://piloto.co.edu.javeriana/Services/eliminarInfoPistaResponse" message="tns:eliminarInfoPistaResponse"/>
+    </operation>
   </portType>
   <binding name="ServicesPortBinding" type="tns:Services">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
@@ -364,6 +424,15 @@
       </output>
     </operation>
     <operation name="calcularPuntaje">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="crearPremio">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -553,6 +622,51 @@
       </output>
     </operation>
     <operation name="eliminarApuesta">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="verOpinionesPista">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="crearOpinionPista">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="crearInfoPista">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="editarInfoPista">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="eliminarInfoPista">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
