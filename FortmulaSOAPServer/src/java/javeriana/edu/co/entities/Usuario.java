@@ -25,6 +25,11 @@ public class Usuario {
         this.token = token;
     }
 
+    public Usuario(String password, String username) {
+        this.password = password;
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }

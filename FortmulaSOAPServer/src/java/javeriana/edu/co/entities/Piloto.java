@@ -6,6 +6,7 @@
 package javeriana.edu.co.entities;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -19,9 +20,17 @@ public class Piloto{
     private String foto;
     private String nacionalidad;
     private int ranking;
+    private List<Opinion> opiniones;
+    private Auto auto;
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    public Piloto(int id, String nombre, Date fecha_nacimiento, String foto, String nacionalidad, int ranking) {
+        this.id = id;
+        this.nombre = nombre;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.foto = foto;
+        this.nacionalidad = nacionalidad;
+        this.ranking = ranking;
+    }
 
     public String getNombre() {
         return nombre;
