@@ -6,25 +6,33 @@
 package javeriana.edu.co.entities;
 
 import java.util.List;
+import org.bson.Document;
 
 /**
  *
  * @author Sala BD
  */
 public class Escuderia {
-    
-    private int id;
+
+    private String id;
     private String descripcion;
     private String foto;
     private String nombre;
     private List<Auto> autos;
     private List<Piloto> pilotos;
 
-    public Escuderia(int id, String descripcion, String foto, String nombre) {
-        this.id = id;
+    public Escuderia(String descripcion, String foto, String nombre) {
         this.descripcion = descripcion;
         this.foto = foto;
         this.nombre = nombre;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDescripcion() {
@@ -50,7 +58,10 @@ public class Escuderia {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
-    
+
+    public Document toDocument() {
+        Document document = new Document("descripcion", descripcion).append("foto", foto).append("nombre", nombre);
+        return document;
+    }
+
 }

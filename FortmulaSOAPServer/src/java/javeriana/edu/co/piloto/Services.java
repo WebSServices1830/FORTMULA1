@@ -12,8 +12,11 @@ import javax.ejb.Stateless;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javeriana.edu.co.controllers.ApuestaController;
+import javeriana.edu.co.controllers.EscuderiaController;
 import javeriana.edu.co.controllers.OpinionController;
 import javeriana.edu.co.controllers.UsuarioController;
+import javeriana.edu.co.entities.Apuesta;
 import javeriana.edu.co.entities.Auto;
 import javeriana.edu.co.entities.Usuario;
 import javeriana.edu.co.entities.Campeonato;
@@ -54,6 +57,12 @@ public class Services {
         return controller.getUsuarioByUsername(username);
     }
 
+    @WebMethod(operationName = "editarPerfil")
+    public Usuario editarPerfil(@WebParam(name = "username") String username, @WebParam(name = "password") String password, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "fechaNacimiento") Date fechaNacimiento, @WebParam(name = "foto") String foto, @WebParam(name = "nombre") String nombre) {
+        UsuarioController controller = new UsuarioController();
+        return controller.editarPerfil(username, password, descripcion, fechaNacimiento, foto, nombre);
+    }
+
     @WebMethod(operationName = "eliminarPerfil")
     public boolean eliminarPerfil(@WebParam(name = "username") String username) {
         UsuarioController controller = new UsuarioController();
@@ -87,15 +96,34 @@ public class Services {
     /**
      * Web Service operation for escuderia
      */
+    @WebMethod(operationName = "verEscuderias")
+    public ArrayList<Escuderia> verEscuderias() {
+        EscuderiaController controller = new EscuderiaController();
+        return controller.verEscuderias();
+    }
+
     @WebMethod(operationName = "verEscuderia")
-    public Escuderia verEscuderia(@WebParam(name = "id") int id) {
-        return null;
+    public Escuderia verEscuderia(@WebParam(name = "id") String id) {
+        EscuderiaController controller = new EscuderiaController();
+        return controller.verEscuderia(id);
+    }
+    
+    @WebMethod(operationName = "eliminarEscuderia")
+    public boolean eliminarEscuderia(@WebParam(name = "id") String id) {
+        EscuderiaController controller = new EscuderiaController();
+        return controller.eliminarEscuderia(id);
     }
 
     @WebMethod(operationName = "crearEscuderia")
     public boolean crearEscuderia(@WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto) {
-        //TODO write your implementation code here:
-        return false;
+        EscuderiaController controller = new EscuderiaController();
+        return controller.crearEscuderia(nombre, descripcion, foto);
+    }
+    
+    @WebMethod(operationName = "editarEscuderia")
+    public Escuderia editarEscuderia(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto) {
+        EscuderiaController controller = new EscuderiaController();
+        return controller.editarEscuderia(id, nombre, descripcion, foto);
     }
 
     /**
@@ -114,15 +142,15 @@ public class Services {
     }
 
     @WebMethod(operationName = "verOpinionesPiloto")
-    public ArrayList<Opinion> verOpinionesPiloto(@WebParam(name = "id") int idPiloto) {
+    public ArrayList<Opinion> verOpinionesPiloto(@WebParam(name = "id") String idPiloto) {
         OpinionController controller = new OpinionController();
         return controller.verOpinionesPiloto(idPiloto);
     }
 
     @WebMethod(operationName = "crearOpinionPiloto")
-    public boolean crearOpinionPiloto(@WebParam(name = "calificacion") int calificacion, @WebParam(name = "comentario") String comentario, @WebParam(name = "idPiloto") int idPiloto) {
+    public boolean crearOpinionPiloto(@WebParam(name = "calificacion") int calificacion, @WebParam(name = "comentario") String comentario, @WebParam(name = "idPiloto") String idPiloto, @WebParam(name = "username") String username) {
         OpinionController controller = new OpinionController();
-        return controller.crearOpinionPiloto(calificacion, comentario, idPiloto);
+        return controller.crearOpinionPiloto(calificacion, comentario, idPiloto, username);
     }
 
     /**
@@ -138,6 +166,27 @@ public class Services {
     public boolean eliminarAuto(@WebParam(name = "id") int id) {
         //TODO write your implementation code here:
         return true;
+    }
+
+    /**
+     * Web service operation for Apuesta
+     */
+    @WebMethod(operationName = "verApuestas")
+    public ArrayList<Apuesta> verApuestas(@WebParam(name = "username") String username) {
+        ApuestaController controller = new ApuestaController();
+        return controller.verApuestas(username);
+    }
+
+    @WebMethod(operationName = "crearApuesta")
+    public boolean crearApuesta(@WebParam(name = "valor") double valor, @WebParam(name = "username") String username, @WebParam(name = "idPremio") String idPremio) {
+        ApuestaController controller = new ApuestaController();
+        return controller.crearApuesta(valor, username, idPremio);
+    }
+
+    @WebMethod(operationName = "eliminarApuesta")
+    public boolean eliminarApuesta(@WebParam(name = "id") String id) {
+        ApuestaController controller = new ApuestaController();
+        return controller.eliminarApuesta(id);
     }
 
 }

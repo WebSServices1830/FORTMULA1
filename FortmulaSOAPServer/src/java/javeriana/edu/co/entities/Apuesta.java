@@ -5,13 +5,16 @@
  */
 package javeriana.edu.co.entities;
 
+import org.bson.Document;
+
 /**
  *
  * @author Sala BD
  */
 public class Apuesta {
-    
+
     private double valor;
+    private String id;
 
     public Apuesta(double valor) {
         this.valor = valor;
@@ -24,6 +27,17 @@ public class Apuesta {
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
-    
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Document toDocument() {
+        Document document = new Document("valor", valor);
+        return document;
+    }
 }

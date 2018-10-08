@@ -7,6 +7,8 @@ package javeriana.edu.co.controllers;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Updates.combine;
+import static com.mongodb.client.model.Updates.set;
 import com.mongodb.client.result.DeleteResult;
 import java.security.SecureRandom;
 import java.util.Date;
@@ -75,6 +77,54 @@ public class UsuarioController {
         DeleteResult result = handler.getMongo_db().getCollection(COLLECTION).deleteOne(eq("username", username));
         return result.getDeletedCount() == 1;
     }
+    
+    public Usuario editarPerfil(String username, String password, String descripcion, Date fechaNacimiento, String foto, String nombre) {
+        Usuario usuario = getUsuarioByUsername(username);
+        if(usuario == null) return null;
+        
+        if(usuario instanceof Aficionado){
+            Aficionado aficionado = (Aficionado) usuario;
+            if(password != null)
+                aficionado.setPassword(password);
+            if(fechaNacimiento != null)
+                aficionado.setFechaNacimiento(fechaNacimiento);
+            if(foto != null)
+                aficionado.setFoto(foto);
+            if(nombre != null)
+                aficionado.setNombre(nombre);
+
+            handler.getMongo_db().getCollection(COLLECTION).updateOne(
+                    eq(
+                            "username",
+                            username
+                    ),
+                    combine(
+                            set("password", aficionado.getPassword()),
+                            set("fechaNacimiento", aficionado.getFechaNacimiento()),
+                            set("foto", aficionado.getFoto()),
+                            set("nombre", aficionado.getNombre())
+                    )
+            );
+
+            return aficionado;
+        }else if(usuario instanceof Administrador){
+            Administrador administrador = (Administrador) usuario;
+            if(password != null)
+                administrador.setPassword(password);
+            
+            handler.getMongo_db().getCollection(COLLECTION).updateOne(
+                    eq(
+                            "username",
+                            username
+                    ),
+                    combine(
+                            set("password", password)
+                    )
+            );
+            return administrador;
+        }
+        return null;
+    }
 
     private String generateToken() {
         SecureRandom random = new SecureRandom();
@@ -104,4 +154,6 @@ public class UsuarioController {
         String password = doc.getString("password");
         return new Administrador(password, username);
     }
+    
+    
 }

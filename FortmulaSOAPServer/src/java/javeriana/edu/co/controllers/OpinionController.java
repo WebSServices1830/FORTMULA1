@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javeriana.edu.co.entities.Opinion;
 import javeriana.edu.co.utils.MongoDBHandler;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -24,15 +25,15 @@ public class OpinionController {
         this.handler = new MongoDBHandler();
     }
     
-    public boolean crearOpinionPiloto(int calificacion, String comentario, int idPiloto){
+    public boolean crearOpinionPiloto(int calificacion, String comentario, String idPiloto, String username){
         Opinion opinion = new Opinion(calificacion, comentario);
-        Document doc = opinion.toDocument().append("idPiloto", idPiloto);
+        Document doc = opinion.toDocument().append("idPiloto", idPiloto).append("username", username);
         handler.insert_data(COLLECTION, doc);
         return true;
     }
     
-    public ArrayList<Opinion> verOpinionesPiloto(int idPiloto){
-        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("idPiloto", idPiloto));
+    public ArrayList<Opinion> verOpinionesPiloto(String idPiloto){
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("idPiloto", new ObjectId(idPiloto)));
         ArrayList<Opinion> result = new ArrayList<>();
         for(Document doc : query){
             result.add(opinionToObject(doc));
