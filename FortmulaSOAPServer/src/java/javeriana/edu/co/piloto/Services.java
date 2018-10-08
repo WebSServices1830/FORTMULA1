@@ -13,8 +13,11 @@ import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javeriana.edu.co.controllers.ApuestaController;
+import javeriana.edu.co.controllers.AutoController;
 import javeriana.edu.co.controllers.EscuderiaController;
+import javeriana.edu.co.controllers.InfoPistaController;
 import javeriana.edu.co.controllers.OpinionController;
+import javeriana.edu.co.controllers.PilotoController;
 import javeriana.edu.co.controllers.UsuarioController;
 import javeriana.edu.co.entities.Apuesta;
 import javeriana.edu.co.entities.Auto;
@@ -23,6 +26,7 @@ import javeriana.edu.co.entities.Campeonato;
 import javeriana.edu.co.entities.Piloto;
 import javeriana.edu.co.entities.Premio;
 import javeriana.edu.co.entities.Escuderia;
+import javeriana.edu.co.entities.InfoPista;
 import javeriana.edu.co.entities.Opinion;
 import javeriana.edu.co.entities.Resultado;
 
@@ -107,7 +111,7 @@ public class Services {
         EscuderiaController controller = new EscuderiaController();
         return controller.verEscuderia(id);
     }
-    
+
     @WebMethod(operationName = "eliminarEscuderia")
     public boolean eliminarEscuderia(@WebParam(name = "id") String id) {
         EscuderiaController controller = new EscuderiaController();
@@ -119,7 +123,7 @@ public class Services {
         EscuderiaController controller = new EscuderiaController();
         return controller.crearEscuderia(nombre, descripcion, foto);
     }
-    
+
     @WebMethod(operationName = "editarEscuderia")
     public Escuderia editarEscuderia(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto) {
         EscuderiaController controller = new EscuderiaController();
@@ -129,16 +133,40 @@ public class Services {
     /**
      * Web service operation for Piloto
      */
-    @WebMethod(operationName = "crearPiloto")
-    public Piloto crearPiloto(@WebParam(name = "fechaNacimiento") Date fechaNacimiento, @WebParam(name = "foto") String foto, @WebParam(name = "nacionalidad") String nacionalidad, @WebParam(name = "nombre") String nombre) {
-        //TODO write your implementation code here:
+    @WebMethod(operationName = "verPilotos")
+    public ArrayList<Piloto> verPilotos() {
+        PilotoController controller = new PilotoController();
+        return controller.verPilotos();
+    }
 
-        return null;
+    @WebMethod(operationName = "verPilotosEscuderia")
+    public ArrayList<Piloto> verPilotosEscuderia(@WebParam(name = "idEscuderia") String idEscuderia) {
+        PilotoController controller = new PilotoController();
+        return controller.verPilotosEscuderia(idEscuderia);
+    }
+
+    @WebMethod(operationName = "verPiloto")
+    public Piloto verPiloto(@WebParam(name = "id") String id) {
+        PilotoController controller = new PilotoController();
+        return controller.verPiloto(id);
+    }
+
+    @WebMethod(operationName = "crearPiloto")
+    public boolean crearPiloto(@WebParam(name = "fechaNacimiento") Date fechaNacimiento, @WebParam(name = "foto") String foto, @WebParam(name = "nacionalidad") String nacionalidad, @WebParam(name = "nombre") String nombre, @WebParam(name = "idEscuderia") String idEscuderia, @WebParam(name = "idAuto") String idAuto) {
+        PilotoController controller = new PilotoController();
+        return controller.crearPiloto(nombre, fechaNacimiento, foto, nacionalidad, idEscuderia, idAuto);
+    }
+
+    @WebMethod(operationName = "editarPiloto")
+    public Piloto editarPiloto(@WebParam(name = "id") String id, @WebParam(name = "fechaNacimiento") Date fechaNacimiento, @WebParam(name = "foto") String foto, @WebParam(name = "nacionalidad") String nacionalidad, @WebParam(name = "nombre") String nombre) {
+        PilotoController controller = new PilotoController();
+        return controller.editarPiloto(id, nombre, fechaNacimiento, foto, nacionalidad);
     }
 
     @WebMethod(operationName = "eliminarPiloto")
-    public boolean eliminarPiloto(@WebParam(name = "id") int id) {
-        return true;
+    public boolean eliminarPiloto(@WebParam(name = "id") String id) {
+        PilotoController controller = new PilotoController();
+        return controller.eliminarPiloto(id);
     }
 
     @WebMethod(operationName = "verOpinionesPiloto")
@@ -157,15 +185,33 @@ public class Services {
      * Web service operation for Auto
      */
     @WebMethod(operationName = "verAuto")
-    public Auto verAuto(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return null;
+    public Auto verAuto(@WebParam(name = "id") String id) {
+        AutoController controller = new AutoController();
+        return controller.verAuto(id);
+    }
+
+    @WebMethod(operationName = "verAutos")
+    public ArrayList<Auto> verAutos() {
+        AutoController controller = new AutoController();
+        return controller.verAutos();
     }
 
     @WebMethod(operationName = "eliminarAuto")
-    public boolean eliminarAuto(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return true;
+    public boolean eliminarAuto(@WebParam(name = "id") String id) {
+        AutoController controller = new AutoController();
+        return controller.eliminarAuto(id);
+    }
+
+    @WebMethod(operationName = "crearAuto")
+    public boolean crearAuto(@WebParam(name = "beamWing") String beamWing, @WebParam(name = "color") String color, @WebParam(name = "endplate") String endplate, @WebParam(name = "foto") String foto, @WebParam(name = "marca") String marca, @WebParam(name = "motor") String motor, @WebParam(name = "ponton") String ponton, @WebParam(name = "potencia") String potencia, @WebParam(name = "idEscuderia") String idEscuderia, @WebParam(name = "idPiloto") String idPiloto) {
+        AutoController controller = new AutoController();
+        return controller.crearAuto(beamWing, color, endplate, foto, marca, motor, ponton, potencia, idEscuderia, idPiloto);
+    }
+
+    @WebMethod(operationName = "editarAuto")
+    public Auto editarAuto(@WebParam(name = "id") String id, @WebParam(name = "beamWing") String beamWing, @WebParam(name = "color") String color, @WebParam(name = "endplate") String endplate, @WebParam(name = "foto") String foto, @WebParam(name = "marca") String marca, @WebParam(name = "motor") String motor, @WebParam(name = "ponton") String ponton, @WebParam(name = "potencia") String potencia) {
+        AutoController controller = new AutoController();
+        return controller.editarAuto(id, beamWing, color, endplate, foto, marca, motor, ponton, potencia);
     }
 
     /**
@@ -187,6 +233,39 @@ public class Services {
     public boolean eliminarApuesta(@WebParam(name = "id") String id) {
         ApuestaController controller = new ApuestaController();
         return controller.eliminarApuesta(id);
+    }
+
+    /**
+     * Web Service operation for InfoPista
+     */
+    @WebMethod(operationName = "verOpinionesPista")
+    public ArrayList<Opinion> verOpinionesPista(@WebParam(name = "id") String idPista) {
+        OpinionController controller = new OpinionController();
+        return controller.verOpinionesPista(idPista);
+    }
+
+    @WebMethod(operationName = "crearOpinionPista")
+    public boolean crearOpinionPista(@WebParam(name = "calificacion") int calificacion, @WebParam(name = "comentario") String comentario, @WebParam(name = "idPista") String idPista, @WebParam(name = "username") String username) {
+        OpinionController controller = new OpinionController();
+        return controller.crearOpinionPista(calificacion, comentario, idPista, username);
+    }
+
+    @WebMethod(operationName = "crearInfoPista")
+    public boolean crearInfoPista(@WebParam(name = "ciudad") String ciudad, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto, @WebParam(name = "longitud") String longitud, @WebParam(name = "nombre") String nombre, @WebParam(name = "puntuacion") int puntuacion, @WebParam(name = "idPremio") String idPremio) {
+        InfoPistaController controller = new InfoPistaController();
+        return controller.crearInfoPista(ciudad, descripcion, foto, longitud, nombre, puntuacion, idPremio);
+    }
+    
+    @WebMethod(operationName = "editarInfoPista")
+    public InfoPista editarInfoPista(@WebParam(name = "id") String id, @WebParam(name = "ciudad") String ciudad, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "foto") String foto, @WebParam(name = "longitud") String longitud, @WebParam(name = "nombre") String nombre, @WebParam(name = "puntuacion") int puntuacion) {
+        InfoPistaController controller = new InfoPistaController();
+        return controller.editarInfoPista(id, ciudad, descripcion, foto, longitud, nombre, puntuacion);
+    }
+    
+    @WebMethod(operationName = "eliminarInfoPista")
+    public boolean eliminarInfoPista(@WebParam(name = "id") String id) {
+        InfoPistaController controller = new InfoPistaController();
+        return controller.eliminarInfoPista(id);
     }
 
 }

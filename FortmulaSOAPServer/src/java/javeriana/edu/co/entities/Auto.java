@@ -5,12 +5,15 @@
  */
 package javeriana.edu.co.entities;
 
+import org.bson.Document;
+
 /**
  *
  * @author Sala BD
  */
 public class Auto {
     
+    private String id;
     private String beamWing;
     private String color;
     private String endplate;
@@ -29,6 +32,14 @@ public class Auto {
         this.motor = motor;
         this.ponton = ponton;
         this.potencia = potencia;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getBeamWing() {
@@ -95,6 +106,9 @@ public class Auto {
         this.potencia = potencia;
     }
     
-    
+    public Document toDocument() {
+        Document document = new Document("beamWing", beamWing).append("color", color).append("endplate", endplate).append("foto", foto).append("marca", marca).append("motor", motor).append("ponton", ponton).append("potencia", potencia);
+        return document;
+    }
     
 }

@@ -18,34 +18,50 @@ import org.bson.types.ObjectId;
  * @author juanpablorodriguez
  */
 public class OpinionController {
+
     private final String COLLECTION = "opiniones";
     private MongoDBHandler handler;
 
     public OpinionController() {
         this.handler = new MongoDBHandler();
     }
-    
-    public boolean crearOpinionPiloto(int calificacion, String comentario, String idPiloto, String username){
+
+    public boolean crearOpinionPiloto(int calificacion, String comentario, String idPiloto, String username) {
         Opinion opinion = new Opinion(calificacion, comentario);
         Document doc = opinion.toDocument().append("idPiloto", idPiloto).append("username", username);
         handler.insert_data(COLLECTION, doc);
         return true;
     }
-    
-    public ArrayList<Opinion> verOpinionesPiloto(String idPiloto){
-        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("idPiloto", new ObjectId(idPiloto)));
+
+    public ArrayList<Opinion> verOpinionesPiloto(String idPiloto) {
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("idPiloto", idPiloto));
         ArrayList<Opinion> result = new ArrayList<>();
-        for(Document doc : query){
+        for (Document doc : query) {
             result.add(opinionToObject(doc));
         }
         return result;
     }
-    
-    public Opinion opinionToObject(Document d){
+
+    public boolean crearOpinionPista(int calificacion, String comentario, String idPista, String username) {
+        Opinion opinion = new Opinion(calificacion, comentario);
+        Document doc = opinion.toDocument().append("idPista", idPista).append("username", username);
+        handler.insert_data(COLLECTION, doc);
+        return true;
+    }
+
+    public ArrayList<Opinion> verOpinionesPista(String idPista) {
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("idPista", idPista));
+        ArrayList<Opinion> result = new ArrayList<>();
+        for (Document doc : query) {
+            result.add(opinionToObject(doc));
+        }
+        return result;
+    }
+
+    public Opinion opinionToObject(Document d) {
         int calificacion = d.getInteger("calificacion");
         String comentario = d.getString("comentario");
         return new Opinion(calificacion, comentario);
     }
-    
-    
+
 }

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://piloto.co.edu.javeriana/" xmlns:tns="http://piloto.co.edu.javeriana/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="autenticarUsuario" type="tns:autenticarUsuario"/>
+
+  <xs:element name="autenticarUsuarioResponse" type="tns:autenticarUsuarioResponse"/>
+
+  <xs:element name="calcularPuntaje" type="tns:calcularPuntaje"/>
+
+  <xs:element name="calcularPuntajeResponse" type="tns:calcularPuntajeResponse"/>
+
+  <xs:element name="crearCalendario" type="tns:crearCalendario"/>
+
+  <xs:element name="crearCalendarioResponse" type="tns:crearCalendarioResponse"/>
+
+  <xs:element name="crearEscuderia" type="tns:crearEscuderia"/>
+
+  <xs:element name="crearEscuderiaResponse" type="tns:crearEscuderiaResponse"/>
+
+  <xs:element name="crearPiloto" type="tns:crearPiloto"/>
+
+  <xs:element name="crearPilotoResponse" type="tns:crearPilotoResponse"/>
+
+  <xs:element name="eliminarAuto" type="tns:eliminarAuto"/>
+
+  <xs:element name="eliminarAutoResponse" type="tns:eliminarAutoResponse"/>
+
+  <xs:element name="eliminarPiloto" type="tns:eliminarPiloto"/>
+
+  <xs:element name="eliminarPilotoResponse" type="tns:eliminarPilotoResponse"/>
+
+  <xs:element name="registrarUsuario" type="tns:registrarUsuario"/>
+
+  <xs:element name="registrarUsuarioResponse" type="tns:registrarUsuarioResponse"/>
+
+  <xs:element name="verAuto" type="tns:verAuto"/>
+
+  <xs:element name="verAutoResponse" type="tns:verAutoResponse"/>
+
+  <xs:element name="verCalendario" type="tns:verCalendario"/>
+
+  <xs:element name="verCalendarioResponse" type="tns:verCalendarioResponse"/>
+
+  <xs:element name="verEscuderia" type="tns:verEscuderia"/>
+
+  <xs:element name="verEscuderiaResponse" type="tns:verEscuderiaResponse"/>
+
+  <xs:complexType name="registrarUsuario">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registrarUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verCalendario">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verCalendarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:campeonato" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="campeonato">
+    <xs:sequence>
+      <xs:element name="escuderias" type="tns:escuderia" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="fechaInicio" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="premios" type="tns:premio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="escuderia">
+    <xs:sequence>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="premio">
+    <xs:sequence>
+      <xs:element name="ciudad" type="xs:string" minOccurs="0"/>
+      <xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="calcularPuntaje">
+    <xs:sequence>
+      <xs:element name="resultadoPractica" type="tns:resultado" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="resultadoCarrera" type="tns:resultado" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="resultado">
+    <xs:sequence>
+      <xs:element name="mejorVuelta" type="xs:double"/>
+      <xs:element name="tiempoCarrera" type="xs:double"/>
+      <xs:element name="tiempoClasificacion" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="calcularPuntajeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearPiloto">
+    <xs:sequence>
+      <xs:element name="fechaNacimiento" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="nacionalidad" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearPilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:piloto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="piloto">
+    <xs:sequence>
+      <xs:element name="fecha_nacimiento" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="nacionalidad" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="ranking" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearEscuderia">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearEscuderiaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarPiloto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarPilotoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarAuto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarAutoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearCalendario">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="fechaInicial" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="premios" type="tns:premio" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="escuderias" type="tns:escuderia" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearCalendarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:campeonato" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verEscuderia">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verEscuderiaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:escuderia" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verAuto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verAutoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:auto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="auto">
+    <xs:sequence>
+      <xs:element name="beamWing" type="xs:string" minOccurs="0"/>
+      <xs:element name="color" type="xs:string" minOccurs="0"/>
+      <xs:element name="endplate" type="xs:string" minOccurs="0"/>
+      <xs:element name="foto" type="xs:string" minOccurs="0"/>
+      <xs:element name="marca" type="xs:string" minOccurs="0"/>
+      <xs:element name="motor" type="xs:string" minOccurs="0"/>
+      <xs:element name="ponton" type="xs:string" minOccurs="0"/>
+      <xs:element name="potencia" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="autenticarUsuario">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="autenticarUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
