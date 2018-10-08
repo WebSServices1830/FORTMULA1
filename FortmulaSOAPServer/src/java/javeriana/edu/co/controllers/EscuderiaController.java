@@ -92,6 +92,15 @@ public class EscuderiaController {
         return escuderiaToObject(query);
     }
 
+    public ArrayList<Escuderia> getEscuderiasByCampeonatoId(String id) {
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("campeonatoId", id));
+        ArrayList<Escuderia> result = new ArrayList<>();
+        for (Document doc : query) {
+            result.add(escuderiaToObject(doc));
+        }
+        return result;
+    }
+
     private Escuderia escuderiaToObject(Document d) {
         String descripcion = d.getString("descripcion");
         String foto = d.getString("foto");

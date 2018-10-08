@@ -506,7 +506,7 @@
 
   <xs:complexType name="verCalendario">
     <xs:sequence>
-      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -521,6 +521,7 @@
       <xs:element name="escuderias" type="tns:escuderia" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="fechaInicio" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
       <xs:element name="nombre" type="xs:string" minOccurs="0"/>
       <xs:element name="premios" type="tns:premio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>

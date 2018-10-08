@@ -85,9 +85,9 @@ public class Services {
     }
 
     @WebMethod(operationName = "verCalendario")
-    public Campeonato verCalendario(@WebParam(name = "nombre") String nombre) {
-
-        return null;
+    public Campeonato verCalendario(@WebParam(name = "id") String id) {
+        CampeonatoController controller = new CampeonatoController();
+        return controller.verCalendario(id);
     }
 
     /**
@@ -103,6 +103,18 @@ public class Services {
     public boolean crearPremio(@WebParam(name = "ciudad") String ciudad, @WebParam(name = "fecha") Date fecha) {
         PremioController controller = new PremioController();
         return controller.crearPremio(ciudad, fecha);
+    }
+    
+    @WebMethod(operationName = "verPremio")
+    public Premio verPremio(@WebParam(name = "id") String id) {
+        PremioController controller = new PremioController();
+        return controller.verPremio(id);
+    }
+    
+    @WebMethod(operationName = "verPremios")
+    public ArrayList<Premio> verPremios() {
+        PremioController controller = new PremioController();
+        return controller.verPremios();
     }
 
     /**

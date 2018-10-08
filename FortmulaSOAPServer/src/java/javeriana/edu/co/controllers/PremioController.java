@@ -5,11 +5,12 @@
  */
 package javeriana.edu.co.controllers;
 
+import com.mongodb.client.FindIterable;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
+import java.util.ArrayList;
 import java.util.Date;
-import javeriana.edu.co.entities.Escuderia;
 import javeriana.edu.co.entities.Premio;
 import javeriana.edu.co.utils.MongoDBHandler;
 import org.bson.Document;
@@ -34,6 +35,19 @@ public class PremioController {
         handler.insert_data(COLLECTION, doc);
         return true;
     }
+    
+    public ArrayList<Premio> verPremios() {
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(new Document());
+        ArrayList<Premio> result = new ArrayList<>();
+        for (Document doc : query) {
+            result.add(premioToObject(doc));
+        }
+        return result;
+    }
+    
+    public Premio verPremio(String id){
+        return getPremioById(id);
+    }
 
     private Premio getPremioById(String id) {
         Document query = handler.getMongo_db().getCollection(COLLECTION).find(eq("_id", new ObjectId(id))).first();
@@ -51,7 +65,7 @@ public class PremioController {
         premio.setId(id.toString());
         return premio;
     }
-    
+
     public boolean asignarId(String id, String key, String value) {
         handler.getMongo_db().getCollection(COLLECTION).updateOne(
                 eq(
@@ -63,5 +77,14 @@ public class PremioController {
                 )
         );
         return true;
+    }
+
+    public ArrayList<Premio> getPremiosByCampeonatoId(String id) {
+        FindIterable<Document> query = handler.getMongo_db().getCollection(COLLECTION).find(eq("campeonatoId", id));
+        ArrayList<Premio> result = new ArrayList<>();
+        for (Document doc : query) {
+            result.add(premioToObject(doc));
+        }
+        return result;
     }
 }

@@ -5,6 +5,7 @@
  */
 package javeriana.edu.co.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.bson.Document;
@@ -15,6 +16,7 @@ import org.bson.Document;
  */
 public class Campeonato {
 
+    private String id;
     private Date fechaInicio;
     private Date fechaFinal;
     private String nombre;
@@ -25,6 +27,16 @@ public class Campeonato {
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
         this.nombre = nombre;
+        this.escuderias = new ArrayList<>();
+        this.premios = new ArrayList<>();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Date getFechaInicio() {
