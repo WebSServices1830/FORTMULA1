@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import re_path
 
 from .views import (
     ChangePasswordView,
@@ -7,17 +7,17 @@ from .views import (
 )
 
 urlpatterns = [
-    path(
-        'token/',
+    re_path(
+        'token/?',
         GetTokenView.as_view(),
         name='token'
     ),
-    path(
+    re_path(
         'change-password/',
         ChangePasswordView.as_view(),
         name='change-password'
     ),
-    path(
+    re_path(
         'reset-password/',
         ForgotPasswordView.as_view(),
         name='reset-password'
