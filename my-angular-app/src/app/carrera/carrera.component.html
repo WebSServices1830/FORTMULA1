@@ -1,3 +1,19 @@
-<p>
-  carrera works!
-</p>
+<div class="row align-items-center test">
+  <div class="col">
+    <h2>Carrera</h2>
+    <div class="col">
+      <div>
+        <div>Número de vueltas: {{carrera.numVueltas}}</div>
+      </div>
+      <ul>
+        <li *ngFor="let resultado of resultados">
+          <div>Piloto {{resultado.idPiloto}}</div>
+          <div>Tiempo de clasificación: {{resultado.tiempoClasificacion}}</div>
+          <div>Tiempo de la carrera: {{resultado.tiempoCarrera}}</div>
+          <div>Mejor vuelta: {{resultado.mejorVuelta}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<button (click)="goBack()">volver</button>

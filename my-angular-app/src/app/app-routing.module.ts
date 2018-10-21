@@ -17,6 +17,8 @@ import { ListaPistaComponent } from './lista-pista/lista-pista.component';
 import { PistaComponent } from './pista/pista.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EntrenamientosComponent } from './entrenamientos/entrenamientos.component';
+import {CarreraComponent} from './carrera/carrera.component';
+import {ClasificacionComponent} from './clasificacion/clasificacion.component';
 
 const routes: Routes = [
   { path: 'apuesta/:id', component: ApuestaComponent },
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'pista/:id', component: PistaComponent },
   { path: 'premio/:id', component: PremioComponent },
   { path: 'premio/:id/entrenamientos', component: EntrenamientosComponent },
+  { path: 'premio/:id/clasificacion', component: ClasificacionComponent },
+  { path: 'premio/:id/carrera', component: CarreraComponent },
   { path: 'registrar', component: RegistrarComponent },
   { path: '', redirectTo: '/calendario', pathMatch: 'full' }
 ];

@@ -12,6 +12,12 @@ import { Pista } from '../models/pista';
 import { PISTAS } from '../mocks/mock-pistas';
 import { Entrenamiento } from '../models/entrenamiento';
 import { ENTRENAMIENTOS } from '../mocks/mock-entrenamientos';
+import {CARRERAS} from './mock-carreras';
+import {Carrera} from '../models/carrera';
+import {Resultado} from '../models/resultado';
+import {RESULTADOS} from './mock-resultados';
+import {CLASIFICACIONES} from './mock-clasificacion';
+import {Clasificacion} from '../models/clasificacion';
 
 @Injectable({
   providedIn: 'root'
@@ -53,12 +59,37 @@ export class MockService {
   }
 
   getPista(id: number ): Observable<Pista> {
-    const p = PREMIOS.find(premio => premio.id === id);
-    return of(PISTAS.find(pista => pista.id === p.idPista));
+    //const p = PREMIOS.find(premio => premio.id === id);
+    //return of(PISTAS.find(pista => pista.id === p.idPista));
+    return of(PISTAS.find(pista => pista.id === id));
   }
 
   getEntrenamientos(id: number): Observable<Entrenamiento[]> {
     return of(ENTRENAMIENTOS.filter(entrenamiento => entrenamiento.idPremio === id));
+  }
+
+  getCarrera(id: number ): Observable<Carrera> {
+    return of(CARRERAS.find(carrera => carrera.idPremio === id));
+  }
+
+  getResultadosCarrera(id: number): Observable<Resultado[]> {
+    return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'carrera'));
+  }
+
+  getClasificacion(id: number ): Observable<Clasificacion> {
+    return of(CLASIFICACIONES.find(clasificacion => clasificacion.idPremio === id));
+  }
+
+  getResultadosQ1(id: number): Observable<Resultado[]> {
+    return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'q1'));
+  }
+
+  getResultadosQ2(id: number): Observable<Resultado[]> {
+    return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'q2'));
+  }
+
+  getResultadosQ3(id: number): Observable<Resultado[]> {
+    return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'q3'));
   }
 
   makeComment(comment: string) {

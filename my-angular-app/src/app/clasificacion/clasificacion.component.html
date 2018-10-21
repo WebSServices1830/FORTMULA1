@@ -1,0 +1,35 @@
+<div class="row align-items-center test">
+  <div class="col">
+    <h2>Clasificación</h2>
+    <div class="col" *ngIf="clasificacion">
+      <h3>Q1</h3>
+      <ul>
+        <li *ngFor="let resultado of resultadosQ1">
+          <div>Piloto {{resultado.idPiloto}}</div>
+          <div>Tiempo de clasificación: {{resultado.tiempoClasificacion}}</div>
+          <div>Tiempo de la carrera: {{resultado.tiempoCarrera}}</div>
+          <div>Mejor vuelta: {{resultado.mejorVuelta}}</div>
+        </li>
+      </ul>
+      <h3>Q2</h3>
+      <ul>
+        <li *ngFor="let resultado of resultadosQ2">
+          <div>Piloto {{resultado.idPiloto}}</div>
+          <div>Tiempo de clasificación: {{resultado.tiempoClasificacion}}</div>
+          <div>Tiempo de la carrera: {{resultado.tiempoCarrera}}</div>
+          <div>Mejor vuelta: {{resultado.mejorVuelta}}</div>
+        </li>
+      </ul>
+      <h3>Q3</h3>
+      <ul>
+        <li *ngFor="let resultado of resultadosQ3">
+          <div>Piloto {{resultado.idPiloto}}</div>
+          <div>Tiempo de clasificación: {{resultado.tiempoClasificacion}}</div>
+          <div>Tiempo de la carrera: {{resultado.tiempoCarrera}}</div>
+          <div>Mejor vuelta: {{resultado.mejorVuelta}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<button (click)="goBack()">volver</button>

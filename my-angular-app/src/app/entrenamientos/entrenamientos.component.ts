@@ -30,4 +30,8 @@ export class EntrenamientosComponent implements OnInit {
     this.service.getEntrenamientos(id).subscribe(entrenamientos => this.entrenamientos = entrenamientos);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
 }
