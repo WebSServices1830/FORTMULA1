@@ -1,8 +1,17 @@
-.avatar img{
+.pic img{
     height: 200px;
     width: 200px;
+   
 }
 
-.profile{
-    align-items: center;
+.userinfo{
+    padding-top: 20px;
+}
+
+.editarbtn{
+    padding-top: 10px;
+}
+
+.formeditar{
+    padding-bottom: 20px;
 }
