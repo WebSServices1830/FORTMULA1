@@ -8,6 +8,7 @@ import { Switch, BrowserRouter as Router, Route, Redirect } from "react-router-d
 
 import 'typeface-roboto';
 
+import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import LogoutPage from './pages/LogoutPage';
 import PremioPage from './pages/PremioPage';
@@ -60,6 +61,7 @@ class App extends Component {
             <Route path="/escuderias/:id" component={EscuderiaPage} />
             <Route exact path="/escuderias" component={EscuderiasPage} />
             <Route exact path="/logout" component={LogoutPage} />
+            <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/" component={DefaultRedirect} />
           </Switch>
         </Router>
