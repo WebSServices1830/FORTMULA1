@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 
 import {MockService} from '../mocks/mock.service';
 import { Entrenamiento } from '../models/entrenamiento';
+import {Piloto} from '../models/piloto';
 
 @Component({
   selector: 'app-entrenamientos',
@@ -14,6 +15,7 @@ import { Entrenamiento } from '../models/entrenamiento';
 export class EntrenamientosComponent implements OnInit {
 
   entrenamientos: Entrenamiento[];
+  pilotos: Piloto[];
 
   constructor(
     private route: ActivatedRoute,
@@ -23,11 +25,19 @@ export class EntrenamientosComponent implements OnInit {
 
   ngOnInit() {
     this.getEntrenamientos();
+    if (this.entrenamientos) {
+      this.getPilotosEntrenamiento();
+    }
   }
 
   getEntrenamientos(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.service.getEntrenamientos(id).subscribe(entrenamientos => this.entrenamientos = entrenamientos);
+  }
+
+  getPilotosEntrenamiento(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.service.getPilotosEntrenamiento(id).subscribe(pilotos => this.pilotos = pilotos);
   }
 
   goBack(): void {

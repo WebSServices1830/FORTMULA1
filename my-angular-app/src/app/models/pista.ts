@@ -3,4 +3,6 @@ export class Pista {
   nombre: string;
   descripcion: string;
   longitud: number;
+  foto: string;
+  alt: string;
 }

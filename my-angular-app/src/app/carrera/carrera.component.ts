@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {MockService} from '../mocks/mock.service';
 import {Location} from '@angular/common';
 import {Resultado} from '../models/resultado';
+import {Piloto} from '../models/piloto';
 
 @Component({
   selector: 'app-carrera',
@@ -12,8 +13,9 @@ import {Resultado} from '../models/resultado';
 })
 export class CarreraComponent implements OnInit {
 
-  resultados: Resultado[];
   carrera: Carrera;
+  resultados: Resultado[];
+  pilotos: Piloto[];
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +27,9 @@ export class CarreraComponent implements OnInit {
     this.getCarrera();
     if (this.carrera) {
       this.getResultados();
+      if (this.resultados) {
+        this.getPilotosCarrera();
+      }
     }
   }
 
@@ -35,6 +40,10 @@ export class CarreraComponent implements OnInit {
 
   getResultados(): void {
     this.service.getResultadosCarrera(this.carrera.idPremio).subscribe(resultados => this.resultados = resultados);
+  }
+
+  getPilotosCarrera(): void {
+    this.service.getPilotosCarrera(this.carrera.idPremio).subscribe(pilotos => this.pilotos = pilotos);
   }
 
   goBack(): void {

@@ -1,4 +1,4 @@
-<div *ngIf="premio">
+<!--<div *ngIf="premio">
   <h2>{{premio.ciudad}} - Detalles</h2>
   <div>Descripción: {{premio.fecha}}</div>
   <app-pista></app-pista>
@@ -8,6 +8,27 @@
     <div><a routerLink="/premio/{{premio.id}}/carrera">Ver carrera</a></div>
   </div>
 </div>
-
-
 <button (click)="goBack()">volver</button>
+-->
+
+
+<div class="jumbotron">
+  <div *ngIf="premio">
+    <div class="info">
+      <div class="esto">
+      <h1>{{premio.ciudad}}</h1>
+        Fecha: {{premio.fecha}}
+        <app-pista></app-pista>
+      </div>
+      <div class="img">
+        <img src="{{foto}}" alt="{{alt}}">
+      </div>
+    </div>
+    <div class="botones">
+      <a class="btn btn-primary btn-lg" routerLink="/premio/{{premio.id}}/entrenamientos" role="button">Entrenamientos</a>
+      <a class="btn btn-primary btn-lg" routerLink="/premio/{{premio.id}}/clasificacion" role="button">Clasificación</a>
+      <a class="btn btn-primary btn-lg" routerLink="/premio/{{premio.id}}/carrera" role="button">Carrera</a>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary btn-lg volver" (click)="goBack()">Volver a premios</button>

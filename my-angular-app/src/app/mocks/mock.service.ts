@@ -18,6 +18,7 @@ import {Resultado} from '../models/resultado';
 import {RESULTADOS} from './mock-resultados';
 import {CLASIFICACIONES} from './mock-clasificacion';
 import {Clasificacion} from '../models/clasificacion';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,15 @@ export class MockService {
     return of(PILOTOS.filter(piloto => piloto.idEscuderia === idEscuderia));
   }
 
+  getPilotosEntrenamiento(idPremio: number): Observable<Piloto[]> {
+    const entrenamientos = ENTRENAMIENTOS.filter(entrenamiento => entrenamiento.idPremio === idPremio);
+    const pilotos: Piloto[] = [];
+    for (let i = 0; i < entrenamientos.length; i++) {
+      pilotos[entrenamientos[i].id] = PILOTOS.find(piloto => piloto.id === entrenamientos[i].idPiloto)
+    }
+    return of(pilotos);
+  }
+
   getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
     return of(PILOTOS.find(piloto => piloto.id === id && piloto.idEscuderia === idEscuderia));
   }
@@ -52,6 +62,18 @@ export class MockService {
 
   getPremios(): Observable<Premio[]> {
     return of(PREMIOS);
+  }
+
+  /*getFotos(): Observable<string[]> {
+    const fotos: string[] = [];
+    for (let i = 0; i < PREMIOS.length; i++) {
+      fotos[PREMIOS[i].id] = PISTAS[PREMIOS[i].id].foto;
+    }
+    return of(fotos);
+  }*/
+
+  getPistas(): Observable<Pista[]> {
+    return of(PISTAS);
   }
 
   getPremio(id: number ): Observable<Premio> {
@@ -90,6 +112,42 @@ export class MockService {
 
   getResultadosQ3(id: number): Observable<Resultado[]> {
     return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'q3'));
+  }
+
+  getPilotosResultadosQ1(idPremio: number): Observable<Piloto[]> {
+    const resultados = RESULTADOS.filter(resultado => resultado.idSesion === idPremio && resultado.sesion === 'q1');
+    const pilotos: Piloto[] = [];
+    for (let i = 0; i < resultados.length; i++) {
+      pilotos[resultados[i].idPiloto] = PILOTOS.find(piloto => piloto.id === resultados[i].idPiloto)
+    }
+    return of(pilotos);
+  }
+
+  getPilotosResultadosQ2(idPremio: number): Observable<Piloto[]> {
+    const resultados = RESULTADOS.filter(resultado => resultado.idSesion === idPremio && resultado.sesion === 'q2');
+    const pilotos: Piloto[] = [];
+    for (let i = 0; i < resultados.length; i++) {
+      pilotos[resultados[i].idPiloto] = PILOTOS.find(piloto => piloto.id === resultados[i].idPiloto)
+    }
+    return of(pilotos);
+  }
+
+  getPilotosResultadosQ3(idPremio: number): Observable<Piloto[]> {
+    const resultados = RESULTADOS.filter(resultado => resultado.idSesion === idPremio && resultado.sesion === 'q3');
+    const pilotos: Piloto[] = [];
+    for (let i = 0; i < resultados.length; i++) {
+      pilotos[resultados[i].idPiloto] = PILOTOS.find(piloto => piloto.id === resultados[i].idPiloto)
+    }
+    return of(pilotos);
+  }
+
+  getPilotosCarrera(idPremio: number): Observable<Piloto[]> {
+    const resultados = RESULTADOS.filter(resultado => resultado.idSesion === idPremio && resultado.sesion === 'carrera');
+    const pilotos: Piloto[] = [];
+    for (let i = 0; i < resultados.length; i++) {
+      pilotos[resultados[i].idPiloto] = PILOTOS.find(piloto => piloto.id === resultados[i].idPiloto)
+    }
+    return of(pilotos);
   }
 
   makeComment(comment: string) {

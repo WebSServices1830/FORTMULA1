@@ -1,14 +1,27 @@
-<div class="row align-items-center test">
-  <div class="col">
-    <h2>Entrenamiento</h2>
-    <div class="col">
-      <ul>
-        <li *ngFor="let entrenamiento of entrenamientos">
-          <div>Entrenamiento {{entrenamiento.id}}</div>
-          <div>Tiempo: {{entrenamiento.tiempo}}</div>
-        </li>
-      </ul>
+<div class="pg">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h2>Entrenamientos</h2>
     </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tiempo</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let entrenamiento of entrenamientos">
+        <th scope="row">1</th>
+        <td>{{pilotos[entrenamiento.id].nombre}}</td>
+        <td>{{entrenamiento.tiempo}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
+  <button class="btn btn-primary btn-lg" (click)="goBack()">volver</button>
 </div>
-<button (click)="goBack()">volver</button>
