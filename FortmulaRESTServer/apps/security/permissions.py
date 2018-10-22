@@ -1,8 +1,6 @@
 from rest_framework import permissions
 from django.contrib.auth.models import User
 
-# TODO: Define groups and make different permission class for each of them
-
 
 class TokenPermission(permissions.BasePermission):
     """
@@ -11,3 +9,13 @@ class TokenPermission(permissions.BasePermission):
 
     def has_permission(self, request, view):
         return True
+
+
+class AdminPermission(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+        user = request.user
+        administrador = getattr(user, 'administrador', None)
+        if administrador is not None:
+            return True
+        return False

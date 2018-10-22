@@ -8,8 +8,16 @@ class Aficionado(BaseModel):
     fechaNacimiento = models.DateField()
     foto = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
-    usuario = models.OneToOneField(User, on_delete=models.PROTECT)
+    usuario = models.OneToOneField(
+        User,
+        on_delete=models.PROTECT,
+        related_name='aficionado'
+    )
 
 
 class Administrador(BaseModel):
-    usuario = models.OneToOneField(User, on_delete=models.PROTECT)
+    usuario = models.OneToOneField(
+        User,
+        on_delete=models.PROTECT,
+        related_name='administrador'
+    )

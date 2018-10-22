@@ -6,8 +6,8 @@ from .views import (
 )
 
 urlpatterns = [
-    re_path(
-        'usuarios/administradores/?$',
+    path(
+        'usuarios/administradores/',
         AdministradorView.as_view(
             {
                 'get': 'list',
@@ -16,8 +16,8 @@ urlpatterns = [
         ),
         name='usuarios-administradores'
     ),
-    re_path(
-        'usuarios/administradores/(?P<id>[0-9]+)/?$',
+    path(
+        'usuarios/administradores/<int:id>/',
         AdministradorView.as_view(
             {
                 'get': 'retrieve',
@@ -27,8 +27,8 @@ urlpatterns = [
         ),
         name='usuarios-administradores-id'
     ),
-    re_path(
-        'usuarios/aficionados/?$',
+    path(
+        'usuarios/aficionados/',
         AficionadoView.as_view(
             {
                 'get': 'list',
@@ -37,8 +37,8 @@ urlpatterns = [
         ),
         name='usuarios-aficionados'
     ),
-    re_path(
-        'usuarios/aficionados/(?P<id>[0-9]+)/?$',
+    path(
+        'usuarios/aficionados/<int:id>/',
         AficionadoView.as_view(
             {
                 'get': 'retrieve',
