@@ -55,3 +55,13 @@ class EscuderiaViewSet(viewsets.ViewSet):
         escuderia = get_object_or_404(Escuderia, id=id)
         escuderia.delete()
         return Response('Escuderia fue eliminada')
+
+    def get_authenticators(self):
+        if self.request.method == 'GET':
+            self.authentication_classes = []
+        return super(EscuderiaViewSet, self).get_authenticators()
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            self.permission_classes = []
+        return super(EscuderiaViewSet, self).get_permissions()
