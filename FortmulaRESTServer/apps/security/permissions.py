@@ -1,5 +1,4 @@
 from rest_framework import permissions
-from django.contrib.auth.models import User
 
 
 class TokenPermission(permissions.BasePermission):
@@ -17,5 +16,15 @@ class AdminPermission(permissions.BasePermission):
         user = request.user
         administrador = getattr(user, 'administrador', None)
         if administrador is not None:
+            return True
+        return False
+
+
+class AficionadoPermission(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+        user = request.user
+        aficionado = getattr(user, 'aficionado', None)
+        if aficionado is not None:
             return True
         return False

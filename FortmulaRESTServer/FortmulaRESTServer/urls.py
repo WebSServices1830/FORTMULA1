@@ -5,4 +5,5 @@ urlpatterns = [
     path('', include('security.urls')),
     path('escuderia/', include('escuderia.urls')),
     path('auto/', include('auto.urls')),
+    path('opinion/', include('opinion.urls')),
 ]
