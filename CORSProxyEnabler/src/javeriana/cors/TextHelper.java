@@ -1,4 +1,4 @@
-package org.showcard.tcptunnel;
+package javeriana.cors;
 
 public class TextHelper {
     public static String ByteArrayToHexString(byte[] bytes) {
