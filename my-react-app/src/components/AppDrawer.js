@@ -93,9 +93,6 @@ class AppDrawer extends React.Component {
 
                 <AppDrawerNavItem depth={0} key={"Panel de Control"} openImmediately={false} title={"Panel de Control"}>
                     <List>
-                        {this.generateLink("premios", "Premios")}
-                        {this.generateLink("escuderias", "Escuderías")}
-                        {this.generateLink("pilotos", "Pilotos")}
                     </List>
                 </AppDrawerNavItem>
             </List>

@@ -48,8 +48,14 @@ class EscuderiasPage extends React.Component {
             content = [];
 
             for (const key in data) {
-                content.push(<div key={key}>{key}: {data[key]["_text"]}</div>);
+                if (key === "foto") {
+                    content.push(<img alt={key} key={key} src={data[key]["_text"]}></img>);
+                } else {
+                    content.push(<div key={key}>{key}: {data[key]["_text"]}</div>);
+                }
             }
+
+            
         }
 
         return (

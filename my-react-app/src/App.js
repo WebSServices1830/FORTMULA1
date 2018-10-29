@@ -17,6 +17,7 @@ import EscuderiaPage from './pages/EscuderiaPage';
 import EscuderiasPage from './pages/EscuderiasPage';
 import PilotoPage from './pages/PilotoPage';
 import PilotosPage from './pages/PilotosPage';
+import AutosPage from './pages/AutosPage';
 
 function getTheme(uiTheme) {
   const theme = createMuiTheme({
@@ -64,6 +65,7 @@ class App extends Component {
             <Route exact path="/escuderias" component={EscuderiasPage} />
             <Route path="/pilotos/:id" component={PilotoPage} />
             <Route exact path="/pilotos" component={PilotosPage} />
+            <Route exact path="/autos" component={AutosPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/" component={DefaultRedirect} />
