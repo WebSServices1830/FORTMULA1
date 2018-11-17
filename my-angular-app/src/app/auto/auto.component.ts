@@ -27,8 +27,8 @@ export class AutoComponent implements OnInit {
 
   getAuto(): void {
     const id = +this.route.snapshot.paramMap.get('idA');
-    const idEscuderia = +this.route.snapshot.paramMap.get('id');
-    this.service.getAuto(id, idEscuderia).subscribe(auto => this.auto = auto);
+    const escuderia = +this.route.snapshot.paramMap.get('id');
+    this.service.getAuto(id, escuderia).subscribe(auto => this.auto = auto);
   }
 
   goBack(): void {

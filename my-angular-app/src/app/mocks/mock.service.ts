@@ -36,7 +36,7 @@ export class MockService {
   }
 
   getPilotos(idEscuderia: number): Observable<Piloto[]> {
-    return of(PILOTOS.filter(piloto => piloto.idEscuderia === idEscuderia));
+    return of(PILOTOS.filter(piloto => piloto.escuderia === idEscuderia));
   }
 
   getPilotosEntrenamiento(idPremio: number): Observable<Piloto[]> {
@@ -49,15 +49,15 @@ export class MockService {
   }
 
   getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
-    return of(PILOTOS.find(piloto => piloto.id === id && piloto.idEscuderia === idEscuderia));
+    return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
   }
 
   getAutos(idEscuderia: number): Observable<Auto[]> {
-    return of(AUTOS.filter(auto => auto.idEscuderia === idEscuderia));
+    return of(AUTOS.filter(auto => auto.escuderia === idEscuderia));
   }
 
   getAuto(id: number, idEscuderia: number): Observable<Auto> {
-    return of(AUTOS.find(auto => auto.id === id && auto.idEscuderia === idEscuderia));
+    return of(AUTOS.find(auto => auto.id === id && auto.escuderia === idEscuderia));
   }
 
   getPremios(): Observable<Premio[]> {

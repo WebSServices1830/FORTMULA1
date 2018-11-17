@@ -1,6 +1,11 @@
 export class Piloto {
   id: number;
-  nombre: string;
+  created: string;
+  updated: string;
+  fecha_nacimiento: string;
+  foto: string;
   nacionalidad: string;
-  idEscuderia: number;
+  nombre: string;
+  escuderia: number;
+  auto: number;
 }

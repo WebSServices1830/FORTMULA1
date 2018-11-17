@@ -1,6 +1,10 @@
 <div *ngIf="auto">
   <h2>Auto {{auto.id}} - Detalles</h2>
-  <div>marca: {{auto.marca}}</div>
+  <div>modelo: {{auto.modelo}}</div>
   <div>color: {{auto.color}}</div>
+  <div>motor: {{auto.motor}}</div>
+  <div>potencia: {{auto.potencia}}</div>
+  <div>escuderia: {{auto.escuderia}}</div>
+  <div>foto: <img src={{auto.foto}} alt=""></div>
 </div>
 <button (click)="goBack()">volver</button>

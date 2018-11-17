@@ -28,8 +28,8 @@ export class PilotoComponent implements OnInit {
 
   getPiloto(): void {
     const id = +this.route.snapshot.paramMap.get('idP');
-    const idEscuderia = +this.route.snapshot.paramMap.get('id');
-    this.service.getPiloto(id, idEscuderia).subscribe(piloto => this.piloto = piloto);
+    const escuderia = +this.route.snapshot.paramMap.get('id');
+    this.service.getPiloto(id, escuderia).subscribe(piloto => this.piloto = piloto);
   }
 
   makeComment() {
