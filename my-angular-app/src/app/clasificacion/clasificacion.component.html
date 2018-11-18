@@ -1,0 +1,95 @@
+<div class="pg">
+  <div class="botones">
+    <button class="btn btn-primary btn-lg q" (click)="openQ1()">Q1</button>
+    <button class="btn btn-primary btn-lg q" (click)="openQ2()">Q2</button>
+    <button class="btn btn-primary btn-lg q" (click)="openQ3()">Q3</button>
+  </div>
+  <div class="panel panel-default" *ngIf="q1">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h2>Primera Ronda Clasificatoria</h2>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tiempo carrera</th>
+        <th scope="col">Tiempo clasificación</th>
+        <th scope="col">Mejor vuelta</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let resultado of resultadosQ1">
+        <th scope="row">1</th>
+        <td>{{pilotosQ1[resultado.idPiloto].nombre}}</td>
+        <td>{{resultado.tiempoCarrera}}</td>
+        <td>{{resultado.tiempoClasificacion}}</td>
+        <td>{{resultado.mejorVuelta}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel panel-default" *ngIf="q2">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h2>Segunda Ronda Clasificatoria</h2>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tiempo carrera</th>
+        <th scope="col">Tiempo clasificación</th>
+        <th scope="col">Mejor vuelta</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let resultado of resultadosQ2">
+        <th scope="row">1</th>
+        <td>{{pilotosQ2[resultado.idPiloto].nombre}}</td>
+        <td>{{resultado.tiempoCarrera}}</td>
+        <td>{{resultado.tiempoClasificacion}}</td>
+        <td>{{resultado.mejorVuelta}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel panel-default" *ngIf="q3">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h2>Tercera Ronda Clasificatoria</h2>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tiempo carrera</th>
+        <th scope="col">Tiempo clasificación</th>
+        <th scope="col">Mejor vuelta</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let resultado of resultadosQ3">
+        <th scope="row">1</th>
+        <td>{{pilotosQ3[resultado.idPiloto].nombre}}</td>
+        <td>{{resultado.tiempoCarrera}}</td>
+        <td>{{resultado.tiempoClasificacion}}</td>
+        <td>{{resultado.mejorVuelta}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="btn btn-primary btn-lg" (click)="goBack()">volver</button>
+</div>

@@ -1,3 +1,14 @@
-<p>
-  lista-premio works!
-</p>
+<div class="pg">
+  <h2>Premios</h2>
+  <div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let premio of premios" id="tmb">
+      <div class="thumbnail">
+        <img src="{{fotos[premio.id]}}" alt="{{alts[premio.id]}}" height="200" width="242">
+        <div class="caption">
+          <h4>{{premio.ciudad}}</h4>
+          <a routerLink="/premio/{{premio.id}}" class="btn btn-primary" role="button">Ir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

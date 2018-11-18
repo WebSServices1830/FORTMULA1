@@ -16,22 +16,28 @@ import { ApuestaComponent } from './apuesta/apuesta.component';
 import { ListaPistaComponent } from './lista-pista/lista-pista.component';
 import { PistaComponent } from './pista/pista.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { EntrenamientosComponent } from './entrenamientos/entrenamientos.component';
+import {CarreraComponent} from './carrera/carrera.component';
+import {ClasificacionComponent} from './clasificacion/clasificacion.component';
 
 const routes: Routes = [
   { path: 'apuesta/:id', component: ApuestaComponent },
-  { path: 'auto/:id', component: AutoComponent },
+  { path: 'escuderia/:id/auto/:idA', component: AutoComponent },
   { path: 'calendario', component: CalendarioComponent },
   { path: 'escuderia/:id', component: EscuderiaComponent },
   { path: 'lista-apuestas/:id', component: ListaApuestasComponent },
   { path: 'lista-escuderia', component: ListaEscuderiaComponent },
   { path: 'lista-piloto/:id', component: ListaPilotoComponent },
   { path: 'lista-pista', component: ListaPistaComponent },
-  { path: 'lista-premio/:id', component: ListaPremioComponent },
+  { path: 'lista-premio', component: ListaPremioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfil/:id', component: PerfilComponent },
-  { path: 'piloto/:id', component: PilotoComponent },
+  { path: 'escuderia/:id/piloto/:idP', component: PilotoComponent },
   { path: 'pista/:id', component: PistaComponent },
   { path: 'premio/:id', component: PremioComponent },
+  { path: 'premio/:id/entrenamientos', component: EntrenamientosComponent },
+  { path: 'premio/:id/clasificacion', component: ClasificacionComponent },
+  { path: 'premio/:id/carrera', component: CarreraComponent },
   { path: 'registrar', component: RegistrarComponent },
   { path: '', redirectTo: '/calendario', pathMatch: 'full' }
 ];

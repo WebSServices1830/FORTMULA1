@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarioComponent implements OnInit {
 
+  title: String = "FORTMULA1";
+
   constructor() { }
 
   ngOnInit() {

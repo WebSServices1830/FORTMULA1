@@ -1,3 +1,70 @@
-<p>
-  perfil works!
-</p>
+<div class="PerfilCompleto">
+
+    <div class="container">
+
+        <div class="userinfo row justify-content-center">
+            
+          <div class="pic col-sm-3">
+              
+            <img src="{{ufoto}}" 
+              alt="Circle Image" class="rounded-circle float-right">
+              
+          </div>
+          <div class="info col-sm-9 justify-content-left bg-light">
+              <h3 class="title"> {{uname}} </h3>
+              <h6> {{urole}}</h6>
+
+              <div>  <p> <b>Correo:</b> {{uemail}} </p></div>
+              <div>  <p> <b>Edad:</b> {{uedad}} </p></div>
+              <div>  <p> <b>Descripción:</b> {{udescrip}} </p></div>
+              
+          </div> 
+        </div>
+
+        <div class="row editarbtn">
+          <div class="col-sm-12">
+              <button type="button" class="btn btn-warning float-right" (click)=mostrarEditar()>Editar Perfil</button>
+          </div>
+        </div>           
+
+        <div *ngIf="message==1">
+          <div class="row formeditar ">
+              <!-- Editar Info Perfil -->
+              <div class="col-sm-9">
+              <h4>Editar mi información</h4>
+              <form>
+                  <div class="form-group">
+                    <label for="formname">Nombre</label>
+                    <input type="text" class="form-control" id="formname" value={{uname}}>
+                  </div>
+                  <div class="form-group">
+                      <label for="formcorreo">Correo</label>
+                      <input type="text" class="form-control" id="formcorreo" value={{uemail}}>
+                  </div>
+                  <div class="form-group">
+                      <label for="formedad">Edad</label>
+                      <input type="text" class="form-control" id="formedad" value={{uedad}}>
+                  </div>
+                  <div class="form-group">
+                      <label for="formfoto">URL Foto</label>
+                      <input type="text" class="form-control" id="formfoto" value={{ufoto}}>
+                  </div>
+                  <div class="form-group">
+                      <label for="formdescrip">Descripción</label>
+                      <input type="textarea" class="form-control" id="formdescrip" value={{udescrip}}>
+                  </div>
+
+
+                  <div>
+                    <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                  </div>
+                </form>
+                </div>
+
+
+          </div>         
+        </div>
+    
+
+</div>

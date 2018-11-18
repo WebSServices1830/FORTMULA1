@@ -10,6 +10,7 @@ class InfoPistaSerializer(serializers.ModelSerializer):
 
 
 class PremioSerializer(serializers.ModelSerializer):
+    info_pista = InfoPistaSerializer(read_only=True)
 
     class Meta:
         model = Premio

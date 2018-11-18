@@ -1,0 +1,39 @@
+.pg {
+  margin: 60px;
+}
+
+#tmb {
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray ;
+  margin: 15px;
+  padding: 0px;
+}
+
+.col-sm-6 {
+  max-width: fit-content;
+}
+
+.thumbnail {
+  padding: 5px;
+}
+
+.caption {
+  padding-top: 20px;
+  padding-left: 8px;
+
+  /*width: 100%;*/
+}
+
+/*.caption h4 {
+  display: inline-block;
+  width: 70%;
+}*/
+
+/*.caption a {
+  display: inline-block;
+  width: 20%;
+  float: right;
+  padding: 4px;
+  margin-right: 8px;
+}*/

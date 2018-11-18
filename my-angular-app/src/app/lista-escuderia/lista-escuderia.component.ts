@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Escuderia } from '../models/escuderia';
+import {MockService} from '../mocks/mock.service';
 
 @Component({
   selector: 'app-lista-escuderia',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaEscuderiaComponent implements OnInit {
 
-  constructor() { }
+  escuderias: Escuderia[];
+
+  constructor(private service: MockService) { }
 
   ngOnInit() {
+    this.getEscuderias();
+  }
+
+  getEscuderias(): void {
+    this.service.getEscuderias().subscribe(escuderias => this.escuderias = escuderias);
   }
 
 }

@@ -1,0 +1,51 @@
+<!--<div class="row align-items-center test">
+  <div class="col">
+    <h2>Carrera</h2>
+    <div class="col">
+      <div>
+        <div>Número de vueltas: {{carrera.numVueltas}}</div>
+      </div>
+      <ul>
+        <li *ngFor="let resultado of resultados">
+          <div>Piloto {{resultado.idPiloto}}</div>
+          <div>Tiempo de clasificación: {{resultado.tiempoClasificacion}}</div>
+          <div>Tiempo de la carrera: {{resultado.tiempoCarrera}}</div>
+          <div>Mejor vuelta: {{resultado.mejorVuelta}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<button (click)="goBack()">volver</button>-->
+
+<div class="pg">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h2>Carrera</h2>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tiempo carrera</th>
+        <th scope="col">Tiempo clasificación</th>
+        <th scope="col">Mejor vuelta</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let resultado of resultados">
+        <th scope="row">1</th>
+        <td>{{pilotos[resultado.idPiloto].nombre}}</td>
+        <td>{{resultado.tiempoCarrera}}</td>
+        <td>{{resultado.tiempoClasificacion}}</td>
+        <td>{{resultado.mejorVuelta}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="btn btn-primary btn-lg" (click)="goBack()">volver</button>
+</div>
