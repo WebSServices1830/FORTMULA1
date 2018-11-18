@@ -17,8 +17,10 @@ export class EscuderiaComponent implements OnInit {
 
   escuderia: Escuderia;
   pilotos: Piloto[];
-  autos: Auto[];
+  auto: Auto;
   comment = '';
+  messageEdit: number = 0;
+  messageCrear: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,8 +31,10 @@ export class EscuderiaComponent implements OnInit {
   ngOnInit() {
     this.escuderia = new Escuderia();
     this.getEscuderia();
-    this.getPilotos(this.escuderia.id);
-    this.getAutos(this.escuderia.id);
+    this.pilotos = new Array();
+    this.auto = new Auto();
+    this.getPilotos();
+    this.getAutos();
   }
 
   getEscuderia(): void {
@@ -38,16 +42,31 @@ export class EscuderiaComponent implements OnInit {
     this.service.getEscuderia(id).subscribe(escuderia => this.escuderia = escuderia);
   }
 
-  getPilotos(idEscuderia: number): void {
-    this.service.getPilotos(idEscuderia).subscribe(pilotos => this.pilotos = pilotos);
+  getPilotos(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.service.getPilotos(id).subscribe(pilotos => this.pilotos = pilotos);
   }
 
-  getAutos(idEscuderia: number): void {
-    this.service.getAutos(idEscuderia).subscribe(autos => this.autos = autos);
+  getAutos(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.service.getAuto(id,id).subscribe(auto => this.auto = auto);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  mostrarEditar(){
+    this.messageEdit = 1;
+  }
+  quitarEditar(){
+    this.messageEdit = 0;
+  }
+  mostrarCrear(){
+    this.messageCrear = 1;
+  }
+  quitarCrear(){
+    this.messageCrear = 0;
   }
 
 }

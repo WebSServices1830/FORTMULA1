@@ -19,7 +19,6 @@ import {Resultado} from '../models/resultado';
 import {RESULTADOS} from './mock-resultados';
 import {CLASIFICACIONES} from './mock-clasificacion';
 import {Clasificacion} from '../models/clasificacion';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { API_URL } from '../constants';
 
 

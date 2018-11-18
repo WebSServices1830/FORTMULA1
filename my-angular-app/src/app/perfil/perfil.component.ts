@@ -11,7 +11,7 @@ export class PerfilComponent implements OnInit {
   uemail: String ="user@javeriana.edu.co";
   uedad: number = 22;
   udescrip: String ="Hola, soy estudiante de la Javeriana y me encanta ver las carreras de la Fórmula 1.";
-  ufoto: String = "https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png";
+  ufoto: String = "https://image.flaticon.com/icons/svg/1193/1193283.svg";
   urole: String ="Aficionado";
 
   message: number = 0;

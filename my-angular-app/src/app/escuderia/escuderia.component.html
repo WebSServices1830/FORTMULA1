@@ -1,29 +1,123 @@
 <div class="container">
 
-  <div *ngIf="escuderia">
-    <h2>{{escuderia.nombre}} - Detalles</h2>
-    <div>Descripción: {{escuderia.descripcion}}</div>
-    <div>
-      <h4>Pilotos</h4>
-      <ul>
-        <li *ngFor="let piloto of pilotos">
-          <span>{{piloto.nombre}}</span>
-          <a routerLink="/escuderia/{{escuderia.id}}/piloto/{{piloto.id}}">Ver</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h4>Autos</h4>
-      <ul>
-        <li *ngFor="let auto of autos">
-          <span>{{auto.id}}</span>
-          <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}">Ver</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <div class="row infoescuderia">
+    <div class="col-md-6">
+        <div *ngIf="escuderia">
+            <h2>{{escuderia.nombre}} - Detalles</h2>
+            <div> <b>Descripción: </b> {{escuderia.descripcion}}</div>
+            <div> <b>Base: </b> {{escuderia.base}}</div>
+            <div> <b>Campeonato: </b> {{escuderia.campeonato}}</div>
+            <div> <b>Foto: </b> <img src={{escuderia.foto}} alt=""></div>
+            <div>
+              <h4>Pilotos</h4>
+              <ul>
+                <li *ngFor="let piloto of pilotos">
+                  <span>{{piloto.nombre}}</span>
+                  <a routerLink="/escuderia/{{escuderia.id}}/piloto/{{piloto.id}}"> (Ver Piloto) </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4>Autos</h4>
+              <ul>
+                <li>
+                  <span> Auto {{auto.id}}</span>
+                  <span> {{auto.modelo}}</span>
+                  <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}"> (Ver Auto) </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <div class="row btns">
+            <div class="col-sm-2 boton">
+                <button type="button" class="btn btn-primary float-left" (click)=goBack()>Volver</button>
+            </div>
+            <div class="col-sm-2 boton">
+              <button type="button" class="btn btn-warning float-left" (click)=mostrarEditar()>Editar</button>
+            </div>
+            <div class="col-sm-2 boton">
+              <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear() >Crear nueva</button>
+            </div>
+        </div>
+        
+      </div>
+
+      <div class="col-md-6">
+          <div *ngIf="messageEdit==1">
+              <div class="row formeditar">
+                  <!-- Editar Info Escuderia -->
+                  <div class="col-sm-9">
+                  <h4>Editar Escuderia {{escuderia.id}}  </h4>
+                  <form>
+                      <div class="form-group">
+                        <label for="formname">Nombre de Escuderia:</label>
+                        <input type="text" class="form-control" id="formname" value={{escuderia.nombre}}>
+                      </div>
+                      <div class="form-group">
+                          <label for="formdescrip">Descripción:</label>
+                          <input type="text" class="form-control" id="formdescrip" value={{escuderia.descripcion}}>
+                      </div>
+                      <div class="form-group">
+                          <label for="formbase">Pais base:</label>
+                          <input type="text" class="form-control" id="formbase" value={{escuderia.base}}>
+                      </div>
+                      <div class="form-group">
+                          <label for="formcamp">Campeonato:</label>
+                          <input type="text" class="form-control" id="formcamp" value={{escuderia.campeonato}}>
+                      </div>
+                      <div class="form-group">
+                          <label for="formfoto">Foto:</label>
+                          <input type="text" class="form-control" id="formfoto" value={{escuderia.foto}}>
+                      </div>
+                                           
+                                      
+                      <div>
+                        <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar cambios</button>
+                      </div>
+                  </form>
+                  </div>
+              </div>         
+            </div>
 
 
-  <button (click)="goBack()">volver</button>
+            <div *ngIf="messageCrear==1">
+                <div class="row formcrear">
+                    <!-- Crear una Escuderia -->
+                    <div class="col-sm-9">
+                    <h4>Crear Escuderia nueva</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="formnewname">Nombre:</label>
+                            <input type="text" class="form-control" id="formnewname" placeholder="Ej: Ferrari" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="formnewdescrip">Descripción:</label>
+                              <input type="text" class="form-control" id="formnewdescrip" placeholder="Ej: Renault Sport Formula One Team" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="formnewbase">Pais base:</label>
+                              <input type="text" class="form-control" id="formnewbase"  placeholder="Ej: Francia" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="formnewcamp">Campeonato:</label>
+                              <input type="number" class="form-control" id="formnewcamp" value=1 required>
+                          </div>
+                          <div class="form-group">
+                              <label for="formnewfoto">Foto:</label>
+                              <input type="text" class="form-control" id="formnewfoto" placeholder="[URL]" required>
+                          </div>
+                                          
+                          <div>
+                            <button type="button" class="btn btn-danger" (click)=quitarCrear()>Cancelar</button>
+                            <button type="button" class="btn btn-primary">Crear nuevo</button>
+                          </div>
+                      </form>
+                      </div>
+                </div>
 
+            </div>
+      </div>
+
+    </div> 
 </div>
