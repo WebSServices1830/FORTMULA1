@@ -14,8 +14,8 @@ import { Premio } from '../models/premio';
 export class PremioComponent implements OnInit {
 
   premio: Premio;
-  foto: string;
-  alt: string;
+  messageEdit: 0;
+  messageCreate: 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,24 +24,16 @@ export class PremioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.premio = new Premio();
     this.getPremio();
-    if (this.premio) {
-      this.getFoto()
-    }
+
   }
 
   getPremio(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.service.getPremio(id).subscribe(premio => this.premio = premio);
   }
-
-  getFoto(): void {
-    this.service.getPista(this.premio.id).subscribe(pista => {
-      this.foto = pista.foto;
-      this.alt = pista.alt;
-    });
-  }
-
+  
   goBack(): void {
     this.location.back();
   }
