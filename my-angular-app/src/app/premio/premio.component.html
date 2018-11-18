@@ -1,23 +1,10 @@
-<!--<div *ngIf="premio">
-  <h2>{{premio.ciudad}} - Detalles</h2>
-  <div>Descripción: {{premio.fecha}}</div>
-  <app-pista></app-pista>
-  <div>
-    <div><a routerLink="/premio/{{premio.id}}/entrenamientos">Ver entrenamientos</a></div>
-    <div><a routerLink="/premio/{{premio.id}}/clasificacion">Ver clasificación</a></div>
-    <div><a routerLink="/premio/{{premio.id}}/carrera">Ver carrera</a></div>
-  </div>
-</div>
-<button (click)="goBack()">volver</button>
--->
-
-
 <div class="jumbotron">
   <div *ngIf="premio">
     <div class="info">
       <div class="esto">
       <h1>{{premio.ciudad}}</h1>
-        Fecha: {{premio.fecha}}
+        Fecha inicio: {{premio.fecha}}
+        Fecha final: {{premio.fecha}}
         <app-pista></app-pista>
       </div>
       <div class="img">
@@ -32,3 +19,56 @@
   </div>
 </div>
 <button class="btn btn-primary btn-lg volver" (click)="goBack()">Volver a premios</button>
+
+<div class="row editarbtn">
+  <div class="col-sm-12">
+      <button type="button" class="btn btn-primary" (click)=mostrarEditar()>Editar Perfil</button>
+  </div>
+</div>    
+
+<div *ngIf="message==1">
+  <div class="row formeditar ">
+      <!-- Editar Info Perfil -->
+      <div class="col-3"></div>
+      <div class="col-5 col-centered">
+      <h4>Editar información del premio:</h4>
+      <form>
+          <div class="form-group">
+            <label for="formname">Ciudad</label>
+            <input type="text" class="form-control" id="formname" value={{pciudad}}>
+          </div>
+          <div class="form-group">
+            <label for="formcorreo">Nombre:</label>
+            <input type="text" class="form-control" id="formcorreo" value={{pnombre}}>
+        </div>
+          <div class="form-group">
+              <label for="formcorreo">Fecha inicio:</label>
+              <input type="text" class="form-control" id="formcorreo" value={{pinicio}}>
+          </div>
+          <div class="form-group">
+            <label for="formcorreo">Fecha final:</label>
+            <input type="text" class="form-control" id="formcorreo" value={{pfinal}}>
+          </div>
+          <div class="form-group">
+              <label for="formedad">Descripción</label>
+              <input type="text" class="form-control" id="formedad" value={{pdescripcion}}>
+          </div>
+          <div class="form-group">
+              <label for="formfoto">Longitud</label>
+              <input type="text" class="form-control" id="formfoto" value={{plongitud}}>
+          </div>
+          
+
+          <div>
+            <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+        </div>
+
+
+  </div>         
+</div>
+
+
+

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+
+
+import {MockService} from '../mocks/mock.service';
+import { Escuderia } from '../models/escuderia';
 
 @Component({
   selector: 'app-apuesta',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApuestaComponent implements OnInit {
 
-  constructor() { }
+  escuderias: Escuderia[];
+
+  constructor(
+    private route: ActivatedRoute,
+    private service: MockService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
+    this.getEscuderias();
+    //console.log("hola" + this.escuderias.toString);
   }
 
+  getEscuderias(): void{
+    this.escuderias = [];
+  }
 }
