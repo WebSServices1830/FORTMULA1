@@ -19,6 +19,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { EntrenamientosComponent } from './entrenamientos/entrenamientos.component';
 import {CarreraComponent} from './carrera/carrera.component';
 import {ClasificacionComponent} from './clasificacion/clasificacion.component';
+import {CrearPilotoComponent} from './piloto/crear-piloto/crear-piloto.component';
 
 const routes: Routes = [
   { path: 'apuesta/:id', component: ApuestaComponent },
@@ -33,6 +34,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'perfil/:id', component: PerfilComponent },
   { path: 'escuderia/:id/piloto/:idP', component: PilotoComponent },
+
+        { path: 'escuderia/:id/piloto', component: CrearPilotoComponent },
+
   { path: 'pista/:id', component: PistaComponent },
   { path: 'premio/:id', component: PremioComponent },
   { path: 'premio/:id/entrenamientos', component: EntrenamientosComponent },

@@ -1,0 +1,26 @@
+<div class="pg">
+  <h3>Nuevo piloto</h3>
+  <form name="form" (ngSubmit)="createPilot()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputNombre">Nombre</label>
+        <input name="inputNombre" [(ngModel)]="piloto.nombre" type="text" class="form-control" id="inputNombre" #inputNombre="ngModel" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputNacionalidad">Nacionalidad</label>
+        <input name="inputNacionalidad" [(ngModel)]="piloto.nacionalidad" type="text" class="form-control" id="inputNacionalidad" #inputNacionalidad="ngModel" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputFecha">Fecha de nacimiento</label>
+      <input type="date" class="form-control" id="inputFecha">
+    </div>
+    <div class="form-group">
+      <label for="inputFoto">Foto</label>
+      <input name="inputFoto" [(ngModel)]="piloto.foto" type="text" class="form-control" id="inputFoto" #inputFoto="ngModel" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+
+</div>

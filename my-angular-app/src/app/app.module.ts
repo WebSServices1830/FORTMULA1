@@ -23,10 +23,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { EntrenamientosComponent } from './entrenamientos/entrenamientos.component';
 import { CarreraComponent } from './carrera/carrera.component';
 import { ClasificacionComponent } from './clasificacion/clasificacion.component';
+import { CrearPilotoComponent } from './piloto/crear-piloto/crear-piloto.component';
+import {HttpClientModule} from '@angular/common/http';
+import { CrearPistaComponent } from './pista/crear-pista/crear-pista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    NavbarComponent,
+
     LoginComponent,
     RegistrarComponent,
     CalendarioComponent,
@@ -42,15 +48,17 @@ import { ClasificacionComponent } from './clasificacion/clasificacion.component'
     ListaPistaComponent,
     PistaComponent,
     PerfilComponent,
-    NavbarComponent,
     EntrenamientosComponent,
     CarreraComponent,
-    ClasificacionComponent
+    ClasificacionComponent,
+    CrearPilotoComponent,
+    CrearPistaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
