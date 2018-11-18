@@ -16,7 +16,9 @@ class Simulacion:
             indx_random = randint(0, len(id_pilotos) - 1)
             id_seleccionado = id_pilotos[indx_random]
             ranking.append(id_seleccionado)
-            id_pilotos = [id for id in id_pilotos if not (id == id_seleccionado)]
+            id_pilotos = [
+                id for id in id_pilotos if not (id == id_seleccionado)
+            ]
         return ranking
 
     def agregar_pesos_diferentes(self, pesos):

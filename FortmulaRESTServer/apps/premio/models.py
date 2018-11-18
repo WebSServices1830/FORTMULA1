@@ -4,11 +4,9 @@ from utils.models import BaseModel
 
 
 class InfoPista(BaseModel):
-    descripcion = models.CharField(
-        max_length=100
-    )
+    descripcion = models.TextField()
     foto = models.CharField(
-        max_length=100
+        max_length=300
     )
     longitud = models.DecimalField(
         decimal_places=2,
@@ -17,12 +15,17 @@ class InfoPista(BaseModel):
     nombre = models.CharField(
         max_length=100
     )
-    puntuacion = models.IntegerField()
+    tiempo_ganador = models.CharField(
+        max_length=100
+    )
+    ganador = models.CharField(
+        max_length=100
+    )
 
 
 class Premio(BaseModel):
     ciudad = models.CharField(max_length=100)
-    fecha = models.DateField()
+    fecha = models.DateField(null=True)
     info_pista = models.OneToOneField(
         InfoPista,
         on_delete=models.PROTECT,

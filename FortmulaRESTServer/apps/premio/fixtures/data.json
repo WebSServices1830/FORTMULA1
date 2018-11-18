@@ -1,0 +1,527 @@
+[
+  {
+    "model": "premio.infopista",
+    "pk": 1,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Localizada en Melbourne, Australia, la pista fue creada en 1993 usando una combinación de los caminos existentes alrededor del Albert Park.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Australia_Circuit.png.transform/8col/image.png",
+      "longitud": 5303,
+      "nombre": "Melbourne Grand Prix Circuit",
+      "tiempo_ganador": "1:29:33.283",
+	  "ganador": "Sebatian Vettel"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 1,
+    "fields": {
+      "created": "2017-12-20 14:00",
+      "updated": "2017-12-20 14:00",
+      "ciudad": "Melbourne",
+      "info_pista": 1,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 2,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Creado en 2002, en Sakhir, Bahrein, empezado desde cero y en la arena donde se trabajó el circuito, creado por Hermann Tilke.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Bahrain_Circuit.png.transform/8col/image.png",
+      "longitud": 5412,
+      "nombre": "Bahrain International Circuit",
+      "tiempo_ganador": "1:32:01.940",
+	  "ganador": "Sebatian Vettel"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 2,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Sakhir",
+      "info_pista": 2,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 3,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Creado en abril de 2003, en el distrito de Jiading en Shanghai, especialmente para la Fórmula 1. Su duración tardó, más o menos, 18 meses.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/China_Circuit.png.transform/8col/image.png",
+      "longitud": 5451,
+      "nombre": "Shanghai International Circuit",
+      "tiempo_ganador": "1:35:36.380",
+	  "ganador": "Daniel Ricciardo"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 3,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Distrito Jiading",
+      "info_pista": 3,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 4,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Baku, Azerbaijan, es el más reciente circuito urbano en unirse al calendario de la Fórmula 1, en el mismo rango de Mónaco, Melbourne y Singapur.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Baku_Circuit.png.transform/8col/image.png",
+      "longitud": 6003,
+      "nombre": "Baku City Circuit",
+      "tiempo_ganador": "1:43:44.291",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 4,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Baku",
+      "info_pista": 4,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 5,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "El circuito de Cataluña fue construido en 1992 para el programa de evolución de los Olímpicos en Barcelona. La primera carrera fue llevada a cabo en 1991.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Spain_Circuit.png.transform/8col/image.png",
+      "longitud": 5451,
+      "nombre": "Circuit de Barcelona-Catalunya",
+      "tiempo_ganador": "Lewis Hamilton",
+	  "ganador": "1:35:28.972"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 5,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Barcelona",
+      "info_pista": 5,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 6,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "La pista fue construida en 1215, más o menos, cuando Mónaco se estableció como una colonia de Genoa.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monoco_Circuit.png.transform/8col/image.png",
+      "longitud": 3337,
+      "nombre": "Circuit de Monaco",
+      "tiempo_ganador": "1:42:54.807",
+	  "ganador": "Daniel Ricciardo"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 6,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Monte Carlo",
+      "info_pista": 6,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 7,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Fue creada en 1976, cuando los terminaron los Olímpicos de verano de Montreal, haciendo la pista en las vías de la isla Notre Dame en la mitad del Río Saint Lawrence.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Canada_Circuit.png.transform/8col/image.png",
+      "longitud": 4361,
+      "nombre": "Circuit Gilles-Villeneuve",
+      "tiempo_ganador": "1:28:31.377",
+	  "ganador": "Sebatian Vettel"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 7,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Montreal",
+      "info_pista": 7,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 8,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Empezó en 1969, cuando el magnate Paul Ricard junto con los corredores franceses Jean-Pierre Beltoise y Henri Pescarolo hicieron una consultoría para el diseño de la pista. Las carreras empezaron allí un año después.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/France_Circuit.png.transform/8col/image.png",
+      "longitud": 5842,
+      "nombre": "Circuit Paul Ricard",
+      "tiempo_ganador": "1:30:11.385",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 8,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Le Castellet",
+      "info_pista": 8,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 9,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Creada apróximadamente en el invierno del año 1995-6, en Austria, cuando Hermann Tilke quería convertir la Osterreichring en una pista más corta y moderna.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Austria_Circuit.png.transform/8col/image.png",
+      "longitud": 5451,
+      "nombre": "Red Bull Ring",
+      "tiempo_ganador": "1:21:56.024",
+	  "ganador": "Max Verstappen"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 9,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Spielberg",
+      "info_pista": 9,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 10,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Una de las mejores pistas del mundo, originalmente creada en 1942 como un campo aéreo en Silverstone, Gran Bretaña, y que propiamente fue usado para carreras en 1947.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_Britain_Circuit.png.transform/8col/image.png",
+      "longitud": 5891,
+      "nombre": "Silverstone Circuit",
+      "tiempo_ganador": "1:27:29.784",
+	  "ganador": "Sebastian Vettel"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 10,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Silverstone",
+      "info_pista": 10,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 11,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "En Alemania, fue creada originalmente en 1932 como una pista de test para los carros de Mercedes. Tenía 12km en forma triangular.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Germany_Circuit.png.transform/8col/image.png",
+      "longitud": 4574,
+      "nombre": "Hockenheimring",
+      "tiempo_ganador": "1:32:29.845",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 11,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Hockenheim",
+      "info_pista": 11,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 12,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Empezó en trabajos de la pista en 1985 y estuvo lista solo nueve meses después. Se quería, en un comienzo, renovar el circuito de Nepliget en Budapest, pero al final se decidió por la creación de una nueva pista.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Hungary_Circuit.png.transform/8col/image.png",
+      "longitud": 4381,
+      "nombre": "Hungaroring",
+      "tiempo_ganador": "1:37:16.427",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 12,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Budapest",
+      "info_pista": 12,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 13,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Se creó originalmente en 1921, por los diseñadores Jules de Thier y Henri Langlois van Ophem, usando vías públicas entre las ciudades de Francorchamps, Malmedy y Stavelot, Bélgica. Se rediseñó en 1979, con la mitad de la longitud original.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Belgium_Circuit.png.transform/8col/image.png",
+      "longitud": 7004,
+      "nombre": "Circuit de Spa-Francorchamps",
+      "tiempo_ganador": "1:23:34.476",
+	  "ganador": "Sebastian Vettel"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 13,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Spa-Francorchamps",
+      "info_pista": 13,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 14,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Se contruyó en Italia en solo 119 en 1922, fue la tercera pista en el mundo que se creó con el propósito de ser una pista de carreras en el mundo, luego de la de Brooklands en el Reino Unido e Indianapolis en USA.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit.png.transform/8col/image.png",
+      "longitud": 5793,
+      "nombre": "Autodromo Nazionale Monza",
+      "tiempo_ganador": "1:16:54.484",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 14,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Monza",
+      "info_pista": 14,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 15,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Llegó en 2008, creado bajo el diseño del avistamiento de la ciudad, planeado por Hermann Tilke y mejorado por KBR Inc.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Singapore_Circuit.png.transform/8col/image.png",
+      "longitud": 5063,
+      "nombre": "Marina Bay Street Circuit",
+      "tiempo_ganador": "1:51:11.611",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 15,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Singapore",
+      "info_pista": 15,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 16,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "En Rusia, diseñado por Hermann Tilke, es un circuito urbano que evoluciona de las rutas internas del parque de la ciudad construido en 2014 para los Juegos Olímpicos.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Russia_Circuit.png.transform/8col/image.png",
+      "longitud": 5848,
+      "nombre": "Sochi Autodrom",
+      "tiempo_ganador": "1:27:25.181",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 16,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Sochi",
+      "info_pista": 16,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 17,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Honda creó su pista de pruebas en 1962, donde más tarde se convertiría en la actual pista de carreras  cuando Dutchman John Hugenholtz recibió la autorización para convertir la pista de pruebas en una de carreras. Originalmente el diseño de la pista la hacía pasar hasta 3 veces por encima y debajo de ella.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit.png.transform/8col/image.png",
+      "longitud": 5807,
+      "nombre": "Suzuka International Racing Course",
+      "tiempo_ganador": "1:27:17.062",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 17,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Suzuka",
+      "info_pista": 17,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 18,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Diseñado por Hermann Tilke en colaboración con la firma de arquitectura Americana y la pista abrió en octubre 21 de 2012 por Mario Andretti.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/USA_Circuit.png.transform/8col/image.png",
+      "longitud": 5513,
+      "nombre": "Circuit of The Americas",
+      "tiempo_ganador": "1:34:18.643",
+	  "ganador": "Kimi Raikkonen"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 18,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Austin",
+      "info_pista": 18,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 19,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Creada en 1959 por el padre de los hermanos corredores más famosos de México, Ricardo y Pedro Rodríguez, era consejero del entonces presidente Adolfo Lopez Mateo y le convenció de construir una pista en el parque deportivo de Magdalena Mixiuhca usando vías ya existentes.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Mexico_Circuit.png.transform/8col/image.png",
+      "longitud": 4304,
+      "nombre": "Autódromo Hermanos Rodríguez",
+      "tiempo_ganador": "1:38:28.851",
+	  "ganador": "Max Verstappen"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 19,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Ciudad de México",
+      "info_pista": 19,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 20,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Comenzó el trabajo sobre la pista en 1938. Los diseñadores de la pista se basaron en tres circuitos ya existentes: Brooklands, Roosevelt Raceway y Monthery.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Brazil_Circuit.png.transform/8col/image.png",
+      "longitud": 4309,
+      "nombre": "Autódromo José Carlos Pace",
+      "tiempo_ganador": "1:27:09.066",
+	  "ganador": "Lewis Hamilton"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 20,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Sao Paulo",
+      "info_pista": 20,
+      "campeonato": 1
+    }
+  },
+  {
+    "model": "premio.infopista",
+    "pk": 21,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "En 2006 se anunciaron los planes para la construcción de la Isla Yas, el este de Abu Dhabi, como un destino turístico y con planes centrales de una pista de 5.5km de largo. En 2007 se convirtió al fin en la pista Yas Marina y se completó en 2009.",
+      "foto": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Abu_Dhabi_Circuit.png.transform/8col/image.png",
+      "longitud": 5554,
+      "nombre": "Yas Marina Circuit",
+      "tiempo_ganador": "?????",
+	  "ganador": "????"
+    }
+  },
+  {
+    "model": "premio.premio",
+    "pk": 21,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "ciudad": "Yas Marina",
+      "info_pista": 21,
+      "campeonato": 1
+    }
+  }
+]

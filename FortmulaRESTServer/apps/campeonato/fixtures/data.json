@@ -1,0 +1,233 @@
+[
+  {
+    "model": "campeonato.campeonato",
+    "pk": 1,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+	  "nombre": "Rolex Australian",
+	  "fecha_inicio": "2018-03-22",
+	  "fecha_final": "2018-03-25"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 2,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Gulf Air Bahrain Grand",
+      "fecha_inicio": "2018-04-06",
+	  "fecha_final": "2018-04-08"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 3,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Heineken Chinese Grand",
+      "fecha_inicio": "2018-04-13",
+	  "fecha_final": "2018-04-15"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 4,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Azerbaijan Grand Prix",
+      "fecha_inicio": "2018-04-27",
+	  "fecha_final": "2018-04-29"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 5,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Gran Premio de España",
+      "fecha_inicio": "2018-05-11",
+	  "fecha_final": "2018-05-13"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 6,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Grand Prix de Monaco",
+      "fecha_inicio": "2018-05-24",
+	  "fecha_final": "2018-05-27"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 7,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Grand Prix Heineken Du Canada",
+      "fecha_inicio": "2018-06-08",
+	  "fecha_final": "2018-06-10"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 8,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Pirelli Grand Prix de France",
+      "fecha_inicio": "2018-06-22",
+	  "fecha_final": "2018-06-24"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 9,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Eyetime Grosser Preis Von Osterreich",
+      "fecha_inicio": "2018-06-29",
+	  "fecha_final": "2018-07-01"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 10,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Rolex British Grand Prix",
+      "fecha_inicio": "2018-07-05",
+	  "fecha_final": "2018-07-08"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 11,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Emirates Grosser Preis Von Deutschland",
+      "fecha_inicio": "2018-07-20",
+	  "fecha_final": "2018-07-22"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 12,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Rolex Magyar Nagydij",
+      "fecha_inicio": "2018-07-27",
+	  "fecha_final": "2018-07-29"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 13,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Johnnie Walker Belgian Grand Prix",
+      "fecha_inicio": "2018-08-24",
+	  "fecha_final": "2018-08-26"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 14,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Gran Premio Heineken D'Italia",
+      "fecha_inicio": "2018-08-31",
+	  "fecha_final": "2018-09-02"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 15,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Singapore Airlines Singapore Grand Prix",
+      "fecha_inicio": "2018-09-14",
+	  "fecha_final": "2018-09-16"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 16,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "VTB Russian Grand Prix",
+      "fecha_inicio": "2018-09-28",
+	  "fecha_final": "2018-09-30"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 17,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Honda Japanese Grand Prix",
+      "fecha_inicio": "2018-10-05",
+	  "fecha_final": "2018-10-07"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 18,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Pirelli United Stated Grand Prix",
+      "fecha_inicio": "2018-10-19",
+	  "fecha_final": "2018-10-21"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 19,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Gran Premio de México",
+      "fecha_inicio": "2018-10-26",
+	  "fecha_final": "2018-10-28"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 20,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Grande Premio Heineken Do Brasil",
+      "fecha_inicio": "2018-11-09",
+	  "fecha_final": "2018-11-11"
+    }
+  },
+  {
+    "model": "campeonato.campeonato",
+    "pk": 21,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "nombre": "Ethiad Airways Abu Dhabi Grand Prix",
+      "fecha_inicio": "2018-11-23",
+	  "fecha_final": "2018-11-25"
+    }
+  }
+]

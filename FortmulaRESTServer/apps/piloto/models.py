@@ -11,11 +11,13 @@ class Piloto(BaseModel):
     nombre = models.CharField(max_length=200)
     escuderia = models.ForeignKey(
         Escuderia,
+        null=True,
         on_delete=models.PROTECT,
-        related_name='piloto'
+        related_name='pilotos'
     )
-    auto = models.OneToOneField(
+    auto = models.ForeignKey(
         Auto,
+        null=True,
         on_delete=models.PROTECT,
         related_name='piloto'
     )

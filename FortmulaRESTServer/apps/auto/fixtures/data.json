@@ -1,0 +1,162 @@
+[
+  {
+    "model": "auto.auto",
+    "pk": 1,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "beam_wing": "Beam Wing",
+      "color": "Azul",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lewis_Hamilton_2015_Malaysia_FP2_1.jpg/280px-Lewis_Hamilton_2015_Malaysia_FP2_1.jpg",
+      "modelo": "F1 W06 Hybrid",
+      "motor": "Electric",
+      "potencia": "850–900 hp",
+      "escuderia": 1
+    }
+  },
+   {
+    "model": "auto.auto",
+    "pk": 2,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "beam_wing": "Beam Wing",
+      "color": "Rojo",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Sebastian_Vettel_2017_Malaysia_FP1_1.jpg/280px-Sebastian_Vettel_2017_Malaysia_FP1_1.jpg",
+      "modelo": "Ferrari SF70H",
+      "motor": "Electric",
+      "potencia": "950-1000 hp",
+      "escuderia": 2
+    }
+  },
+    {
+    "model": "auto.auto",
+    "pk": 3,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "beam_wing": "Beam Wing",
+      "color": "Negro",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Sebastian_Vettel_2012_Malaysia_FP2.jpg/275px-Sebastian_Vettel_2012_Malaysia_FP2.jpg",
+      "modelo": "B8",
+      "motor": "RS27-2012",
+      "potencia": "146.5 cu",
+      "escuderia": 3
+    }
+  },
+	 {
+    "model": "auto.auto",
+    "pk": 4,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+     "beam_wing": "Beam Wing",
+      "color": "Amarillo",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Renault_RS01_Deutsches_Museum.jpg/260px-Renault_RS01_Deutsches_Museum.jpg",
+      "modelo": "RS01",
+      "motor": "Renault-Gordini EF1",
+      "potencia": "91.3 cu",
+      "escuderia": 4
+    }
+  },
+	  {
+    "model": "auto.auto",
+    "pk": 5,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+     "beam_wing": "Beam Wing",
+      "color": "Blanco",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kevin_Magnussen-Test_Days_2018_Circuit_Barcelona_%283%29.jpg/270px-Kevin_Magnussen-Test_Days_2018_Circuit_Barcelona_%283%29.jpg",
+      "modelo": "VF-18",
+      "motor": "Ferrari kinetic and thermal energy recovery systems",
+      "potencia": "98 cu",
+      "escuderia": 5
+    }
+  },
+	 {
+    "model": "auto.auto",
+    "pk": 6,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+     "beam_wing": "Beam Wing",
+      "color": "Naranja",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Vandoorne_McLaren_MCL33_Testing_Barcelona.jpg/270px-Vandoorne_McLaren_MCL33_Testing_Barcelona.jpg",
+      "modelo": "MCL33",
+      "motor": "Renault Sport R.E.18",
+      "potencia": "6,064 cc",
+      "escuderia": 6
+    }
+  },
+	  {
+    "model": "auto.auto",
+    "pk": 7,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+     "beam_wing": "Beam Wing",
+      "color": "Negro",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nico_Hulkenberg_2014_Singapore_FP2.jpg/270px-Nico_Hulkenberg_2014_Singapore_FP2.jpg",
+      "modelo": "VJM07",
+      "motor": "Mercedes PU106A Hybrid Motor",
+      "potencia": "98 cu",
+      "escuderia": 7
+    }
+  },
+	   {
+    "model": "auto.auto",
+    "pk": 8,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "beam_wing": "Beam Wing",
+      "color": "Blanco",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/2018_Chinese_Grand_Prix_FP3_Charles_Leclerc_%2839897914770%29_%28cropped%29.jpg/270px-2018_Chinese_Grand_Prix_FP3_Charles_Leclerc_%2839897914770%29_%28cropped%29.jpg",
+      "modelo": "Sauber C37",
+      "motor": "Ferrari kinetic and thermal energy recovery systems",
+      "potencia": "98 cu",
+      "escuderia": 8
+    }
+  },
+	    {
+    "model": "auto.auto",
+    "pk": 9,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "beam_wing": "Beam Wing",
+      "color": "Azul",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Pierre_Gasly-Test_Days_2018_Circuit_Barcelona_%282%29.jpg/270px-Pierre_Gasly-Test_Days_2018_Circuit_Barcelona_%282%29.jpg",
+      "modelo": "STR13",
+      "motor": "Honda RA618H ",
+      "potencia": "98 cu",
+      "escuderia": 9
+    }
+  },
+		 {
+    "model": "auto.auto",
+    "pk": 10,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "beam_wing": "Beam Wing",
+      "color": "Blanco",
+      "end_plate": "End plate",
+      "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sergey_SirotkinTest_Days_2018_Circuit_Barcelona_%281%29.jpg/270px-Sergey_SirotkinTest_Days_2018_Circuit_Barcelona_%281%29.jpg",
+      "modelo": "Williams FW41",
+      "motor": "Mercedes M09 EQ Power",
+      "potencia": "98 cu",
+      "escuderia": 10
+    }
+  }
+]
