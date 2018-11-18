@@ -22,7 +22,7 @@ import {ClasificacionComponent} from './clasificacion/clasificacion.component';
 import {CrearPilotoComponent} from './piloto/crear-piloto/crear-piloto.component';
 
 const routes: Routes = [
-  { path: 'apuesta/:id', component: ApuestaComponent },
+  { path: 'apuesta', component: ApuestaComponent },
   { path: 'escuderia/:id/auto/:idA', component: AutoComponent },
   { path: 'calendario', component: CalendarioComponent },
   { path: 'escuderia/:id', component: EscuderiaComponent },

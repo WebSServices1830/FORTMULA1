@@ -1,10 +1,8 @@
 <div class="jumbotron">
   <div *ngIf="premio">
+      <h1>{{premio.ciudad}}</h1>
     <div class="info">
       <div class="esto">
-      <h1>{{premio.ciudad}}</h1>
-        Fecha inicio: {{premio.fecha}}
-        Fecha final: {{premio.fecha}}
         <app-pista></app-pista>
       </div>
       <div class="img">
@@ -22,7 +20,7 @@
 
 <div class="row editarbtn">
   <div class="col-sm-12">
-      <button type="button" class="btn btn-primary" (click)=mostrarEditar()>Editar Perfil</button>
+      <button type="button" class="btn btn-primary" (click)=mostrarEditar()>Editar</button>
   </div>
 </div>    
 

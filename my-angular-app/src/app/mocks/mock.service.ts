@@ -101,7 +101,14 @@ export class MockService {
   }
 
   getPremios(): Observable<Premio[]> {
-    return of(PREMIOS);
+    const url = API_URL + '/lista-premio/';
+    return this.http.get<Premio[]>(url, this.getHttpHeaders());
+  }
+  
+  
+   getPremio(id: number): Observable<Premio> {
+    const url = API_URL + '/premio/' + id;
+    return this.http.get<Premio>(url, this.getHttpHeaders());
   }
 
   /*getFotos(): Observable<string[]> {
@@ -113,17 +120,14 @@ export class MockService {
   }*/
 
   getPistas(): Observable<Pista[]> {
-    return of(PISTAS);
+    const url = API_URL + '/lista-pistas/';
+    return this.http.get<Pista[]>(url, this.getHttpHeaders());
   }
 
-  getPremio(id: number): Observable<Premio> {
-    return of(PREMIOS.find(premio => premio.id === id));
-  }
-
+ 
   getPista(id: number): Observable<Pista> {
-    //const p = PREMIOS.find(premio => premio.id === id);
-    //return of(PISTAS.find(pista => pista.id === p.idPista));
-    return of(PISTAS.find(pista => pista.id === id));
+    const url = API_URL + '/pista/' + id;
+    return this.http.get<Pista>(url, this.getHttpHeaders());
   }
 
   getEntrenamientos(id: number): Observable<Entrenamiento[]> {
@@ -131,7 +135,8 @@ export class MockService {
   }
 
   getCarrera(id: number): Observable<Carrera> {
-    return of(CARRERAS.find(carrera => carrera.idPremio === id));
+    const url = API_URL + '/Carrera/' + id;
+    return this.http.get<Carrera>(url, this.getHttpHeaders());
   }
 
   getResultadosCarrera(id: number): Observable<Resultado[]> {
