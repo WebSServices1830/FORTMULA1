@@ -85,9 +85,13 @@ export class MockService {
     return of(pilotos);
   }
 
-  getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
-    return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
+  getPiloto(id: number): Observable<Piloto> {
+    const url = `${this.apiUrl}/piloto/${id}`;
+    return this.http.get<Piloto>(url);
   }
+  /*getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
+    return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
+  }*/
 
   getAutos(idEscuderia: number): Observable<Auto[]> {
     const url = API_URL + '/auto/' + idEscuderia;
