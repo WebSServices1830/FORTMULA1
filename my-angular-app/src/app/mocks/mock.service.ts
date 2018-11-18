@@ -35,7 +35,7 @@ export class MockService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        //'Authorization': `Token: `,  // // To be edited!!!1
+        'Authorization': `Token: 70caf1815bb6b042fb61a7cb8e6c66e1905e3795`,
       })
     };
   }
