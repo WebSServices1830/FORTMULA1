@@ -1,25 +1,29 @@
-<div *ngIf="escuderia">
-  <h2>{{escuderia.nombre}} - Detalles</h2>
-  <div>Descripción: {{escuderia.descripcion}}</div>
-  <div>
-    <h4>Pilotos</h4>
-    <ul>
-      <li *ngFor="let piloto of pilotos">
-        <span>{{piloto.nombre}}</span>
-        <a routerLink="/escuderia/{{escuderia.id}}/piloto/{{piloto.id}}">Ver</a>
-      </li>
-    </ul>
+<div class="container">
+
+  <div *ngIf="escuderia">
+    <h2>{{escuderia.nombre}} - Detalles</h2>
+    <div>Descripción: {{escuderia.descripcion}}</div>
+    <div>
+      <h4>Pilotos</h4>
+      <ul>
+        <li *ngFor="let piloto of pilotos">
+          <span>{{piloto.nombre}}</span>
+          <a routerLink="/escuderia/{{escuderia.id}}/piloto/{{piloto.id}}">Ver</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h4>Autos</h4>
+      <ul>
+        <li *ngFor="let auto of autos">
+          <span>{{auto.id}}</span>
+          <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}">Ver</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div>
-    <h4>Autos</h4>
-    <ul>
-      <li *ngFor="let auto of autos">
-        <span>{{auto.id}}</span>
-        <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}">Ver</a>
-      </li>
-    </ul>
-  </div>
+
+
+  <button (click)="goBack()">volver</button>
+
 </div>
-
-
-<button (click)="goBack()">volver</button>

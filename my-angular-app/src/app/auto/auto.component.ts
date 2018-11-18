@@ -14,6 +14,8 @@ import { Auto } from '../models/auto';
 export class AutoComponent implements OnInit {
 
   auto: Auto;
+  messageEdit: number = 0;
+  messageCrear: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +35,19 @@ export class AutoComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  mostrarEditar(){
+    this.messageEdit = 1;
+  }
+  quitarEditar(){
+    this.messageEdit = 0;
+  }
+  mostrarCrear(){
+    this.messageCrear = 1;
+  }
+  quitarCrear(){
+    this.messageCrear = 0;
   }
 
 }
