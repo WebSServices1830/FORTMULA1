@@ -1,10 +1,107 @@
-<div *ngIf="auto">
-  <h2>Auto {{auto.id}} - Detalles</h2>
-  <div>modelo: {{auto.modelo}}</div>
-  <div>color: {{auto.color}}</div>
-  <div>motor: {{auto.motor}}</div>
-  <div>potencia: {{auto.potencia}}</div>
-  <div>escuderia: {{auto.escuderia}}</div>
-  <div>foto: <img src={{auto.foto}} alt=""></div>
+
+ <div class="container">
+
+  <div class="row infoauto">
+    <div class="col-md-6">
+      <div *ngIf="auto">
+        <h2>Auto {{auto.id}} - Detalles</h2>
+        <div> <b>Modelo: </b> {{auto.modelo}}</div>
+        <div> <b>Color: </b> {{auto.color}}</div>
+        <div> <b>Motor: </b> {{auto.motor}}</div>
+        <div> <b>Potencia: </b> {{auto.potencia}}</div>
+        <div> <b>ID Escudería: </b> {{auto.escuderia}}</div>
+        <div> <b>Caracteristicas: </b> {{auto.beam_wing}} , {{auto.end_plate}}</div>
+        <div> <b>Foto del Auto: </b> <img src={{auto.foto}} alt=""></div>
+      </div>
+
+      <div class="row editarbtn">
+        <div class="col-sm-2 boton">
+            <button type="button" class="btn btn-primary float-left" (click)=goBack()>Volver</button>
+        </div>
+        <div class="col-sm-2 boton">
+          <button type="button" class="btn btn-warning float-left" (click)=mostrarEditar()>Editar</button>
+        </div>
+        <div class="col-sm-2 boton">
+          <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear()>Crear nuevo</button>
+        </div>
+      </div>
+    </div>  
+
+    <div class="col-md-6">
+      <div *ngIf="messageEdit==1">
+        <div class="row formeditar">
+            <!-- Editar Info Auto -->
+            <div class="col-sm-9">
+            <h4>Editar Auto {{auto.id}} </h4>
+            <form>
+                <div class="form-group">
+                  <label for="formname">Modelo de Auto:</label>
+                  <input type="text" class="form-control" id="formname" value={{auto.modelo}}>
+                </div>
+                <div class="form-group">
+                    <label for="formcolor">Color:</label>
+                    <input type="text" class="form-control" id="formcolor" value={{auto.color}}>
+                </div>
+                <div class="form-group">
+                    <label for="formmotor">Motor:</label>
+                    <input type="text" class="form-control" id="formmotor" value={{auto.motor}}>
+                </div>
+                <div class="form-group">
+                    <label for="formpotencia">Potencia:</label>
+                    <input type="text" class="form-control" id="formpotencia" value={{auto.potencia}}>
+                </div>
+                <div class="form-group">
+                    <label for="formfoto">Foto:</label>
+                    <input type="text" class="form-control" id="formfoto" value={{auto.foto}}>
+                </div>
+                                
+                <div>
+                  <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+            </div>
+        </div>         
+      </div>
+
+      <div *ngIf="messageCrear==1">
+          <div class="row formcrear">
+              <!-- Crear un auto -->
+              <div class="col-sm-9">
+              <h4>Crear Auto nuevo</h4>
+              <form>
+                  <div class="form-group">
+                      <label for="formnewname">Modelo de Auto:</label>
+                      <input type="text" class="form-control" id="formnewname" placeholder="Ej: VF-18" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formnewcolor">Color:</label>
+                        <input type="text" class="form-control" id="formnewcolor" placeholder="Ej: Rojo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formnewmotor">Motor:</label>
+                        <input type="text" class="form-control" id="formnewmotor" placeholder="Ej: RS27-2012" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formnewpotencia">Potencia:</label>
+                        <input type="text" class="form-control" id="formnewpotencia" placeholder="Ej: 980 hp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formnewfoto">Foto:</label>
+                        <input type="text" class="form-control" id="formnewfoto" placeholder="[URL]" required>
+                    </div>
+                                    
+                    <div>
+                      <button type="button" class="btn btn-danger" (click)=quitarCrear()>Cancelar</button>
+                      <button type="button" class="btn btn-primary">Crear nuevo</button>
+                    </div>
+                </form>
+                </div>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-<button (click)="goBack()">volver</button>

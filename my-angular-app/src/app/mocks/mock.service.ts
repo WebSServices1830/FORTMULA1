@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Escuderia } from '../models/escuderia';
 import { ESCUDERIAS } from '../mocks/mock-escuderias';
 import { Piloto } from '../models/piloto';
@@ -18,8 +19,9 @@ import {Resultado} from '../models/resultado';
 import {RESULTADOS} from './mock-resultados';
 import {CLASIFICACIONES} from './mock-clasificacion';
 import {Clasificacion} from '../models/clasificacion';
-import {forEach} from '@angular/router/src/utils/collection';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { API_URL } from '../constants';
+
 
 @Injectable({
   providedIn: 'root'
@@ -68,7 +70,8 @@ export class MockService {
 
 
   getPilotos(idEscuderia: number): Observable<Piloto[]> {
-    return of(PILOTOS.filter(piloto => piloto.escuderia === idEscuderia));
+    const url = API_URL + '/escuderia/' + idEscuderia + '/pilotos/';
+    return this.http.get<Piloto[]>(url, this.getHttpHeaders());
   }
   /* getPilotos(idEscuderia: number): Observable<Piloto[]> {
     return of(PILOTOS.filter(piloto => piloto.escuderia === idEscuderia));
@@ -88,11 +91,13 @@ export class MockService {
   }
 
   getAutos(idEscuderia: number): Observable<Auto[]> {
-    return of(AUTOS.filter(auto => auto.escuderia === idEscuderia));
+    const url = API_URL + '/auto/' + idEscuderia;
+    return this.http.get<Auto[]>(url, this.getHttpHeaders());
   }
 
   getAuto(id: number, idEscuderia: number): Observable<Auto> {
-    return of(AUTOS.find(auto => auto.id === id && auto.escuderia === idEscuderia));
+    const url = API_URL + '/auto/' + idEscuderia;
+    return this.http.get<Auto>(url, this.getHttpHeaders());
   }
 
   getPremios(): Observable<Premio[]> {
@@ -115,10 +120,10 @@ export class MockService {
     return of(PISTAS);
   } */
 
-  getPremio(id: number ): Observable<Premio> {
+  getPremio(id: number): Observable<Premio> {
     return of(PREMIOS.find(premio => premio.id === id));
   }
-
+  
   getPista(id: number ): Observable<Pista> {
     // const p = PREMIOS.find(premio => premio.id === id);
     // return of(PISTAS.find(pista => pista.id === p.idPista));
@@ -129,7 +134,7 @@ export class MockService {
     return of(ENTRENAMIENTOS.filter(entrenamiento => entrenamiento.idPremio === id));
   }
 
-  getCarrera(id: number ): Observable<Carrera> {
+  getCarrera(id: number): Observable<Carrera> {
     return of(CARRERAS.find(carrera => carrera.idPremio === id));
   }
 
@@ -137,7 +142,7 @@ export class MockService {
     return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'carrera'));
   }
 
-  getClasificacion(id: number ): Observable<Clasificacion> {
+  getClasificacion(id: number): Observable<Clasificacion> {
     return of(CLASIFICACIONES.find(clasificacion => clasificacion.idPremio === id));
   }
 

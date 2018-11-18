@@ -27,6 +27,7 @@ export class EscuderiaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.escuderia = new Escuderia();
     this.getEscuderia();
     this.getPilotos(this.escuderia.id);
     this.getAutos(this.escuderia.id);
