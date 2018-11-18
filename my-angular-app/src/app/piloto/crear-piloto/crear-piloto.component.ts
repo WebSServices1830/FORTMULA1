@@ -22,14 +22,16 @@ export class CrearPilotoComponent implements OnInit {
     this.piloto = new Piloto();
   }
 
-  createPilot() {
+  createPiloto() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.piloto.escuderia = id;
+    this.piloto.auto = id;
     this.mockService.createPiloto(this.piloto).subscribe(
       response => {
         console.log('siiii');
-        const id = +this.route.snapshot.paramMap.get('id');
-        this.router.navigate(['/escuderia' + id]);
+        this.router.navigate(['/escuderia/' + id]);
       }, error => {
-        console.log(error);
+        console.log('omg!!! ' + error);
       }
     );
   }

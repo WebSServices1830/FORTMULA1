@@ -63,9 +63,8 @@ export class PilotoComponent implements OnInit {
   editInfo() {
     this.service.editPiloto(this.nuevo).subscribe(
       response =>{
-        const idP = +this.route.snapshot.paramMap.get('idP');
         const idE = +this.route.snapshot.paramMap.get('id');
-        this.router.navigate(['/escuderia/' + idE + '/piloto/' + idP]);
+        this.router.navigate(['/escuderia/' + idE]);
       });
   }
 
