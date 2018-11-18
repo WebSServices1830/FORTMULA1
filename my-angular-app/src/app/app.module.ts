@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { EntrenamientosComponent } from './entrenamientos/entrenamientos.component';
 import { CarreraComponent } from './carrera/carrera.component';
 import { ClasificacionComponent } from './clasificacion/clasificacion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ClasificacionComponent } from './clasificacion/clasificacion.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

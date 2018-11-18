@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Escuderia } from '../models/escuderia';
 import { ESCUDERIAS } from '../mocks/mock-escuderias';
 import { Piloto } from '../models/piloto';
@@ -12,26 +13,37 @@ import { Pista } from '../models/pista';
 import { PISTAS } from '../mocks/mock-pistas';
 import { Entrenamiento } from '../models/entrenamiento';
 import { ENTRENAMIENTOS } from '../mocks/mock-entrenamientos';
-import {CARRERAS} from './mock-carreras';
-import {Carrera} from '../models/carrera';
-import {Resultado} from '../models/resultado';
-import {RESULTADOS} from './mock-resultados';
-import {CLASIFICACIONES} from './mock-clasificacion';
-import {Clasificacion} from '../models/clasificacion';
-import {forEach} from '@angular/router/src/utils/collection';
+import { CARRERAS } from './mock-carreras';
+import { Carrera } from '../models/carrera';
+import { Resultado } from '../models/resultado';
+import { RESULTADOS } from './mock-resultados';
+import { CLASIFICACIONES } from './mock-clasificacion';
+import { Clasificacion } from '../models/clasificacion';
+import { forEach } from '@angular/router/src/utils/collection';
+import { API_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MockService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getEscuderias(): Observable<Escuderia[]> {
-    return of(ESCUDERIAS);
+  getHttpHeaders() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        //'Authorization': `Token: `,  // // To be edited!!!1
+      })
+    };
   }
 
-  getEscuderia(id: number ): Observable<Escuderia> {
+  getEscuderias(): Observable<Escuderia[]> {
+    const url = API_URL + '/escuderia/';
+    return this.http.get<Escuderia[]>(url, this.getHttpHeaders());
+  }
+
+  getEscuderia(id: number): Observable<Escuderia> {
     return of(ESCUDERIAS.find(escuderia => escuderia.id === id));
   }
 
@@ -76,11 +88,11 @@ export class MockService {
     return of(PISTAS);
   }
 
-  getPremio(id: number ): Observable<Premio> {
+  getPremio(id: number): Observable<Premio> {
     return of(PREMIOS.find(premio => premio.id === id));
   }
 
-  getPista(id: number ): Observable<Pista> {
+  getPista(id: number): Observable<Pista> {
     //const p = PREMIOS.find(premio => premio.id === id);
     //return of(PISTAS.find(pista => pista.id === p.idPista));
     return of(PISTAS.find(pista => pista.id === id));
@@ -90,7 +102,7 @@ export class MockService {
     return of(ENTRENAMIENTOS.filter(entrenamiento => entrenamiento.idPremio === id));
   }
 
-  getCarrera(id: number ): Observable<Carrera> {
+  getCarrera(id: number): Observable<Carrera> {
     return of(CARRERAS.find(carrera => carrera.idPremio === id));
   }
 
@@ -98,7 +110,7 @@ export class MockService {
     return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'carrera'));
   }
 
-  getClasificacion(id: number ): Observable<Clasificacion> {
+  getClasificacion(id: number): Observable<Clasificacion> {
     return of(CLASIFICACIONES.find(clasificacion => clasificacion.idPremio === id));
   }
 
