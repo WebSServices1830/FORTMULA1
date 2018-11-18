@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import (
     EscuderiaView,
-    EscuderiaViewSet
+    EscuderiaViewSet,
+    EscuderiaPilotoView
 )
 
 urlpatterns = [
@@ -18,7 +19,10 @@ urlpatterns = [
                 'patch': 'update',
                 'delete': 'destroy'
             }
-        ),
-        name='token'
+        )
+    ),
+    path(
+        '<int:id>/pilotos/',
+        EscuderiaPilotoView.as_view()
     )
 ]

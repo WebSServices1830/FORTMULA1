@@ -4,6 +4,7 @@ from rest_framework import viewsets, views
 from rest_framework.response import Response
 from security.authentication import Authentication
 from security.permissions import AdminPermission
+from piloto.serializers import PilotoSerializer
 from .models import Escuderia
 from .serializers import EscuderiaSerializer
 
@@ -65,3 +66,12 @@ class EscuderiaViewSet(viewsets.ViewSet):
         if self.request.method == 'GET':
             self.permission_classes = []
         return super(EscuderiaViewSet, self).get_permissions()
+
+
+class EscuderiaPilotoView(views.APIView):
+
+    def get(self, request, id):
+        escuderia = get_object_or_404(Escuderia, id=id)
+        queryset = escuderia.pilotos.all()
+        serializer = PilotoSerializer(queryset, many=True)
+        return Response(serializer.data)

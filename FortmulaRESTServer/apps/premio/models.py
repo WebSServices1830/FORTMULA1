@@ -36,3 +36,18 @@ class Premio(BaseModel):
         on_delete=models.PROTECT,
         related_name='premios'
     )
+
+
+class Resultado(BaseModel):
+    mejor_vuelta = models.DecimalField(
+        max_digits=12,
+        decimal_places=2
+    )
+    tiempo_carrera = models.DecimalField(
+        max_digits=12,
+        decimal_places=2
+    )
+    tiempo_clasificacion = models.DecimalField(
+        max_digits=12,
+        decimal_places=2
+    )

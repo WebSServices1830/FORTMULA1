@@ -3,7 +3,11 @@ from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
 from security.authentication import Authentication
-from security.permissions import TokenPermission
+from security.permissions import (
+    TokenPermission,
+    AficionadoPermission,
+    AdminPermission
+)
 from .models import Administrador, Aficionado
 from .serializers import AdministradorSerializer, AficionadoSerializer
 
