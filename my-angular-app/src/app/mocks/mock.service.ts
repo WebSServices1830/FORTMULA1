@@ -74,15 +74,12 @@ export class MockService {
 
   createPiloto(piloto: Piloto): Observable<object> {
     const url = `${API_URL}/piloto/`;
-    const data = {
-      piloto: piloto
-    };
-    return this.http.post<object>(url, data, this.getHttpHeaders());
+    return this.http.post<object>(url, piloto, this.getHttpHeaders());
   }
 
   editPiloto(piloto: Piloto): Observable<object> {
     const url = `${API_URL}/piloto/${piloto.id}/`;
-    return this.http.put<object>(url, piloto, this.getHttpHeaders());
+    return this.http.patch<object>(url, piloto, this.getHttpHeaders());
   }
 
   deletePiloto(piloto: Piloto): Observable<object> {
