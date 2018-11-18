@@ -1,7 +1,7 @@
-
-
 import {MockService} from '../mocks/mock.service';
 import { Escuderia } from '../models/escuderia';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-apuesta',

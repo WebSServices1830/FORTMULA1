@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'perfil/:id', component: PerfilComponent },
   { path: 'escuderia/:id/piloto/:idP', component: PilotoComponent },
 
-        { path: 'escuderia/:id/piloto', component: CrearPilotoComponent },
+  { path: 'escuderia/:id/piloto', component: CrearPilotoComponent },
 
   { path: 'pista/:id', component: PistaComponent },
   { path: 'premio/:id', component: PremioComponent },
