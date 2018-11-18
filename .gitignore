@@ -1,6 +1,9 @@
 /FortmulaSOAPServer/build/
 /FortmulaSOAPServer/nbproject/private/
+<<<<<<< HEAD
 /FortmulaSOAPServer/dist/
+=======
+>>>>>>> ab2b5da00529b45e1548f9fbf5b2a63e89866b16
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -109,3 +112,8 @@ ENV/
 
 # OSX
 .DS_Store
+<<<<<<< HEAD
+=======
+
+/FortmulaSOAPServer/dist/
+>>>>>>> ab2b5da00529b45e1548f9fbf5b2a63e89866b16

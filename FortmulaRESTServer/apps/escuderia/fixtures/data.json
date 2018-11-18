@@ -1,0 +1,132 @@
+[
+  {
+    "model": "escuderia.escuderia",
+    "pk": 1,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Mercedes AMG Petronas Motorsport",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Mercedes/_jcr_content/logo.img.jpg/1486740144183.jpg",
+      "nombre": "Mercedes",
+      "campeonato": 1,
+		"base": "Reino Unido"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 2,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Scuderia Ferrari",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Ferrari/_jcr_content/logo.img.jpg/1521797345005.jpg",
+      "nombre": "Ferrari",
+      "campeonato": 1,
+		"base": "Italia"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 3,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Aston Martin Red Bull Racing",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Red-Bull/_jcr_content/logo.img.jpg/1514762875081.jpg",
+      "nombre": "Red Bull Racing",
+      "campeonato": 1,
+		"base": "Reino Unido"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 4,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Renault Sport Formula One Team",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Renault/_jcr_content/logo.img.jpg/1509095937427.jpg",
+      "nombre": "Renault",
+      "campeonato": 1,
+		"base": "Reino Unido"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 5,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Haas F1 Team",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Haas/_jcr_content/logo.img.jpg/1496929111587.jpg",
+      "nombre": "Haas",
+      "campeonato": 1,
+		"base": "Estados Unidos"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 6,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "McLaren F1 Team",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/McLaren/_jcr_content/logo.img.jpg/1515152671364.jpg",
+      "nombre": "McLaren",
+      "campeonato": 1,
+		"base": "Reino Unido"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 7,
+    "fields": {
+     "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Racing Point Force India F1 Team",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Force-India/_jcr_content/logo.img.jpg/1535288357341.jpg",
+      "nombre": "Force India",
+      "campeonato": 1,
+		"base": "Reino Unido"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 8,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Alfa Romeo Sauber F1 Team",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Sauber/_jcr_content/logo.img.jpg/1516986071412.jpg",
+      "nombre": "Sauber",
+      "campeonato": 1,
+		"base": "Suiza"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 9,
+    "fields": {
+      "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Red Bull Toro Rosso Honda",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Toro-Rosso/_jcr_content/logo.img.jpg/1521797337296.jpg",
+      "nombre": "Toro Rosso",
+      "campeonato": 1,
+		"pais": "Italia"
+    }
+  },
+  {
+    "model": "escuderia.escuderia",
+    "pk": 10,
+    "fields": {
+     "created": "2018-11-15 14:00",
+      "updated": "2018-11-15 14:00",
+      "descripcion": "Williams Martini Racing",
+      "foto": "https://www.formula1.com/content/fom-website/en/teams/Williams/_jcr_content/logo.img.jpg/1496922875259.jpg",
+      "nombre": "Williams",
+      "campeonato": 1,
+		"pais": "Reino Unido"
+    }
+  }
+]
