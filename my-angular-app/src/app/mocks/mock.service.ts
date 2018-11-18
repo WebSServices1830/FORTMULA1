@@ -91,12 +91,17 @@ export class MockService {
   }
 
   getAutos(idEscuderia: number): Observable<Auto[]> {
-    const url = API_URL + '/auto/' + idEscuderia;
+    const url = API_URL + '/auto';
     return this.http.get<Auto[]>(url, this.getHttpHeaders());
   }
 
-  getAuto(id: number, idEscuderia: number): Observable<Auto> {
-    const url = API_URL + '/auto/' + idEscuderia;
+  getAutosEscuderia(idEscuderia: number): Observable<Auto[]> {
+    const url = API_URL + '/escuderia/' + idEscuderia + '/autos';
+    return this.http.get<Auto[]>(url, this.getHttpHeaders());
+  }
+
+  getAuto(id: number): Observable<Auto> {
+    const url = API_URL + '/auto/' + id;
     return this.http.get<Auto>(url, this.getHttpHeaders());
   }
 

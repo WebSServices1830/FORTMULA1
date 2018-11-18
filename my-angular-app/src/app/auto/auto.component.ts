@@ -16,6 +16,7 @@ export class AutoComponent implements OnInit {
   auto: Auto;
   messageEdit: number = 0;
   messageCrear: number = 0;
+  autonuevo: Auto = new Auto();
 
   constructor(
     private route: ActivatedRoute,
@@ -30,11 +31,22 @@ export class AutoComponent implements OnInit {
   getAuto(): void {
     const id = +this.route.snapshot.paramMap.get('idA');
     const escuderia = +this.route.snapshot.paramMap.get('id');
-    this.service.getAuto(id, escuderia).subscribe(auto => this.auto = auto);
+    this.service.getAuto(id).subscribe(auto => this.auto = auto);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  crearAutoNuevo(): void {
+    console.log("Crear piloto");
+    this.autonuevo.escuderia = this.auto.escuderia;
+    this.autonuevo.beam_wing = "Beam Wing";
+    this.autonuevo.end_plate = "Endplate";
+    
+    console.log(this.autonuevo);
+    //this.service.crearAuto()
+
   }
 
   mostrarEditar(){

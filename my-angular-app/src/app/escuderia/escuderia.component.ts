@@ -17,7 +17,7 @@ export class EscuderiaComponent implements OnInit {
 
   escuderia: Escuderia;
   pilotos: Piloto[];
-  auto: Auto;
+  autos: Auto[];
   comment = '';
   messageEdit: number = 0;
   messageCrear: number = 0;
@@ -32,7 +32,7 @@ export class EscuderiaComponent implements OnInit {
     this.escuderia = new Escuderia();
     this.getEscuderia();
     this.pilotos = new Array();
-    this.auto = new Auto();
+    this.autos = new Array();
     this.getPilotos();
     this.getAutos();
   }
@@ -49,7 +49,7 @@ export class EscuderiaComponent implements OnInit {
 
   getAutos(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getAuto(id,id).subscribe(auto => this.auto = auto);
+    this.service.getAutosEscuderia(id).subscribe(auto => this.auto = auto);
   }
 
   goBack(): void {
