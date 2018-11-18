@@ -14,13 +14,15 @@ import { Piloto } from '../models/piloto';
 export class PilotoComponent implements OnInit {
 
   piloto: Piloto;
+  nuevo: Piloto;
   editFlag: boolean;
   comment = '';
 
   constructor(
     private route: ActivatedRoute,
     private service: MockService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class PilotoComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('idP');
     const escuderia = +this.route.snapshot.paramMap.get('id');
     this.service.getPiloto(id).subscribe(piloto => this.piloto = piloto);
-    //this.service.getPiloto(id, escuderia).subscribe(piloto => this.piloto = piloto);
+    // this.service.getPiloto(id, escuderia).subscribe(piloto => this.piloto = piloto);
   }
 
   makeComment() {
@@ -42,10 +44,29 @@ export class PilotoComponent implements OnInit {
 
   edit() {
     this.editFlag = true;
+    this.nuevo = new Piloto();
+    /*this.nuevo.id = this.piloto.id;
+    this.nuevo.nombre = this.piloto.nombre;
+    this.nuevo.nacionalidad = this.piloto.nacionalidad;
+    this.nuevo.fecha_nacimiento = this.piloto.fecha_nacimiento;
+    this.nuevo.foto = this.piloto.foto;
+    this.nuevo.id = this.piloto.;*/
+
+    this.nuevo = JSON.parse(JSON.stringify(this.piloto));
+    console.log(this.nuevo);
+  }
+
+  cancel() {
+    this.editFlag = false;
   }
 
   editInfo() {
-    this.editFlag = false;
+    this.service.editPiloto(this.nuevo).subscribe(
+      response =>{
+        const idP = +this.route.snapshot.paramMap.get('idP');
+        const idE = +this.route.snapshot.paramMap.get('id');
+        this.router.navigate(['/escuderia/' + idE + '/piloto/' + idP]);
+      });
   }
 
   goBack(): void {

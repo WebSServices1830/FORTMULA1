@@ -27,7 +27,9 @@ import { API_URL } from '../constants';
 })
 export class MockService {
 
-  constructor(private http: HttpClient) { }
+  private readonly apiUrl: string;
+
+  constructor(private http: HttpClient) {}
 
   getHttpHeaders() {
     return {
@@ -63,12 +65,30 @@ export class MockService {
   }
 
   getPiloto(id: number): Observable<Piloto> {
-    const url = `${this.apiUrl}/piloto/${id}`;
+    const url = `${API_URL}/piloto/${id}`;
     return this.http.get<Piloto>(url);
   }
   /*getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
     return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
   }*/
+
+  createPiloto(piloto: Piloto): Observable<object> {
+    const url = `${API_URL}/piloto/`;
+    const data = {
+      piloto: piloto
+    };
+    return this.http.post<object>(url, data, this.getHttpHeaders());
+  }
+
+  editPiloto(piloto: Piloto): Observable<object> {
+    const url = `${API_URL}/piloto/${piloto.id}/`;
+    return this.http.put<object>(url, piloto, this.getHttpHeaders());
+  }
+
+  deletePiloto(piloto: Piloto): Observable<object> {
+    const url = `${API_URL}/piloto/${piloto.id}/`;
+    return this.http.delete<object>(url, this.getHttpHeaders());
+  }
 
   getAutos(idEscuderia: number): Observable<Auto[]> {
     return of(AUTOS.filter(auto => auto.escuderia === idEscuderia));

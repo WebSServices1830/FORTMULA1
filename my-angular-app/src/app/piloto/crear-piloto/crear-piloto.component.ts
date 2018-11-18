@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Piloto} from '../../models/piloto';
 import {MockService} from '../../mocks/mock.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-crear-piloto',
@@ -13,6 +13,7 @@ export class CrearPilotoComponent implements OnInit {
   piloto: Piloto;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private mockService: MockService
   ) { }
@@ -22,13 +23,15 @@ export class CrearPilotoComponent implements OnInit {
   }
 
   createPilot() {
-    /*this.mockService.createPilot(this.piloto).subscribe(
+    this.mockService.createPiloto(this.piloto).subscribe(
       response => {
-        //this.router.navigate(['']);
+        console.log('siiii');
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.router.navigate(['/escuderia' + id]);
       }, error => {
-
+        console.log(error);
       }
-    );*/
+    );
   }
 
 }

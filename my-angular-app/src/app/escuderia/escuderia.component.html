@@ -9,6 +9,7 @@
             <div> <b>Foto: </b> <img src={{escuderia.foto}} alt=""></div>
             <div>
               <h4>Pilotos</h4>
+              <a routerLink="/escuderia/{{escuderia.id}}/piloto/">Agregar piloto</a>
               <ul>
                 <li *ngFor="let piloto of pilotos">
                   <span>{{piloto.nombre}}</span>
