@@ -1,5 +1,6 @@
 from django.db import models
 from campeonato.models import Campeonato
+from piloto.models import Piloto
 from utils.models import BaseModel
 
 
@@ -38,16 +39,60 @@ class Premio(BaseModel):
     )
 
 
+class Carrera(BaseModel):
+    premio = models.OneToOneField(
+        Premio,
+        on_delete=models.PROTECT
+    )
+    num_vueltas = models.SmallIntegerField(default=3)
+
+
 class Resultado(BaseModel):
+    puesto = models.SmallIntegerField()
     mejor_vuelta = models.DecimalField(
         max_digits=12,
         decimal_places=2
     )
     tiempo_carrera = models.DecimalField(
+        null=True,
         max_digits=12,
         decimal_places=2
     )
     tiempo_clasificacion = models.DecimalField(
+        null=True,
         max_digits=12,
         decimal_places=2
+    )
+    carrera = models.ForeignKey(
+        Carrera,
+        on_delete=models.PROTECT
+    )
+    piloto = models.ForeignKey(
+        Piloto,
+        on_delete=models.PROTECT
+    )
+
+
+class Clasificacion(BaseModel):
+    premio = models.OneToOneField(
+        Premio,
+        on_delete=models.PROTECT
+    )
+    q1 = models.OneToOneField(
+        Carrera,
+        null=True,
+        related_name='clasificacion_q1',
+        on_delete=models.PROTECT
+    )
+    q2 = models.OneToOneField(
+        Carrera,
+        null=True,
+        related_name='clasificacion_q2',
+        on_delete=models.PROTECT
+    )
+    q3 = models.OneToOneField(
+        Carrera,
+        null=True,
+        related_name='clasificacion_q3',
+        on_delete=models.PROTECT
     )

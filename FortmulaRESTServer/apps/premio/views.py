@@ -65,3 +65,21 @@ class PremioViewSet(viewsets.ViewSet):
         if self.request.method == 'GET':
             self.permission_classes = []
         return super(PremioViewSet, self).get_permissions()
+
+
+class SimularQ1View(views.View):
+
+    def get(self, request, id):
+        pass
+
+
+class SimularQ2View(views.View):
+
+    def get(self, request, id):
+        pass
+
+
+class SimularQ3View(views.View):
+
+    def get(self, request, id):
+        pass

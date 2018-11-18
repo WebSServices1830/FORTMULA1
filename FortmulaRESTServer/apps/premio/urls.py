@@ -2,7 +2,10 @@ from django.urls import path
 
 from .views import (
     PremioView,
-    PremioViewSet
+    PremioViewSet,
+    SimularQ1View,
+    SimularQ2View,
+    SimularQ3View
 )
 
 urlpatterns = [
@@ -19,5 +22,17 @@ urlpatterns = [
                 'delete': 'destroy'
             }
         )
+    ),
+    path(
+        '<int:id>/q1/',
+        SimularQ1View.as_view()
+    ),
+    path(
+        '<int:id>/q2/',
+        SimularQ2View.as_view()
+    ),
+    path(
+        '<int:id>/q3/',
+        SimularQ3View.as_view()
     )
 ]
