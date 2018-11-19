@@ -1,8 +1,11 @@
 export class Pista {
   id: number;
-  nombre: string;
+  created: string;
+  updated: string;
   descripcion: string;
-  longitud: number;
   foto: string;
-  alt: string;
+  longitud: string;
+  nombre: string;
+  tiempo_ganador: string;
+  ganador: string;
 }

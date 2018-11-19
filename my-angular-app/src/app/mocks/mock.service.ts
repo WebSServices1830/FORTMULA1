@@ -73,9 +73,6 @@ export class MockService {
     const url = `${API_URL}/piloto/${id}`;
     return this.http.get<Piloto>(url);
   }
-  /*getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
-    return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
-  }*/
 
   createPiloto(piloto: Piloto): Observable<object> {
     const url = `${API_URL}/piloto/`;
@@ -92,14 +89,34 @@ export class MockService {
     return this.http.delete<object>(url, this.getHttpHeaders());
   }
 
-  getAutos(idEscuderia: number): Observable<Auto[]> {
-    const url = API_URL + '/auto/' + idEscuderia;
+  getAutos(): Observable<Auto[]> {
+    const url = API_URL + '/auto/';
     return this.http.get<Auto[]>(url, this.getHttpHeaders());
   }
 
-  getAuto(id: number, idEscuderia: number): Observable<Auto> {
-    const url = API_URL + '/auto/' + idEscuderia;
+  getAutosEscuderia(idEscuderia: number): Observable<Auto[]> {
+    const url = API_URL + '/escuderia/' + idEscuderia + '/autos';
+    return this.http.get<Auto[]>(url, this.getHttpHeaders());
+  }
+
+  getAuto(id: number): Observable<Auto> {
+    const url = API_URL + '/auto/' + id;
     return this.http.get<Auto>(url, this.getHttpHeaders());
+  }
+
+  createAuto(auto: Auto): Observable<object> {
+    const url = `${API_URL}/auto/`;
+    return this.http.post<object>(url, auto, this.getHttpHeaders());
+  }
+
+  editAuto(auto: Auto): Observable<object> {
+    const url = `${API_URL}/auto/${auto.id}/`;
+    return this.http.patch<object>(url, auto, this.getHttpHeaders());
+  }
+
+  deleteAuto(auto: Auto): Observable<object> {
+    const url = `${API_URL}/auto/${auto.id}/`;
+    return this.http.delete<object>(url, this.getHttpHeaders());
   }
 
   getPremios(): Observable<Premio[]> {
@@ -117,6 +134,8 @@ export class MockService {
     const url = API_URL + /premio/ + premio.id;
     return this.http.patch<object>(url, premio, this.getHttpHeaders());
   }
+
+  
 
   /*getFotos(): Observable<string[]> {
     const fotos: string[] = [];

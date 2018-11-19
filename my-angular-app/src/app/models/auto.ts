@@ -10,4 +10,6 @@ export class Auto {
   motor: string;
   potencia: string;
   escuderia: number;
+  ponton: string;
+  marca: string;
 }
