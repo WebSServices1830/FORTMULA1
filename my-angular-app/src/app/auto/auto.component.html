@@ -24,6 +24,9 @@
         <div class="col-sm-2 boton">
           <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear()>Crear nuevo</button>
         </div>
+        <div class="col-sm-2 boton">
+            <button type="button" class="btn btn-secondary float-left" (click)=eliminarAuto()>Eliminar</button>
+          </div>
       </div>
     </div>  
 
@@ -33,31 +36,31 @@
             <!-- Editar Info Auto -->
             <div class="col-sm-9">
             <h4>Editar Auto {{auto.id}} </h4>
-            <form>
+            <form (ngSubmit)="editarAuto()">
                 <div class="form-group">
                   <label for="formname">Modelo de Auto:</label>
-                  <input type="text" class="form-control" id="formname" value={{auto.modelo}}>
+                  <input name="formname" type="text" [(ngModel)]="editar.modelo" class="form-control" id="formname" #formname="ngModel" value={{auto.modelo}}>
                 </div>
                 <div class="form-group">
                     <label for="formcolor">Color:</label>
-                    <input type="text" class="form-control" id="formcolor" value={{auto.color}}>
+                    <input name="formcolor" type="text" [(ngModel)]="editar.color" class="form-control" id="formcolor" #formcolor="ngModel" value={{auto.color}}>
                 </div>
                 <div class="form-group">
                     <label for="formmotor">Motor:</label>
-                    <input type="text" class="form-control" id="formmotor" value={{auto.motor}}>
+                    <input name="formmotor"type="text" [(ngModel)]="editar.motor" class="form-control" id="formmotor" #formmotor="ngModel" value={{auto.motor}}>
                 </div>
                 <div class="form-group">
                     <label for="formpotencia">Potencia:</label>
-                    <input type="text" class="form-control" id="formpotencia" value={{auto.potencia}}>
+                    <input name="formpotencia" type="text" [(ngModel)]="editar.potencia" class="form-control" id="formpotencia" #formpotencia="ngModel" value={{auto.potencia}}>
                 </div>
                 <div class="form-group">
                     <label for="formfoto">Foto:</label>
-                    <input type="text" class="form-control" id="formfoto" value={{auto.foto}}>
+                    <input name="formfoto" type="text" [(ngModel)]="editar.foto" class="form-control" id="formfoto"  value={{auto.foto}}>
                 </div>
                                 
                 <div>
                   <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
-                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                  <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
             </form>
             </div>
@@ -69,31 +72,31 @@
               <!-- Crear un auto -->
               <div class="col-sm-9">
               <h4>Crear Auto nuevo</h4>
-              <form>
+              <form (ngSubmit)="crearAutoNuevo()">
                   <div class="form-group">
                       <label for="formnewname">Modelo de Auto:</label>
-                      <input type="text" class="form-control" id="formnewname" placeholder="Ej: VF-18" required>
+                      <input name="formnewname"type="text" [(ngModel)]="autonuevo.modelo" class="form-control" id="formnewname" #formnewname="ngModel" placeholder="Ej: VF-18" required>
                     </div>
                     <div class="form-group">
                         <label for="formnewcolor">Color:</label>
-                        <input type="text" class="form-control" id="formnewcolor" placeholder="Ej: Rojo" required>
+                        <input name="formnewcolor" type="text" [(ngModel)]="autonuevo.color" class="form-control" id="formnewcolor" #formnewcolor="ngModel" placeholder="Ej: Rojo" required>
                     </div>
                     <div class="form-group">
                         <label for="formnewmotor">Motor:</label>
-                        <input type="text" class="form-control" id="formnewmotor" placeholder="Ej: RS27-2012" required>
+                        <input name="formnewmotor" type="text" [(ngModel)]="autonuevo.motor" class="form-control" id="formnewmotor" #formnewmotor="ngModel" placeholder="Ej: RS27-2012" required>
                     </div>
                     <div class="form-group">
                         <label for="formnewpotencia">Potencia:</label>
-                        <input type="text" class="form-control" id="formnewpotencia" placeholder="Ej: 980 hp" required>
+                        <input name="formnewpotencia" type="text" [(ngModel)]="autonuevo.potencia" class="form-control" id="formnewpotencia" #formnewpotencia="ngModel" placeholder="Ej: 980 hp" required>
                     </div>
                     <div class="form-group">
                         <label for="formnewfoto">Foto:</label>
-                        <input type="text" class="form-control" id="formnewfoto" placeholder="[URL]" required>
+                        <input name="formnewfoto" type="text" [(ngModel)]="autonuevo.foto" class="form-control" id="formnewfoto" #formnewfoto="ngModel" placeholder="[URL]" required>
                     </div>
                                     
                     <div>
                       <button type="button" class="btn btn-danger" (click)=quitarCrear()>Cancelar</button>
-                      <button type="button" class="btn btn-primary">Crear nuevo</button>
+                      <button type="submit" class="btn btn-primary">Crear Nuevo</button>
                     </div>
                 </form>
                 </div>

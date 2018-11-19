@@ -20,7 +20,7 @@
             <div>
               <h4>Autos</h4>
               <ul>
-                <li>
+                <li *ngFor="let auto of autos">
                   <span> Auto {{auto.id}}</span>
                   <span> {{auto.modelo}}</span>
                   <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}"> (Ver Auto) </a>
