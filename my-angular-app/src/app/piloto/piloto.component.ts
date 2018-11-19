@@ -56,6 +56,14 @@ export class PilotoComponent implements OnInit {
     console.log(this.nuevo);
   }
 
+  deletePiloto() {
+    this.service.deletePiloto(this.piloto).subscribe(
+      response =>{
+        const idE = +this.route.snapshot.paramMap.get('id');
+        this.router.navigate(['/escuderia/' + idE]);
+      });
+  }
+
   cancel() {
     this.editFlag = false;
   }

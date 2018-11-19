@@ -68,9 +68,6 @@ export class MockService {
     const url = `${API_URL}/piloto/${id}`;
     return this.http.get<Piloto>(url);
   }
-  /*getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
-    return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
-  }*/
 
   createPiloto(piloto: Piloto): Observable<object> {
     const url = `${API_URL}/piloto/`;
@@ -98,7 +95,7 @@ export class MockService {
   }
 
   getPremios(): Observable<Premio[]> {
-    const url = API_URL + '/lista-premio/';
+    const url = API_URL + '/premio/';
     return this.http.get<Premio[]>(url, this.getHttpHeaders());
   }
   
