@@ -26,10 +26,8 @@ import { API_URL } from '../constants';
   providedIn: 'root'
 })
 export class MockService {
-
-  private readonly apiUrl: string;
-
-  constructor(private http: HttpClient) {}
+  
+  constructor(private http: HttpClient) { }
 
   getHttpHeaders() {
     return {
@@ -138,7 +136,7 @@ export class MockService {
     const url = API_URL + '/premio/';
     return this.http.get<Premio[]>(url, this.getHttpHeaders());
   }
-   getPremio(id: number): Observable<Premio> {
+  getPremio(id: number): Observable<Premio> {
     const url = API_URL + '/premio/' + id;
     return this.http.get<Premio>(url, this.getHttpHeaders());
   }
@@ -172,7 +170,8 @@ export class MockService {
 
   getPistas(): Observable<Pista[]> {
     const url = API_URL + '/lista-pistas/';
-    return this.http.get<Pista[]>(url, this.getHttpHeaders());  }
+    return this.http.get<Pista[]>(url, this.getHttpHeaders());
+  }
 
 
   getPista(id: number): Observable<Pista> {

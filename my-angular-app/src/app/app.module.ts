@@ -27,6 +27,8 @@ import { CrearPilotoComponent } from './piloto/crear-piloto/crear-piloto.compone
 import {HttpClientModule} from '@angular/common/http';
 import { CrearPistaComponent } from './pista/crear-pista/crear-pista.component';
 import { CrearPremioComponent } from './premio/crear-premio/crear-premio.component';
+import { MockService } from './mocks/mock.service';
+import { AuthService } from './mocks/auth.service';
 
 
 @NgModule({
@@ -61,9 +63,13 @@ import { CrearPremioComponent } from './premio/crear-premio/crear-premio.compone
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
-  providers: [],
+  providers: [
+    MockService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
