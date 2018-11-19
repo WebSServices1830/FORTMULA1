@@ -118,8 +118,6 @@ export class MockService {
     const url = API_URL + '/premio/';
     return this.http.get<Premio[]>(url, this.getHttpHeaders());
   }
-  
-  
    getPremio(id: number): Observable<Premio> {
     const url = API_URL + '/premio/' + id;
     return this.http.get<Premio>(url, this.getHttpHeaders());
@@ -128,6 +126,18 @@ export class MockService {
   editPremio(premio: Premio): Observable<object> {
     const url = `${API_URL}/premio/${premio.id}/`;
     return this.http.patch<object>(url, premio, this.getHttpHeaders());
+  }
+
+  createPremio(premio: Premio, infoPista: Pista): Observable<object> {
+    const url = `${API_URL}/premio/`;
+    const data = {
+      ciudad: premio.ciudad,
+      fecha: premio.fecha,
+      campeonato: premio.campeonato,
+      info_pista_id: infoPista.id,
+      info_pista: infoPista
+    };
+    return this.http.post<object>(url, data, this.getHttpHeaders());
   }
 
   

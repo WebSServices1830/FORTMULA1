@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 
 import {MockService} from '../mocks/mock.service';
 import { Premio } from '../models/premio';
+import {Pista} from '../models/pista';
 
 @Component({
   selector: 'app-premio',
@@ -15,17 +16,20 @@ export class PremioComponent implements OnInit {
 
   premio: Premio;
   nuevo: Premio;
-  messageEdit: boolean;
+  editFlag: boolean;
   messageCreate: 0;
 
   constructor(
     private route: ActivatedRoute,
     private service: MockService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.editFlag = false;
     this.premio = new Premio();
+    this.premio.info_pista = new Pista();
     this.getPremio();
   }
 
@@ -35,27 +39,31 @@ export class PremioComponent implements OnInit {
   }
 
   mostrarEditar() {
-    this.messageEdit = true;
+    this.editFlag = true;
     this.nuevo = new Premio();
-    /*this.nuevo.id = this.piloto.id;
-    this.nuevo.nombre = this.piloto.nombre;
-    this.nuevo.nacionalidad = this.piloto.nacionalidad;
-    this.nuevo.fecha_nacimiento = this.piloto.fecha_nacimiento;
-    this.nuevo.foto = this.piloto.foto;
-    this.nuevo.id = this.piloto.;*/
-
     this.nuevo = JSON.parse(JSON.stringify(this.premio));
     console.log(this.nuevo);
   }
 
   editInfo() {
     this.service.editPremio(this.nuevo).subscribe(
-      response =>{
+      response => {
         const id = +this.route.snapshot.paramMap.get('id');
-        this.route.navigate(['/premio/' + id]);
+        this.router.navigate(['/premio/' + id]);
       });
   }
-  
+
+  /*deletePiloto() {
+    this.service.deletePiloto(this.piloto).subscribe(
+      response =>{
+        const idE = +this.route.snapshot.paramMap.get('id');
+        this.router.navigate(['/escuderia/' + idE]);
+      });
+  }*/
+
+  cancel() {
+    this.editFlag = false;
+  }
   goBack(): void {
     this.location.back();
   }

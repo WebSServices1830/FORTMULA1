@@ -26,6 +26,7 @@ import { ClasificacionComponent } from './clasificacion/clasificacion.component'
 import { CrearPilotoComponent } from './piloto/crear-piloto/crear-piloto.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CrearPistaComponent } from './pista/crear-pista/crear-pista.component';
+import { CrearPremioComponent } from './premio/crear-premio/crear-premio.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CrearPistaComponent } from './pista/crear-pista/crear-pista.component';
     CarreraComponent,
     ClasificacionComponent,
     CrearPilotoComponent,
-    CrearPistaComponent
+    CrearPistaComponent,
+    CrearPremioComponent
   ],
   imports: [
     BrowserModule,

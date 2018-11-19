@@ -20,6 +20,7 @@ import { EntrenamientosComponent } from './entrenamientos/entrenamientos.compone
 import {CarreraComponent} from './carrera/carrera.component';
 import {ClasificacionComponent} from './clasificacion/clasificacion.component';
 import {CrearPilotoComponent} from './piloto/crear-piloto/crear-piloto.component';
+import {CrearPremioComponent} from './premio/crear-premio/crear-premio.component';
 
 const routes: Routes = [
   { path: 'apuesta', component: ApuestaComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'escuderia/:id/piloto/:idP', component: PilotoComponent },
 
   { path: 'escuderia/:id/piloto', component: CrearPilotoComponent },
+  { path: 'premio', component: CrearPremioComponent },
 
   { path: 'pista/:id', component: PistaComponent },
   { path: 'premio/:id', component: PremioComponent },

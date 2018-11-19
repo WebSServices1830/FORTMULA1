@@ -1,7 +1,7 @@
 import { Auto } from '../models/auto';
 
 export const AUTOS: Auto[] = [
-  {id:1,
+  /*{id:1,
   created: "2018-11-15 14:00",
   updated: "2018-11-15 14:00",
   beam_wing: "Beam Wing",
@@ -23,5 +23,5 @@ export const AUTOS: Auto[] = [
     motor: "Electric",
     potencia: "950-1000 hp",
     escuderia: 2
-  }
+  }*/
 ];

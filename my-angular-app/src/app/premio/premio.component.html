@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <div *ngIf="premio && !messageEdit">
+  <div *ngIf="premio && !editFlag">
       <h1>{{premio.ciudad}}</h1>
       <div class="row">
         <div class="col-4">
@@ -22,7 +22,7 @@
         </div>
         <div class="col-8">
             <div class="img-responsive">
-                <img src="{{premio.info_pista.foto}}" alt="{{alt}}">
+                <img src="{{premio.info_pista.foto}}">
               </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="jumbotron" *ngIf="piloto && messageEdit">
+ <div class="jumbotron" *ngIf="premio && editFlag">
       <h3>Editar Premio</h3>
       <form name="form" (ngSubmit)="editInfo()">
         <div class="form-row">
