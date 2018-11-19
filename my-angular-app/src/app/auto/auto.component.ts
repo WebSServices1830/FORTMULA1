@@ -31,6 +31,7 @@ export class AutoComponent implements OnInit {
     this.getAuto();
     this.autonuevo = new Auto();
     this.editar = new Auto();
+    
   }
 
   getAuto(): void {
@@ -50,13 +51,17 @@ export class AutoComponent implements OnInit {
     this.autonuevo.beam_wing = "Beam Wing";
     this.autonuevo.end_plate = "Endplate";  
     this.autonuevo.id = this.auto.escuderia+10;
+    this.autonuevo.ponton = "p";
+    this.autonuevo.marca = "m";
+    this.autonuevo.created = " ";
+    this.autonuevo.updated = " ";
     console.log(this.autonuevo);
 
     const escuderia = +this.route.snapshot.paramMap.get('id');
        
     this.service.createAuto(this.autonuevo).subscribe(
       response => {
-        console.log('siiii');
+        console.log('funciona');
         this.router.navigate(['/escuderia/' + escuderia]);
       }, error => {
         console.log('Error! ' + error);
@@ -66,7 +71,39 @@ export class AutoComponent implements OnInit {
   }
 
   editarAuto(){
+    
     console.log("Editar auto");
+    this.editar.id = this.auto.id;
+    this.editar.beam_wing = this.auto.beam_wing;
+    this.editar.end_plate = this.auto.end_plate;
+    this.editar.escuderia = this.auto.escuderia;
+    this.editar.ponton = "p";
+    this.editar.marca = "m";
+  
+    //this.editar = JSON.parse(JSON.stringify(this.auto));
+    console.log(this.editar);
+
+    const idE = +this.route.snapshot.paramMap.get('id');
+    this.service.editAuto(this.editar).subscribe(
+      response =>{
+        console.log('funciona edit auto');
+        this.router.navigate(['/escuderia/' + idE]);
+      }, error => {
+        console.log('Error! ' + error);
+    });
+  
+  }
+
+  eliminarAuto(){
+    console.log( "ID a borrar: " + this.auto.id);
+    const idE = +this.route.snapshot.paramMap.get('id');
+    this.service.deleteAuto(this.auto).subscribe(
+      response =>{
+        console.log('funciona delete auto');
+        this.router.navigate(['/escuderia/' + idE]);
+      }, error => {
+        console.log('Error! ' + error);
+    });
   }
 
   mostrarEditar(){    

@@ -107,6 +107,16 @@ export class MockService {
     return this.http.post<object>(url, auto, this.getHttpHeaders());
   }
 
+  editAuto(auto: Auto): Observable<object> {
+    const url = `${API_URL}/auto/${auto.id}/`;
+    return this.http.patch<object>(url, auto, this.getHttpHeaders());
+  }
+
+  deleteAuto(auto: Auto): Observable<object> {
+    const url = `${API_URL}/auto/${auto.id}/`;
+    return this.http.delete<object>(url, this.getHttpHeaders());
+  }
+
   getPremios(): Observable<Premio[]> {
     const url = API_URL + '/lista-premio/';
     return this.http.get<Premio[]>(url, this.getHttpHeaders());
@@ -122,6 +132,8 @@ export class MockService {
     const url = `${API_URL}/premio/${premio.id}/`;
     return this.http.patch<object>(url, premio, this.getHttpHeaders());
   }
+
+  
 
   /*getFotos(): Observable<string[]> {
     const fotos: string[] = [];

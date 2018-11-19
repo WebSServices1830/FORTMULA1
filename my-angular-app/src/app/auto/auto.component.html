@@ -24,6 +24,9 @@
         <div class="col-sm-2 boton">
           <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear()>Crear nuevo</button>
         </div>
+        <div class="col-sm-2 boton">
+            <button type="button" class="btn btn-secondary float-left" (click)=eliminarAuto()>Eliminar</button>
+          </div>
       </div>
     </div>  
 
@@ -36,23 +39,23 @@
             <form (ngSubmit)="editarAuto()">
                 <div class="form-group">
                   <label for="formname">Modelo de Auto:</label>
-                  <input type="text" [(ngModel)]="editar.modelo" class="form-control" id="formname" value={{auto.modelo}}>
+                  <input name="formname" type="text" [(ngModel)]="editar.modelo" class="form-control" id="formname" #formname="ngModel" value={{auto.modelo}}>
                 </div>
                 <div class="form-group">
                     <label for="formcolor">Color:</label>
-                    <input type="text" [(ngModel)]="editar.color" class="form-control" id="formcolor" value={{auto.color}}>
+                    <input name="formcolor" type="text" [(ngModel)]="editar.color" class="form-control" id="formcolor" #formcolor="ngModel" value={{auto.color}}>
                 </div>
                 <div class="form-group">
                     <label for="formmotor">Motor:</label>
-                    <input type="text" [(ngModel)]="editar.motor" class="form-control" id="formmotor" value={{auto.motor}}>
+                    <input name="formmotor"type="text" [(ngModel)]="editar.motor" class="form-control" id="formmotor" #formmotor="ngModel" value={{auto.motor}}>
                 </div>
                 <div class="form-group">
                     <label for="formpotencia">Potencia:</label>
-                    <input type="text" [(ngModel)]="editar.potencia" class="form-control" id="formpotencia" value={{auto.potencia}}>
+                    <input name="formpotencia" type="text" [(ngModel)]="editar.potencia" class="form-control" id="formpotencia" #formpotencia="ngModel" value={{auto.potencia}}>
                 </div>
                 <div class="form-group">
                     <label for="formfoto">Foto:</label>
-                    <input type="text" [(ngModel)]="editar.foto" class="form-control" id="formfoto" value={{auto.foto}}>
+                    <input name="formfoto" type="text" [(ngModel)]="editar.foto" class="form-control" id="formfoto"  value={{auto.foto}}>
                 </div>
                                 
                 <div>
