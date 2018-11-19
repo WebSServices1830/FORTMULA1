@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   currentUserIsAdmin() {
-
+    return this.role === "administrador";
   }
 
   notifyUserChange(user) {
@@ -48,8 +48,8 @@ export class AuthService {
     this.user = user;
     if (this.user !== null) {
       localStorage.setItem('currentUser', JSON.stringify(this.user));
-      this.notifyUserChange(this.user);
     }
+    this.notifyUserChange(this.user);
   }
 
   private setCurrentToken(token: string) {
@@ -102,19 +102,31 @@ export class AuthService {
     const headers: Headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
+    const tokenOptions: object = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'default',
+      headers,
+      body: JSON.stringify(loginData)
+    };
+
     const options: object = {
       method: 'GET',
       mode: 'cors',
       cache: 'default',
-      headers
+      headers,
     };
 
     return new Promise((resolve, reject) => {
-      fetch(urlToken, options)
+      fetch(urlToken, tokenOptions)
         .then(response => {
           return response.json();
         }).then(data => {
           this.token = data.token;
+
+          if (this.token == null) {
+            reject("Credenciales inválidas");
+          }
 
           fetch(urlAficionado, options)
             .then(response => {
@@ -129,7 +141,7 @@ export class AuthService {
               });
             });
 
-            fetch(urlAdministrador, options)
+          fetch(urlAdministrador, options)
             .then(response => {
               return response.json();
             }).then(data => {

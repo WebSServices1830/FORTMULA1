@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
             //this.loginMessage = token.token;
           })
         .catch(err => {
+          console.log("Caught");
           this.loginMessage = err;
         });
     }
