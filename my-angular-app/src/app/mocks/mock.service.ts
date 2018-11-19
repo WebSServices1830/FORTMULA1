@@ -87,8 +87,8 @@ export class MockService {
     return this.http.delete<object>(url, this.getHttpHeaders());
   }
 
-  getAutos(idEscuderia: number): Observable<Auto[]> {
-    const url = API_URL + '/auto';
+  getAutos(): Observable<Auto[]> {
+    const url = API_URL + '/auto/';
     return this.http.get<Auto[]>(url, this.getHttpHeaders());
   }
 
@@ -100,6 +100,11 @@ export class MockService {
   getAuto(id: number): Observable<Auto> {
     const url = API_URL + '/auto/' + id;
     return this.http.get<Auto>(url, this.getHttpHeaders());
+  }
+
+  createAuto(auto: Auto): Observable<object> {
+    const url = `${API_URL}/auto/`;
+    return this.http.post<object>(url, auto, this.getHttpHeaders());
   }
 
   getPremios(): Observable<Premio[]> {

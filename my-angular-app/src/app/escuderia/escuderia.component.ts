@@ -49,7 +49,7 @@ export class EscuderiaComponent implements OnInit {
 
   getAutos(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getAutosEscuderia(id).subscribe(auto => this.auto = auto);
+    this.service.getAutosEscuderia(id).subscribe(autos => this.autos = autos);
   }
 
   goBack(): void {

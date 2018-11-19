@@ -16,16 +16,21 @@ export class AutoComponent implements OnInit {
   auto: Auto;
   messageEdit: number = 0;
   messageCrear: number = 0;
-  autonuevo: Auto = new Auto();
+  autonuevo: Auto;
+  editar: Auto;
+  
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: MockService,
     private location: Location
   ) { }
 
   ngOnInit() {
     this.getAuto();
+    this.autonuevo = new Auto();
+    this.editar = new Auto();
   }
 
   getAuto(): void {
@@ -38,18 +43,33 @@ export class AutoComponent implements OnInit {
     this.location.back();
   }
 
-  crearAutoNuevo(): void {
-    console.log("Crear piloto");
+  crearAutoNuevo(){
+    
+    console.log("Crear auto");
     this.autonuevo.escuderia = this.auto.escuderia;
     this.autonuevo.beam_wing = "Beam Wing";
-    this.autonuevo.end_plate = "Endplate";
-    
+    this.autonuevo.end_plate = "Endplate";  
+    this.autonuevo.id = this.auto.escuderia+10;
     console.log(this.autonuevo);
-    //this.service.crearAuto()
+
+    const escuderia = +this.route.snapshot.paramMap.get('id');
+       
+    this.service.createAuto(this.autonuevo).subscribe(
+      response => {
+        console.log('siiii');
+        this.router.navigate(['/escuderia/' + escuderia]);
+      }, error => {
+        console.log('Error! ' + error);
+      }
+    );
 
   }
 
-  mostrarEditar(){
+  editarAuto(){
+    console.log("Editar auto");
+  }
+
+  mostrarEditar(){    
     this.messageEdit = 1;
   }
   quitarEditar(){
