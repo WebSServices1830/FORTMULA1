@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import Usuario from '../entities/Usuario';
 import Token from '../entities/Token';
 import { API_URL } from '../constants';
+import Aficionado from '../entities/Aficionado';
 
 @Injectable({
   providedIn: 'root'
@@ -75,6 +76,16 @@ export class AuthService {
     return {
       headers: new HttpHeaders(rawHeaders)
     };
+  }
+
+  getAdministradorById(id: number): Observable<Aficionado> {
+    const urlAdministrador = `${API_URL}/usuarios/administradores/${id}`;
+    return this.http.get<Aficionado>(urlAdministrador, this.getHttpHeaders());
+  }
+
+  getAficionadoById(id: number): Observable<Aficionado> {
+    const urlAficionado = `${API_URL}/usuarios/aficionados/${id}`;
+    return this.http.get<Aficionado>(urlAficionado, this.getHttpHeaders());
   }
 
   login(username: string, password: string): Promise<any> {
