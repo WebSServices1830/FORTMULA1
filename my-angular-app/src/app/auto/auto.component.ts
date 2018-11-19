@@ -106,7 +106,12 @@ export class AutoComponent implements OnInit {
     });
   }
 
-  mostrarEditar(){    
+  mostrarEditar(){
+    this.editar.modelo = this.auto.modelo;
+    this.editar.color = this.auto.color;
+    this.editar.motor = this.auto.motor;
+    this.editar.potencia = this.auto.potencia;
+    this.editar.foto = this.auto.foto;    
     this.messageEdit = 1;
   }
   quitarEditar(){

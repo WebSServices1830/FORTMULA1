@@ -119,6 +119,12 @@ export class EscuderiaComponent implements OnInit {
   }
 
   mostrarEditar(){
+    this.editar.nombre = this.escuderia.nombre;
+    this.editar.descripcion = this.escuderia.descripcion;
+    this.editar.base = this.escuderia.base;
+    this.editar.campeonato = this.escuderia.campeonato;
+    this.editar.foto = this.escuderia.foto;
+
     this.messageEdit = 1;
   }
   quitarEditar(){
