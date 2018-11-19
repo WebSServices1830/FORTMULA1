@@ -45,8 +45,8 @@ export class PilotoComponent implements OnInit {
   edit() {
     this.editFlag = true;
     this.nuevo = new Piloto();
-    /*this.nuevo.id = this.piloto.id;
-    this.nuevo.nombre = this.piloto.nombre;
+    /*this.nuevo.id = this.premio.id;
+    this.nuevo.nombre = this.premio.nombre;
     this.nuevo.nacionalidad = this.piloto.nacionalidad;
     this.nuevo.fecha_nacimiento = this.piloto.fecha_nacimiento;
     this.nuevo.foto = this.piloto.foto;
