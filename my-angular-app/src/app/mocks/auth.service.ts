@@ -11,7 +11,6 @@ import Aficionado from '../entities/Aficionado';
   providedIn: 'root'
 })
 export class AuthService {
-
   private user: Usuario;
   private username: string;
   private token: string;
@@ -86,6 +85,31 @@ export class AuthService {
   getAficionadoById(id: number): Observable<Aficionado> {
     const urlAficionado = `${API_URL}/usuarios/aficionados/${id}`;
     return this.http.get<Aficionado>(urlAficionado, this.getHttpHeaders());
+  }
+
+  register(aficionadoData: Aficionado): any {
+    const urlAficionado = `${API_URL}/usuarios/aficionados/`;
+    this.logout();
+
+    const headers: Headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const tokenOptions: object = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'default',
+      headers,
+      body: JSON.stringify(aficionadoData)
+    };
+
+    return new Promise((resolve, reject) => {
+      fetch(urlAficionado, tokenOptions)
+        .then(response => {
+          return response.json();
+        }).then(data => {
+          resolve(data);
+        });
+    });
   }
 
   login(username: string, password: string): Promise<any> {

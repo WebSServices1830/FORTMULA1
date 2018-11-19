@@ -6,11 +6,11 @@
       <form (ngSubmit)="doLogin()">
         <div class="form-group">
           <label for="formuser">Usuario</label>
-          <input name="loginUsername" type="text" class="form-control" id="formuser" [(ngModel)]="usuarioData.username" >
+          <input name="loginUsername" type="text" class="form-control" id="formuser" [(ngModel)]="usuarioData.username">
         </div>
         <div class="form-group">
           <label for="formpassword">Contraseña</label>
-          <input name="loginPassword" type="password" class="form-control" id="formpassword" [(ngModel)]="usuarioData.password" >
+          <input name="loginPassword" type="password" class="form-control" id="formpassword" [(ngModel)]="usuarioData.password">
         </div>
 
         <div>
@@ -22,7 +22,41 @@
 
     <div class="col-md-6">
       <span style="font-size: 2em;">Registro</span>
-      
+      <p>{{registerMessage}}</p>
+      <form (ngSubmit)="doRegister()">
+        <div class="form-group">
+          <label for="registeruser">Usuario</label>
+          <input name="loginUsername" type="text" class="form-control" id="registeruser" [(ngModel)]="usuarioData.username">
+        </div>
+        <div class="form-group">
+          <label for="registerpassword">Contraseña</label>
+          <input name="loginPassword" type="password" class="form-control" id="registerpassword" [(ngModel)]="usuarioData.password">
+        </div>
+
+        <div class="form-group">
+          <label for="registername">Nombre</label>
+          <input name="registername" type="password" class="form-control" id="registername" [(ngModel)]="aficionadoData.nombre">
+        </div>
+
+        <div class="form-group">
+          <label for="registerDate">Fecha de nacimiento</label>
+          <input name="registerDate" type="date" class="form-control" id="registerDate" [(ngModel)]="aficionadoData.fechaNacimiento">
+        </div>
+
+        <div class="form-group">
+          <label for="registerdesc">Descripción</label>
+          <input name="registerdesc" type="text" class="form-control" id="registerdesc" [(ngModel)]="aficionadoData.descripcion">
+        </div>
+
+        <div class="form-group">
+          <label for="registerphoto">Foto</label>
+          <input name="registerphoto" type="text" class="form-control" id="registerphoto" [(ngModel)]="aficionadoData.foto">
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../mocks/auth.service';
 import UsuarioData from '../entities/UsuarioData';
 import { Router } from '@angular/router';
+import Aficionado from '../entities/Aficionado';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,29 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginMessage: string;
+  registerMessage: string;
   usuarioData: UsuarioData;
+  aficionadoData: Aficionado;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.usuarioData = new UsuarioData();
+    this.aficionadoData = new Aficionado();
+  }
+
+  doRegister() {
+    if (this.aficionadoData.nombre.length === 0 || this.aficionadoData.fechaNacimiento.length === 0 || this.aficionadoData.descripcion.length === 0 || this.aficionadoData.foto.length === 0 || this.usuarioData.password.length === 0 || this.usuarioData.username.length === 0) {
+      alert("Por favor, rellena todos los campos");
+    } else {
+      this.registerMessage = "Cargando...";
+      this.aficionadoData.usuario = this.usuarioData;
+
+      this.authService.register(this.aficionadoData)
+        .then(data => {
+          this.doLogin();
+        });
+    }
   }
 
   doLogin() {
@@ -26,12 +44,9 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.usuarioData.username, this.usuarioData.password)
         .then(
           user => {
-            this.router.navigate(['/perfil/' + user.id]);
-            //console.log(JSON.stringify(user));
-            //this.loginMessage = token.token;
+            this.router.navigate(['/lista-escuderia']);
           })
         .catch(err => {
-          console.log("Caught");
           this.loginMessage = err;
         });
     }
