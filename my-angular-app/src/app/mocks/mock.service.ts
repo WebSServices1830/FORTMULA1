@@ -70,6 +70,11 @@ export class MockService {
     return this.http.get<Piloto[]>(url, this.getHttpHeaders());
   }
 
+  geListatPilotos(): Observable<Piloto[]> {
+    const url = API_URL + '/piloto/';
+    return this.http.get<Piloto[]>(url, this.getHttpHeaders());
+  }
+
   getPilotosEntrenamiento(idPremio: number): Observable<Piloto[]> {
     const entrenamientos = ENTRENAMIENTOS.filter(entrenamiento => entrenamiento.idPremio === idPremio);
     const pilotos: Piloto[] = [];
@@ -83,9 +88,6 @@ export class MockService {
     const url = `${API_URL}/piloto/${id}`;
     return this.http.get<Piloto>(url);
   }
-  /*getPiloto(id: number, idEscuderia: number): Observable<Piloto> {
-    return of(PILOTOS.find(piloto => piloto.id === id && piloto.escuderia === idEscuderia));
-  }*/
 
   createPiloto(piloto: Piloto): Observable<object> {
     const url = `${API_URL}/piloto/`;
@@ -133,7 +135,7 @@ export class MockService {
   }
 
   getPremios(): Observable<Premio[]> {
-    const url = API_URL + '/lista-premio/';
+    const url = API_URL + '/premio/';
     return this.http.get<Premio[]>(url, this.getHttpHeaders());
   }
     
@@ -143,7 +145,7 @@ export class MockService {
   }
 
   editPremio(premio: Premio): Observable<object> {
-    const url = `${API_URL}/premio/${premio.id}/`;
+    const url = API_URL + /premio/ + premio.id;
     return this.http.patch<object>(url, premio, this.getHttpHeaders());
   }  
 

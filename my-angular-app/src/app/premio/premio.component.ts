@@ -21,7 +21,8 @@ export class PremioComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: MockService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -37,23 +38,21 @@ export class PremioComponent implements OnInit {
   mostrarEditar() {
     this.messageEdit = true;
     this.nuevo = new Premio();
-    /*this.nuevo.id = this.piloto.id;
-    this.nuevo.nombre = this.piloto.nombre;
-    this.nuevo.nacionalidad = this.piloto.nacionalidad;
-    this.nuevo.fecha_nacimiento = this.piloto.fecha_nacimiento;
-    this.nuevo.foto = this.piloto.foto;
-    this.nuevo.id = this.piloto.;*/
 
     this.nuevo = JSON.parse(JSON.stringify(this.premio));
     console.log(this.nuevo);
   }
 
-  editInfo() {
+  editarInfo() {
     this.service.editPremio(this.nuevo).subscribe(
       response =>{
-        const id = +this.route.snapshot.paramMap.get('id');
-        this.route.navigate(['/premio/' + id]);
+        const idP = +this.route.snapshot.paramMap.get('id');
+        this.router.navigate(['/premio/' + idP]);
       });
+  }
+
+  cancel() {
+    this.messageEdit = false;
   }
   
   goBack(): void {
