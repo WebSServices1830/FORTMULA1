@@ -19,6 +19,7 @@
             </div>
             <div>
               <h4>Autos</h4>
+              <a routerLink="/escuderia/{{escuderia.id}}/auto/100">Agregar auto</a>
               <ul>
                 <li *ngFor="let auto of autos">
                   <span> Auto {{auto.id}}</span>
@@ -35,8 +36,11 @@
             <div class="col-sm-2 boton">
               <button type="button" class="btn btn-warning float-left" (click)=mostrarEditar()>Editar</button>
             </div>
-            <div class="col-sm-2 boton">
+            <div class="col-sm-3 boton">
               <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear() >Crear nueva</button>
+            </div>
+            <div class="col-sm-2 boton">
+                <button type="button" class="btn btn-secondary float-left" (click)=eliminarEscuderia()>Eliminar</button>
             </div>
         </div>
         
@@ -48,32 +52,32 @@
                   <!-- Editar Info Escuderia -->
                   <div class="col-sm-9">
                   <h4>Editar Escuderia {{escuderia.id}}  </h4>
-                  <form>
+                  <form (ngSubmit)="editarEscuderia()">
                       <div class="form-group">
                         <label for="formname">Nombre de Escuderia:</label>
-                        <input type="text" class="form-control" id="formname" value={{escuderia.nombre}}>
+                        <input name="formname" type="text" [(ngModel)]="editar.nombre" #formname="ngModel" class="form-control" id="formname" value={{escuderia.nombre}}>
                       </div>
                       <div class="form-group">
                           <label for="formdescrip">Descripción:</label>
-                          <input type="text" class="form-control" id="formdescrip" value={{escuderia.descripcion}}>
+                          <input name="formdescrip" type="text" [(ngModel)]="editar.descripcion" #formdescrip="ngModel" class="form-control" id="formdescrip" value={{escuderia.descripcion}}>
                       </div>
                       <div class="form-group">
                           <label for="formbase">Pais base:</label>
-                          <input type="text" class="form-control" id="formbase" value={{escuderia.base}}>
+                          <input name="formbase" type="text" [(ngModel)]="editar.base" #formbase="ngModel" class="form-control" id="formbase" value={{escuderia.base}}>
                       </div>
                       <div class="form-group">
                           <label for="formcamp">Campeonato:</label>
-                          <input type="text" class="form-control" id="formcamp" value={{escuderia.campeonato}}>
+                          <input name="formcamp" type="text" [(ngModel)]="editar.campeonato" #formcamp="ngModel" class="form-control" id="formcamp" value={{escuderia.campeonato}}>
                       </div>
                       <div class="form-group">
                           <label for="formfoto">Foto:</label>
-                          <input type="text" class="form-control" id="formfoto" value={{escuderia.foto}}>
+                          <input name="formfoto"type="text" [(ngModel)]="editar.foto" #formfoto="ngModel" class="form-control" id="formfoto" value={{escuderia.foto}}>
                       </div>
                                            
                                       
                       <div>
                         <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
-                        <button type="button" class="btn btn-primary">Guardar cambios</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
                       </div>
                   </form>
                   </div>
@@ -86,31 +90,31 @@
                     <!-- Crear una Escuderia -->
                     <div class="col-sm-9">
                     <h4>Crear Escuderia nueva</h4>
-                    <form>
+                    <form (ngSubmit)="crearEscuderia()">
                         <div class="form-group">
                             <label for="formnewname">Nombre:</label>
-                            <input type="text" class="form-control" id="formnewname" placeholder="Ej: Ferrari" required>
+                            <input name="formnewname" [(ngModel)]="nuevo.nombre" #formnewname="ngModel" type="text" class="form-control" id="formnewname" placeholder="Ej: Ferrari" required>
                           </div>
                           <div class="form-group">
                               <label for="formnewdescrip">Descripción:</label>
-                              <input type="text" class="form-control" id="formnewdescrip" placeholder="Ej: Renault Sport Formula One Team" required>
+                              <input name="formnewdescrip" type="text"  [(ngModel)]="nuevo.descripcion" #formnewdescrip="ngModel"class="form-control" id="formnewdescrip" placeholder="Ej: Renault Sport Formula One Team" required>
                           </div>
                           <div class="form-group">
                               <label for="formnewbase">Pais base:</label>
-                              <input type="text" class="form-control" id="formnewbase"  placeholder="Ej: Francia" required>
+                              <input name="formnewbase" type="text" [(ngModel)]="nuevo.base" #formnewbase="ngModel" class="form-control" id="formnewbase"  placeholder="Ej: Francia" required>
                           </div>
                           <div class="form-group">
                               <label for="formnewcamp">Campeonato:</label>
-                              <input type="number" class="form-control" id="formnewcamp" value=1 required>
+                              <input name="formnewcamp" type="number" [(ngModel)]="nuevo.campeonato" #formnewcamp="ngModel" class="form-control" id="formnewcamp" value=1 required>
                           </div>
                           <div class="form-group">
                               <label for="formnewfoto">Foto:</label>
-                              <input type="text" class="form-control" id="formnewfoto" placeholder="[URL]" required>
+                              <input name="formnewfoto" type="text" [(ngModel)]="nuevo.foto" #formnewfoto="ngModel" class="form-control" id="formnewfoto" placeholder="[URL]" required>
                           </div>
                                           
                           <div>
                             <button type="button" class="btn btn-danger" (click)=quitarCrear()>Cancelar</button>
-                            <button type="button" class="btn btn-primary">Crear nuevo</button>
+                            <button type="submit" class="btn btn-primary">Crear nuevo</button>
                           </div>
                       </form>
                       </div>

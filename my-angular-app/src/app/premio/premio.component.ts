@@ -45,7 +45,7 @@ export class PremioComponent implements OnInit {
     console.log(this.nuevo);
   }
 
-  editInfo() {
+  editarInfo() {
     this.service.editPremio(this.nuevo).subscribe(
       response => {
         const id = +this.route.snapshot.paramMap.get('id');

@@ -6,5 +6,6 @@ export class Escuderia {
   foto: string;
   nombre: string;
   campeonato: number;
-	base: string;
+  base: string;
+  pais: string;
 }

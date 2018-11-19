@@ -11,7 +11,7 @@
                   Longitud: {{premio.info_pista.longitud}}
               </div>
               <div>
-                  Descripción: {{premio.info_pista.descripcion}} 
+                  Descripción: {{premio.info_pista.descripcion}}
               </div>
               <div class="row editarbtn">
                   <div class="col-sm-12">
@@ -35,7 +35,7 @@
 
  <div class="jumbotron" *ngIf="premio && editFlag">
       <h3>Editar Premio</h3>
-      <form name="form" (ngSubmit)="editInfo()">
+      <form name="form" (ngSubmit)="editarInfo()">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCiudad">Ciudad</label>
@@ -52,10 +52,14 @@
         </div>
         <div class="form-group">
           <label for="inputDescripcion">Descripción</label>
-          <input name="inputDescripcion" [(ngModel)]="nuevo.info_pista.descripcion" type="date" class="form-control" id="inputDescripcion" #inputDescripcion="ngModel" required>
+          <input name="inputDescripcion" [(ngModel)]="nuevo.info_pista.descripcion" type="text" class="form-control" id="inputDescripcion" #inputDescripcion="ngModel" required>
         </div>
-  
-        <button type="submit" class="btn btn-primary">Aceptar cambios</button>
+        <div class="form-group">
+            <label for="inputFoto">Foto</label>
+            <input name="inputFoto" [(ngModel)]="nuevo.info_pista.foto" type="text" class="form-control" id="inputFoto" #inputFoto="ngModel" required>
+          </div>
+
+        <button type="submit" class="btn btn-primary">Aceptar</button>
         <button class="btn btn-primary" (click)="cancel()" >Cancelar</button>
       </form>
     </div>
