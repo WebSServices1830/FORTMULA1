@@ -14,7 +14,8 @@ import { Premio } from '../models/premio';
 export class PremioComponent implements OnInit {
 
   premio: Premio;
-  messageEdit: 0;
+  nuevo: Premio;
+  messageEdit: boolean;
   messageCreate: 0;
 
   constructor(
@@ -26,12 +27,33 @@ export class PremioComponent implements OnInit {
   ngOnInit() {
     this.premio = new Premio();
     this.getPremio();
-
   }
 
   getPremio(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.service.getPremio(id).subscribe(premio => this.premio = premio);
+  }
+
+  mostrarEditar() {
+    this.messageEdit = true;
+    this.nuevo = new Premio();
+    /*this.nuevo.id = this.piloto.id;
+    this.nuevo.nombre = this.piloto.nombre;
+    this.nuevo.nacionalidad = this.piloto.nacionalidad;
+    this.nuevo.fecha_nacimiento = this.piloto.fecha_nacimiento;
+    this.nuevo.foto = this.piloto.foto;
+    this.nuevo.id = this.piloto.;*/
+
+    this.nuevo = JSON.parse(JSON.stringify(this.premio));
+    console.log(this.nuevo);
+  }
+
+  editInfo() {
+    this.service.editPremio(this.nuevo).subscribe(
+      response =>{
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.route.navigate(['/premio/' + id]);
+      });
   }
   
   goBack(): void {

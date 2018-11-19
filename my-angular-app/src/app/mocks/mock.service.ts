@@ -118,6 +118,11 @@ export class MockService {
     return this.http.get<Premio>(url, this.getHttpHeaders());
   }
 
+  editPremio(premio: Premio): Observable<object> {
+    const url = `${API_URL}/premio/${premio.id}/`;
+    return this.http.patch<object>(url, premio, this.getHttpHeaders());
+  }
+
   /*getFotos(): Observable<string[]> {
     const fotos: string[] = [];
     for (let i = 0; i < PREMIOS.length; i++) {
