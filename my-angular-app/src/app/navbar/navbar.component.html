@@ -1,13 +1,42 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+<!--<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
   <div class="container">
       <a class="navbar-brand text-warning">FORTMULA1</a>
 
           <a class="nav-link" routerLink="/calendario">Campeonato</a>
           <a class="nav-link" routerLink="/lista-premio">Premios</a>
           <a class="nav-link" routerLink="/lista-escuderia">Escuderías</a>
-          <!--<a class="nav-link" routerLink="/lista-piloto/:id">Pilotos</a>-->
-          <!--<a class="nav-link" routerLink="/lista-apuestas/:id">Apuestas</a>-->
           <a class="nav-link" routerLink="/perfil/:id">Mi Perfil</a>
+
+          <!--<a class="nav-link" routerLink="/lista-piloto/:id">Pilotos</a>
+          <!--<a class="nav-link" routerLink="/lista-apuestas/:id">Apuestas</a>
 
   </div>
 </nav>
+-->
+<header [class]="isHomePage() ? 'gallery' : ''">
+  <nav>
+    <section class="container">
+      <ul class="topnav" id="myTopnav">
+        <a routerLink="/">
+          <li class="logo">
+            <span class="text">Fort</span><span class="text blue">mula</span><span class="text">1</span>
+          </li>
+        </a>
+        <li class="rightside icon">
+          <a href="javascript:void(0);" onclick="toggleMenu()">&#9776;</a>
+        </li>
+
+        <li *ngFor="let route of routes" class="rightside link">
+          <a [class]="isRouteSelected(route) ? 'selected' : ''" [routerLink]="route.link">{{ route.title }}</a>
+        </li>
+
+      </ul>
+    </section>
+  </nav>
+  <section *ngIf="isHomePage()" class="container teaser">
+    <br>
+    Formula 1
+    <br><br>
+    Pontificia Universidad Javeriana
+  </section>
+</header>
