@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../mocks/auth.service';
+import Usuario from '../entities/Usuario';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   routes: object[];
+  usuario: Usuario;
 
   isHomePage(): boolean {
     return this.router.url.length === 1;
@@ -21,28 +24,48 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {
+  setDefaultRoutes(user?: Usuario) {
+
+    const loginRoute = {
+      link: "/login",
+      title: "Iniciar sesión",
+    };
+
+    if (user != null) {
+      console.log(user);
+      loginRoute.link = "/perfil/" + user.id;
+      loginRoute.title = user.usuario.username;
+    }
+
     this.routes = [
+      loginRoute,
       {
-        link: "/",
-        title: "Inicio",
+        link: "/lista-premio",
+        title: "Premios",
       },
       {
         link: "/lista-escuderia",
         title: "Escuderías",
       },
       {
-        link: "/lista-premio",
-        title: "Premios",
+        link: "/",
+        title: "Inicio",
       },
-      {
-        link: "/perfil/1",
-        title: "Jose",
-      }
-    ].reverse();
+    ];
+  }
+
+  getRoutes() {
+    return this.routes;
+  }
+
+  constructor(private router: Router, private authService: AuthService) {
+    this.setDefaultRoutes();
   }
 
   ngOnInit() {
+    this.authService.getCurrentUser().subscribe(user => {
+      this.setDefaultRoutes(user);
+    });
   }
 
 }

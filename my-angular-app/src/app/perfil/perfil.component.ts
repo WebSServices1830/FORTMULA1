@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class PerfilComponent implements OnInit {
 
   uname: String = "Usuario";
-  uemail: String ="user@javeriana.edu.co";
+  uemail: String = "user@javeriana.edu.co";
   uedad: number = 22;
-  udescrip: String ="Hola, soy estudiante de la Javeriana y me encanta ver las carreras de la Fórmula 1.";
+  udescrip: String = "Hola, soy estudiante de la Javeriana y me encanta ver las carreras de la Fórmula 1.";
   ufoto: String = "https://image.flaticon.com/icons/svg/1193/1193283.svg";
-  urole: String ="Aficionado";
+  urole: String = "Aficionado";
 
   message: number = 0;
   constructor() { }
@@ -20,11 +20,11 @@ export class PerfilComponent implements OnInit {
   ngOnInit() {
   }
 
-  mostrarEditar(){
+  mostrarEditar() {
     this.message = 1;
   }
 
-  quitarEditar(){
+  quitarEditar() {
     this.message = 0;
   }
 

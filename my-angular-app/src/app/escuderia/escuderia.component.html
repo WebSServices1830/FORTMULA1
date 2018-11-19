@@ -1,87 +1,92 @@
 <div class="container">
-  <div class="row infoescuderia">
-    <div class="col-md-6">
-        <div *ngIf="escuderia">
-            <h2>{{escuderia.nombre}} - Detalles</h2>
-            <div> <b>Descripción: </b> {{escuderia.descripcion}}</div>
-            <div> <b>Base: </b> {{escuderia.base}}</div>
-            <div> <b>Campeonato: </b> {{escuderia.campeonato}}</div>
-            <div> <b>Foto: </b> <img src={{escuderia.foto}} alt=""></div>
-            <div>
-              <h4>Pilotos</h4>
-              <a routerLink="/escuderia/{{escuderia.id}}/piloto/">Agregar piloto</a>
-              <ul>
-                <li *ngFor="let piloto of pilotos">
-                  <span>{{piloto.nombre}}</span>
-                  <a routerLink="/escuderia/{{escuderia.id}}/piloto/{{piloto.id}}"> (Ver Piloto) </a>
-                </li>
-              </ul>
+    <div class="row infoescuderia">
+        <div class="col-md-6">
+            <div *ngIf="escuderia">
+                <h2>{{escuderia.nombre}} - Detalles</h2>
+                <div> <b>Descripción: </b> {{escuderia.descripcion}}</div>
+                <div> <b>Base: </b> {{escuderia.base}}</div>
+                <div> <b>Campeonato: </b> {{escuderia.campeonato}}</div>
+                <div> <b>Foto: </b> <img src={{escuderia.foto}} alt=""></div>
+                <div>
+                    <h4>Pilotos</h4>
+                    <a routerLink="/escuderia/{{escuderia.id}}/piloto/">Agregar piloto</a>
+                    <ul>
+                        <li *ngFor="let piloto of pilotos">
+                            <span>{{piloto.nombre}}</span>
+                            <a routerLink="/escuderia/{{escuderia.id}}/piloto/{{piloto.id}}"> (Ver Piloto) </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Autos</h4>
+                    <a routerLink="/escuderia/{{escuderia.id}}/auto/100">Agregar auto</a>
+                    <ul>
+                        <li *ngFor="let auto of autos">
+                            <span> Auto {{auto.id}}</span>
+                            <span> {{auto.modelo}}</span>
+                            <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}"> (Ver Auto) </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div>
-              <h4>Autos</h4>
-              <a routerLink="/escuderia/{{escuderia.id}}/auto/100">Agregar auto</a>
-              <ul>
-                <li *ngFor="let auto of autos">
-                  <span> Auto {{auto.id}}</span>
-                  <span> {{auto.modelo}}</span>
-                  <a routerLink="/escuderia/{{escuderia.id}}/auto/{{auto.id}}"> (Ver Auto) </a>
-                </li>
-              </ul>
+            <div class="row btns">
+                <div class="col-sm-2 boton">
+                    <button type="button" class="btn btn-primary float-left" (click)=goBack()>Volver</button>
+                </div>
+                <div class="col-sm-2 boton">
+                    <button type="button" class="btn btn-warning float-left" (click)=mostrarEditar()>Editar</button>
+                </div>
+                <div class="col-sm-3 boton">
+                    <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear()>Crear nueva</button>
+                </div>
+                <div class="col-sm-2 boton">
+                    <button type="button" class="btn btn-secondary float-left" (click)=eliminarEscuderia()>Eliminar</button>
+                </div>
             </div>
-        </div>
-        <div class="row btns">
-            <div class="col-sm-2 boton">
-                <button type="button" class="btn btn-primary float-left" (click)=goBack()>Volver</button>
-            </div>
-            <div class="col-sm-2 boton">
-              <button type="button" class="btn btn-warning float-left" (click)=mostrarEditar()>Editar</button>
-            </div>
-            <div class="col-sm-3 boton">
-              <button type="button" class="btn btn-danger float-left" (click)=mostrarCrear() >Crear nueva</button>
-            </div>
-            <div class="col-sm-2 boton">
-                <button type="button" class="btn btn-secondary float-left" (click)=eliminarEscuderia()>Eliminar</button>
-            </div>
-        </div>
-        
-      </div>
 
-      <div class="col-md-6">
-          <div *ngIf="messageEdit==1">
-              <div class="row formeditar">
-                  <!-- Editar Info Escuderia -->
-                  <div class="col-sm-9">
-                  <h4>Editar Escuderia {{escuderia.id}}  </h4>
-                  <form (ngSubmit)="editarEscuderia()">
-                      <div class="form-group">
-                        <label for="formname">Nombre de Escuderia:</label>
-                        <input name="formname" type="text" [(ngModel)]="editar.nombre" #formname="ngModel" class="form-control" id="formname" value={{escuderia.nombre}}>
-                      </div>
-                      <div class="form-group">
-                          <label for="formdescrip">Descripción:</label>
-                          <input name="formdescrip" type="text" [(ngModel)]="editar.descripcion" #formdescrip="ngModel" class="form-control" id="formdescrip" value={{escuderia.descripcion}}>
-                      </div>
-                      <div class="form-group">
-                          <label for="formbase">Pais base:</label>
-                          <input name="formbase" type="text" [(ngModel)]="editar.base" #formbase="ngModel" class="form-control" id="formbase" value={{escuderia.base}}>
-                      </div>
-                      <div class="form-group">
-                          <label for="formcamp">Campeonato:</label>
-                          <input name="formcamp" type="text" [(ngModel)]="editar.campeonato" #formcamp="ngModel" class="form-control" id="formcamp" value={{escuderia.campeonato}}>
-                      </div>
-                      <div class="form-group">
-                          <label for="formfoto">Foto:</label>
-                          <input name="formfoto"type="text" [(ngModel)]="editar.foto" #formfoto="ngModel" class="form-control" id="formfoto" value={{escuderia.foto}}>
-                      </div>
-                                           
-                                      
-                      <div>
-                        <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                      </div>
-                  </form>
-                  </div>
-              </div>         
+        </div>
+
+        <div class="col-md-6">
+            <div *ngIf="messageEdit==1">
+                <div class="row formeditar">
+                    <!-- Editar Info Escuderia -->
+                    <div class="col-sm-9">
+                        <h4>Editar Escuderia {{escuderia.id}} </h4>
+                        <form (ngSubmit)="editarEscuderia()">
+                            <div class="form-group">
+                                <label for="formname">Nombre de Escuderia:</label>
+                                <input name="formname" type="text" [(ngModel)]="editar.nombre" #formname="ngModel"
+                                    class="form-control" id="formname" value={{escuderia.nombre}}>
+                            </div>
+                            <div class="form-group">
+                                <label for="formdescrip">Descripción:</label>
+                                <input name="formdescrip" type="text" [(ngModel)]="editar.descripcion" #formdescrip="ngModel"
+                                    class="form-control" id="formdescrip" value={{escuderia.descripcion}}>
+                            </div>
+                            <div class="form-group">
+                                <label for="formbase">Pais base:</label>
+                                <input name="formbase" type="text" [(ngModel)]="editar.base" #formbase="ngModel" class="form-control"
+                                    id="formbase" value={{escuderia.base}}>
+                            </div>
+                            <div class="form-group">
+                                <label for="formcamp">Campeonato:</label>
+                                <input name="formcamp" type="text" [(ngModel)]="editar.campeonato" #formcamp="ngModel"
+                                    class="form-control" id="formcamp" value={{escuderia.campeonato}}>
+                            </div>
+                            <div class="form-group">
+                                <label for="formfoto">Foto:</label>
+                                <input name="formfoto" type="text" [(ngModel)]="editar.foto" #formfoto="ngModel" class="form-control"
+                                    id="formfoto" value={{escuderia.foto}}>
+                            </div>
+
+
+                            <div>
+                                <button type="button" class="btn btn-danger" (click)=quitarEditar()>Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
 
@@ -89,39 +94,45 @@
                 <div class="row formcrear">
                     <!-- Crear una Escuderia -->
                     <div class="col-sm-9">
-                    <h4>Crear Escuderia nueva</h4>
-                    <form (ngSubmit)="crearEscuderia()">
-                        <div class="form-group">
-                            <label for="formnewname">Nombre:</label>
-                            <input name="formnewname" [(ngModel)]="nuevo.nombre" #formnewname="ngModel" type="text" class="form-control" id="formnewname" placeholder="Ej: Ferrari" required>
-                          </div>
-                          <div class="form-group">
-                              <label for="formnewdescrip">Descripción:</label>
-                              <input name="formnewdescrip" type="text"  [(ngModel)]="nuevo.descripcion" #formnewdescrip="ngModel"class="form-control" id="formnewdescrip" placeholder="Ej: Renault Sport Formula One Team" required>
-                          </div>
-                          <div class="form-group">
-                              <label for="formnewbase">Pais base:</label>
-                              <input name="formnewbase" type="text" [(ngModel)]="nuevo.base" #formnewbase="ngModel" class="form-control" id="formnewbase"  placeholder="Ej: Francia" required>
-                          </div>
-                          <div class="form-group">
-                              <label for="formnewcamp">Campeonato:</label>
-                              <input name="formnewcamp" type="number" [(ngModel)]="nuevo.campeonato" #formnewcamp="ngModel" class="form-control" id="formnewcamp" value=1 required>
-                          </div>
-                          <div class="form-group">
-                              <label for="formnewfoto">Foto:</label>
-                              <input name="formnewfoto" type="text" [(ngModel)]="nuevo.foto" #formnewfoto="ngModel" class="form-control" id="formnewfoto" placeholder="[URL]" required>
-                          </div>
-                                          
-                          <div>
-                            <button type="button" class="btn btn-danger" (click)=quitarCrear()>Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Crear nuevo</button>
-                          </div>
-                      </form>
-                      </div>
+                        <h4>Crear Escuderia nueva</h4>
+                        <form (ngSubmit)="crearEscuderia()">
+                            <div class="form-group">
+                                <label for="formnewname">Nombre:</label>
+                                <input name="formnewname" [(ngModel)]="nuevo.nombre" #formnewname="ngModel" type="text"
+                                    class="form-control" id="formnewname" placeholder="Ej: Ferrari" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formnewdescrip">Descripción:</label>
+                                <input name="formnewdescrip" type="text" [(ngModel)]="nuevo.descripcion"
+                                    #formnewdescrip="ngModel" class="form-control" id="formnewdescrip" placeholder="Ej: Renault Sport Formula One Team"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formnewbase">Pais base:</label>
+                                <input name="formnewbase" type="text" [(ngModel)]="nuevo.base" #formnewbase="ngModel"
+                                    class="form-control" id="formnewbase" placeholder="Ej: Francia" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formnewcamp">Campeonato:</label>
+                                <input name="formnewcamp" type="number" [(ngModel)]="nuevo.campeonato" #formnewcamp="ngModel"
+                                    class="form-control" id="formnewcamp" value=1 required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formnewfoto">Foto:</label>
+                                <input name="formnewfoto" type="text" [(ngModel)]="nuevo.foto" #formnewfoto="ngModel"
+                                    class="form-control" id="formnewfoto" placeholder="[URL]" required>
+                            </div>
+
+                            <div>
+                                <button type="button" class="btn btn-danger" (click)=quitarCrear()>Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Crear nuevo</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
-      </div>
+        </div>
 
-    </div> 
+    </div>
 </div>

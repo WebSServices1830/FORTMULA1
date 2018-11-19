@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <span style="font-size: 2em;">Iniciar sesión</span>
+      <p>{{loginMessage}}</p>
+      <form (ngSubmit)="doLogin()">
+        <div class="form-group">
+          <label for="formuser">Usuario</label>
+          <input name="loginUsername" type="text" class="form-control" id="formuser" [(ngModel)]="usuarioData.username" >
+        </div>
+        <div class="form-group">
+          <label for="formpassword">Contraseña</label>
+          <input name="loginPassword" type="password" class="form-control" id="formpassword" [(ngModel)]="usuarioData.password" >
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="col-md-6">
+      <span style="font-size: 2em;">Registro</span>
+    </div>
+  </div>
+</div>
