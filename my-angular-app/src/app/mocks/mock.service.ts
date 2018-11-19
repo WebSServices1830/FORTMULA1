@@ -208,13 +208,8 @@ export class MockService {
     return of(RESULTADOS.filter(resultado => resultado.idSesion === id && resultado.sesion === 'q3'));
   }
 
-  getPilotosResultadosQ1(idPremio: number): Observable<Piloto[]> {
-    const resultados = RESULTADOS.filter(resultado => resultado.idSesion === idPremio && resultado.sesion === 'q1');
-    const pilotos: Piloto[] = [];
-    for (let i = 0; i < resultados.length; i++) {
-      pilotos[resultados[i].idPiloto] = PILOTOS.find(piloto => piloto.id === resultados[i].idPiloto)
-    }
-    return of(pilotos);
+  getPilotosResultadosQ1(idPremio: number): Observable<Resultado[]> {
+    return this.http.get<Resultado[]>(API_URL + "/premio/" + idPremio + "/q1/", this.getHttpHeaders());
   }
 
   getPilotosResultadosQ2(idPremio: number): Observable<Piloto[]> {

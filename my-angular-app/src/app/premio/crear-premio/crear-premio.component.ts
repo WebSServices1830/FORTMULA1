@@ -27,6 +27,7 @@ export class CrearPremioComponent implements OnInit {
   createPremio() {
     this.premio.campeonato = 1;
     this.premio.info_pista.id = 100;
+    console.log(JSON.stringify(this.premio));
     this.mockService.createPremio(this.premio, this.premio.info_pista).subscribe(
       response => {
         console.log('siiii');

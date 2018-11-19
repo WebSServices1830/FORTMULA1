@@ -63,7 +63,7 @@ export class ClasificacionComponent implements OnInit {
   }
 
   getPilotosResultadosQ1(): void {
-    this.service.getPilotosResultadosQ1(this.clasificacion.idPremio).subscribe(pilotos => this.pilotosQ1 = pilotos);
+    this.service.getPilotosResultadosQ1(this.clasificacion.idPremio).subscribe(resultados => this.resultadosQ1 = resultados);
   }
 
   getResultadosQ2(): void {
@@ -86,6 +86,7 @@ export class ClasificacionComponent implements OnInit {
     this.q1 = true;
     this.q2 = false;
     this.q3 = false;
+    this.getResultadosQ1();
   }
 
   openQ2(): void {
